@@ -406,3 +406,55 @@
 }
 .pill:hover{border-color:var(--navy);background:var(--palm-light);}
 .pill.current{background:var(--navy);color:#fff;border-color:var(--navy);}
+
+/* Promise vs. reality — chart figure and comparison table */
+figure.chart-figure{
+  margin:22px 0 26px;
+  border:1px solid var(--line);
+  border-radius:6px;
+  overflow:hidden;
+  background:var(--paper);
+  max-width:74ch;
+}
+figure.chart-figure img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+figure.chart-figure figcaption{
+  padding:12px 16px;
+  font-size:0.82rem;
+  color:var(--ink-soft);
+  font-style:italic;
+  border-top:1px solid var(--line);
+  background:var(--parchment);
+}
+.promise-table{
+  width:100%;
+  max-width:74ch;
+  border-collapse:collapse;
+  margin:18px 0 26px;
+  font-size:0.92rem;
+}
+.promise-table th{
+  background:var(--navy);
+  color:#fff;
+  text-align:left;
+  padding:10px 14px;
+  font-weight:600;
+}
+.promise-table td{
+  border:1px solid var(--line);
+  padding:12px 14px;
+  vertical-align:top;
+}
+.promise-table tr:nth-child(even) td{background:var(--parchment);}
+.note-block{
+  background:var(--parchment);
+  border-left:3px solid var(--gold);
+  padding:14px 18px;
+  margin:0 0 22px;
+  max-width:74ch;
+  font-size:0.94rem;
+}
+.note-block strong{color:var(--navy);}
