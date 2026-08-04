@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The La Palma Record — A Public Record for Voters</title>
+<meta name="description" content="A fact-based record of La Palma, CA city governance — sourced from public records, court filings, and campaign finance disclosures — ahead of the November 3, 2026 election for City Council Districts 2 and 4.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The La Palma Record — A Public Record for Voters">
+<meta property="og:description" content="A decade of La Palma city governance, documented from public records, court filings, and sworn campaign disclosures. Five threads, fully sourced, ahead of the November 3, 2026 election.">
+<meta property="og:url" content="https://www.lapalmarecord.org/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The La Palma Record — A Public Record for Voters">
+<meta name="twitter:description" content="A decade of La Palma city governance, documented from public records, court filings, and sworn campaign disclosures.">
+<link rel="canonical" href="https://www.lapalmarecord.org/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #1C3A5F;
+    --navy-deep: #12253D;
+    --palm: #2E6B4E;
+    --palm-light: #E7EFE9;
+    --parchment: #F6F3EC;
+    --paper: #FFFFFF;
+    --ink: #24262B;
+    --ink-soft: #565B62;
+    --gold: #B98A2E;
+    --gold-deep: #8F6A20;
+    --alert: #A63D2F;
+    --line: #DAD4C4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Source Sans 3', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--navy);}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 28px;}
+
+  /* Disclaimer strip */
+  .disclaimer{
+    background:var(--navy-deep);
+    color:#CBD8E4;
+    font-size:0.78rem;
+    letter-spacing:.04em;
+    text-align:center;
+    padding:9px 16px;
+  }
+  .disclaimer strong{color:#fff;font-weight:600;}
+
+  /* Header / masthead */
+  header.masthead{
+    background:linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color:#fff;
+    padding:56px 0 44px;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:#9FC2B0;
+    margin-bottom:14px;
+  }
+  h1.title{
+    font-family:'Source Serif 4', serif;
+    font-weight:700;
+    font-size:clamp(2.1rem, 4.4vw, 3.3rem);
+    line-height:1.12;
+    margin:0 0 16px;
+    max-width:16ch;
+  }
+  .subtitle{
+    font-size:1.08rem;
+    color:#DCE4EC;
+    max-width:56ch;
+    margin:0 0 28px;
+  }
+  .meta-line{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    color:#9FB4C8;
+    margin-bottom:30px;
+  }
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
+  .btn-primary{
+    display:inline-block;
+    background:var(--gold);
+    color:#20170A;
+    font-weight:600;
+    text-decoration:none;
+    padding:13px 24px;
+    border-radius:3px;
+    font-size:0.98rem;
+    transition:background .15s ease;
+  }
+  .btn-primary:hover{background:#CC9A34;}
+  .btn-ghost{
+    display:inline-block;
+    color:#fff;
+    text-decoration:none;
+    font-size:0.95rem;
+    border:1px solid rgba(255,255,255,.35);
+    padding:12px 20px;
+    border-radius:3px;
+  }
+  .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06);}
+
+  /* Thread quick nav */
+  nav.threadnav{
+    background:var(--navy-deep);
+    border-top:1px solid rgba(255,255,255,.12);
+  }
+  nav.threadnav ul{
+    list-style:none;margin:0;padding:0;
+    display:flex;flex-wrap:wrap;gap:0;
+  }
+  nav.threadnav a{
+    display:block;
+    color:#B9CBDB;
+    text-decoration:none;
+    font-size:0.86rem;
+    padding:13px 16px;
+    border-right:1px solid rgba(255,255,255,.08);
+  }
+  nav.threadnav a:hover{color:#fff;background:rgba(255,255,255,.05);}
+  nav.threadnav .num{color:var(--gold);font-family:'IBM Plex Mono',monospace;margin-right:6px;}
+
+  /* Stat strip */
+  section.stats{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    padding:36px 0;
+  }
+  .stat-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(160px,1fr));
+    gap:24px;
+  }
+  .stat{border-left:3px solid var(--palm);padding-left:14px;}
+  .stat.alert{border-left-color:var(--alert);}
+  .stat .num{
+    font-family:'Source Serif 4', serif;
+    font-weight:700;
+    font-size:1.9rem;
+    color:var(--navy);
+    display:block;
+    line-height:1.05;
+  }
+  .stat.alert .num{color:var(--alert);}
+  .stat .label{font-size:0.82rem;color:var(--ink-soft);}
+
+  /* Intro */
+  section.intro{padding:48px 0 8px;}
+  section.intro p{max-width:70ch;font-size:1.03rem;color:var(--ink);}
+  section.intro .lede{font-size:1.12rem;color:var(--ink);}
+
+  /* Thread sections */
+  section.threads{padding:20px 0 40px;}
+  .thread{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:18px;
+    padding:34px 0;
+    border-top:1px solid var(--line);
+    position:relative;
+  }
+  .thread:first-child{border-top:none;}
+  .thread-badge{
+    width:44px;height:44px;
+    border-radius:3px;
+    background:var(--navy);
+    color:#fff;
+    font-family:'Source Serif 4', serif;
+    font-weight:700;
+    font-size:1.25rem;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .thread:nth-of-type(odd) .thread-badge{background:var(--palm);}
+  .thread h2{
+    font-family:'Source Serif 4', serif;
+    font-size:1.5rem;
+    margin:2px 0 10px;
+    color:var(--navy);
+  }
+  .thread p.summary{margin:0 0 14px;max-width:66ch;}
+  .thread ul.facts{
+    list-style:none;margin:0 0 18px;padding:0;
+    display:grid;gap:8px;
+  }
+  .thread ul.facts li{
+    font-size:0.95rem;
+    padding-left:18px;
+    position:relative;
+    color:var(--ink);
+  }
+  .thread ul.facts li::before{
+    content:"";
+    position:absolute;left:0;top:0.55em;
+    width:7px;height:7px;
+    background:var(--gold);
+    border-radius:50%;
+  }
+  .thread .readmore{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:0.92rem;
+    font-weight:600;
+    color:var(--navy);
+    text-decoration:none;
+    border-bottom:1px solid var(--navy);
+    padding-bottom:1px;
+  }
+  .thread .readmore:hover{color:var(--gold-deep);border-color:var(--gold-deep);}
+  .thread .readmore svg{width:13px;height:13px;}
+
+  /* Full record CTA band */
+  section.fullband{
+    background:var(--palm-light);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:44px 0;
+  }
+  .fullband-inner{
+    display:flex;flex-wrap:wrap;gap:22px;
+    align-items:center;justify-content:space-between;
+  }
+  .fullband h3{
+    font-family:'Source Serif 4', serif;
+    color:var(--navy);
+    margin:0 0 6px;
+    font-size:1.35rem;
+  }
+  .fullband p{margin:0;color:var(--ink-soft);max-width:52ch;}
+
+  /* Footer */
+  footer{
+    background:var(--navy-deep);
+    color:#B9CBDB;
+    padding:40px 0 32px;
+    font-size:0.88rem;
+  }
+  footer .foot-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:30px;
+  }
+  footer h4{
+    color:#fff;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin:0 0 12px;
+  }
+  footer a{color:#B9CBDB;}
+  footer a:hover{color:#fff;}
+  footer p{margin:0 0 10px;}
+  footer .authorship{max-width:52ch;color:#8FA5BA;}
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,.1);
+    margin-top:28px;padding-top:18px;
+    color:#7F97AC;font-size:0.8rem;
+  }
+
+  /* Voter action checklist */
+  section.voteraction{
+    background:var(--paper);
+    padding:48px 0 46px;
+  }
+  .va-head{
+    display:flex;flex-wrap:wrap;gap:20px;
+    align-items:flex-end;justify-content:space-between;
+    margin-bottom:26px;
+  }
+  .va-head h2{
+    font-family:'Source Serif 4', serif;
+    color:var(--navy);
+    font-size:1.7rem;
+    margin:0 0 8px;
+  }
+  .va-head p{margin:0;max-width:56ch;color:var(--ink-soft);}
+  .btn-print{
+    display:inline-flex;align-items:center;gap:8px;
+    background:transparent;
+    border:1px solid var(--navy);
+    color:var(--navy);
+    font:inherit;font-size:0.9rem;font-weight:600;
+    padding:10px 16px;border-radius:3px;
+    cursor:pointer;white-space:nowrap;
+  }
+  .btn-print:hover{background:var(--navy);color:#fff;}
+  .va-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px 22px;
+  }
+  .va-item{
+    display:flex;
+    gap:12px;
+    padding:16px;
+    background:var(--parchment);
+    border:1px solid var(--line);
+    border-radius:4px;
+    flex:1 1 calc(50% - 11px);
+    min-width:260px;
+  }
+  .va-item .box{
+    flex:0 0 20px;
+    width:20px;height:20px;
+    border:2px solid var(--gold);
+    border-radius:3px;
+    margin-top:2px;
+  }
+  .va-item p{margin:0;font-size:0.95rem;color:var(--ink);}
+  .va-item .qnum{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    color:var(--gold-deep);
+    margin-right:6px;
+  }
+  .va-note{
+    margin-top:20px;font-size:0.88rem;color:var(--ink-soft);
+    max-width:70ch;
+  }
+  @media print{
+    header.masthead, nav.threadnav, section.stats, section.intro, section.threads, section.fullband, footer{display:none;}
+    section.voteraction{padding-top:0;}
+    .btn-print{display:none;}
+  }
+  @media (max-width:640px){
+    .va-item{flex-basis:100%;}
+    .thread{grid-template-columns:1fr;}
+    .thread-badge{margin-bottom:4px;}
+    footer .foot-grid{grid-template-columns:1fr;}
+    nav.threadnav a{border-right:none;border-bottom:1px solid rgba(255,255,255,.08);flex:1 1 100%;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="disclaimer">
+  <strong>Independent voter research</strong> — not an official publication of the City of La Palma or lapalmaca.gov
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Prepared for La Palma voters · Districts 2 &amp; 4</div>
+    <h1 class="title">The La Palma Record</h1>
+    <p class="subtitle">A decade of city governance, documented from public records, court filings, sworn campaign disclosures, and the City's own minutes — organized so you can follow every thread before November 3, 2026.</p>
+    <div class="meta-line">PREPARED AUGUST 2026 · SOURCED FROM 30+ PRIMARY RECORDS</div>
+    <div class="cta-row">
+      <a class="btn-primary" href="La-Palma-Record-Full.pdf">Read the Full Record (PDF) →</a>
+      <a class="btn-ghost" href="#threads">Browse the five threads ↓</a>
+    </div>
+  </div>
+</header>
+
+<nav class="threadnav" id="threads">
+  <div class="wrap">
+    <ul>
+      <li><a href="#thread-1"><span class="num">01</span>Term Limits</a></li>
+      <li><a href="#thread-2"><span class="num">02</span>Pension Record</a></li>
+      <li><a href="#thread-3"><span class="num">03</span>Leadership</a></li>
+      <li><a href="#thread-4"><span class="num">04</span>Litigation</a></li>
+      <li><a href="#thread-5"><span class="num">05</span>Transparency</a></li>
+      <li><a href="#voter-questions"><span class="num">✓</span>What Voters Can Do</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stat-grid">
+      <div class="stat alert">
+        <span class="num">$8.4M</span>
+        <span class="label">Jury verdict against the City, Dec. 2025</span>
+      </div>
+      <div class="stat">
+        <span class="num">8 → 12</span>
+        <span class="label">Years of allowed council tenure under Measure W</span>
+      </div>
+      <div class="stat">
+        <span class="num">$18,091</span>
+        <span class="label">Public funds spent drafting Measure W outreach</span>
+      </div>
+      <div class="stat">
+        <span class="num">1 of 2</span>
+        <span class="label">Only OC city (besides RSM) without livestreaming, 2024</span>
+      </div>
+      <div class="stat">
+        <span class="num">4</span>
+        <span class="label">Police chiefs in about 26 months</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="wrap">
+    <p class="lede">This page summarizes a fact-based record built entirely from public records, sworn filings, and the City's own documents. Five threads run through the last decade of La Palma governance — each is summarized below, with the full sourced account one click away.</p>
+  </div>
+</section>
+
+<section class="threads">
+  <div class="wrap">
+
+    <article class="thread" id="thread-1">
+      <div class="thread-badge">01</div>
+      <div>
+        <h2>Term Limits: From 1996 to Measure W</h2>
+        <p class="summary">In 2019, the council proposed extending term limits and tabled it after residents packed a meeting to oppose it. Five years later, essentially the same proposal returned as Measure W — this time backed by a taxpayer-funded outreach contract and a privately funded campaign run by the officials it benefited.</p>
+        <ul class="facts">
+          <li>Aug.–Sept. 2019: proposal advanced 3-0, then tabled 5-0 after 11 residents spoke against it</li>
+          <li>May 2024: City paid a consultant to draft ballot language before any public vote</li>
+          <li>Nov. 2024: Measure W passes 58% — ballot language never disclosed the incumbent term reset</li>
+          <li>Yes on W funded substantially by three sitting council members and family</li>
+        </ul>
+        <a class="readmore" href="La-Palma-Record-Full.pdf#page=2">Read the full Term Limits section <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </article>
+
+    <article class="thread" id="thread-2">
+      <div class="thread-badge">02</div>
+      <div>
+        <h2>Measure JJ and the Pension Record</h2>
+        <p class="summary">Voters approved a permanent 1% sales tax in 2016 on a promise the pension debt would be paid off in nine years. It rose nearly 30% instead — and in 2025, a sitting official told the council the opposite from the dais.</p>
+        <ul class="facts">
+          <li>2016: UAL was $18.2M; promised payoff in 9 years</li>
+          <li>2025: UAL had grown to $23.6M — a 29.8% increase</li>
+          <li>Aug. 2025: council member states liability had "gone down"; audited records say otherwise</li>
+        </ul>
+        <a class="readmore" href="La-Palma-Record-Full.pdf#page=6">Read the full Pension Record section <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </article>
+
+    <article class="thread" id="thread-3">
+      <div class="thread-badge">03</div>
+      <div>
+        <h2>Leadership Transitions</h2>
+        <p class="summary">City Manager, Police Chief, and City Attorney all changed hands repeatedly across the decade — usually through internal promotion, with no external search and limited public explanation each time.</p>
+        <ul class="facts">
+          <li>Two city managers in, one departure never publicly announced to residents</li>
+          <li>Four police chiefs in roughly 26 months</li>
+          <li>City Attorney's firm changed with no competitive review on record</li>
+          <li>2025: former councilmember appointed City Manager over 86 other applicants</li>
+        </ul>
+        <a class="readmore" href="La-Palma-Record-Full.pdf#page=6">Read the full Leadership section <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </article>
+
+    <article class="thread" id="thread-4">
+      <div class="thread-badge">04</div>
+      <div>
+        <h2>Employment Litigation</h2>
+        <p class="summary">A police officer's discrimination complaints went undocumented and uninvestigated — a jury later awarded $8.4 million. Four months on, a second former employee sued over unpaid wages under nearly identical institutional silence.</p>
+        <ul class="facts">
+          <li>Dec. 2025: $8.4M verdict in Byer v. City of La Palma; City appeals</li>
+          <li>Apr. 2026: second lawsuit filed — Torres v. City of La Palma</li>
+          <li>Council has not committed to an independent investigation</li>
+        </ul>
+        <a class="readmore" href="La-Palma-Record-Full.pdf#page=9">Read the full Litigation section <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </article>
+
+    <article class="thread" id="thread-5">
+      <div class="thread-badge">05</div>
+      <div>
+        <h2>Public Meeting Access</h2>
+        <p class="summary">Meetings were cut in half under COVID and never restored. Video livestreaming was refused three years running — while the City found $80,000 for other technology — until a 2026 state law removed the choice.</p>
+        <ul class="facts">
+          <li>2020: regular meetings cut from twice-monthly to once monthly, never restored</li>
+          <li>2023–2024: only 1 of 2 OC cities without livestreaming; lowest accessibility grade</li>
+          <li>2026: streaming finally implemented — only once state law (SB 707) required it</li>
+        </ul>
+        <a class="readmore" href="La-Palma-Record-Full.pdf#page=11">Read the full Transparency section <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="voteraction" id="voter-questions">
+  <div class="wrap">
+    <div class="va-head">
+      <div>
+        <h2>What Voters Can Do</h2>
+        <p>Ask every District 2 and District 4 candidate these questions, on the record. A candidate's answers — and any refusal to answer — will tell you what you need to know.</p>
+      </div>
+      <button class="btn-print" onclick="window.print()">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 6V2h8v4M4 11H2.5A1.5 1.5 0 0 1 1 9.5v-2A1.5 1.5 0 0 1 2.5 6h11A1.5 1.5 0 0 1 15 7.5v2a1.5 1.5 0 0 1-1.5 1.5H12M4 9h8v5H4V9Z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Print this checklist
+      </button>
+    </div>
+    <div class="va-grid">
+      <div class="va-item"><span class="box"></span><p><span class="qnum">01</span>Will you vote to restore twice-monthly regular council meetings? (This requires only a council resolution — three votes could do it at any meeting.)</p></div>
+      <div class="va-item"><span class="box"></span><p><span class="qnum">02</span>Will you vote to commission a truly independent, external investigation of the police department's complaint-handling practices, with authority to review records and interview personnel?</p></div>
+      <div class="va-item"><span class="box"></span><p><span class="qnum">03</span>Will you direct staff to present a full public accounting of every Measure JJ promise made in 2016 against actual results — pension payoff, the $20 million in savings, reserves, the stabilization fund, and the Utility Users Tax?</p></div>
+      <div class="va-item"><span class="box"></span><p><span class="qnum">04</span>Will you vote to repeal the two-member consent requirement for placing items on the council agenda?</p></div>
+      <div class="va-item"><span class="box"></span><p><span class="qnum">05</span>Will you support posting all campaign finance filings on the city website, as neighboring cities already do?</p></div>
+      <div class="va-item"><span class="box"></span><p><span class="qnum">06</span>Did you support or oppose Measure W, and did you or your campaign receive support from any sitting council member or their family?</p></div>
+      <div class="va-item"><span class="box"></span><p><span class="qnum">07</span>Will you commit to never spending General Fund money on consultants to draft or promote ballot measures that extend council members' own tenure — and to disclosing, in any city-funded material about a future measure, every provision that benefits sitting incumbents?</p></div>
+      <div class="va-item"><span class="box"></span><p><span class="qnum">08</span>Before approving any future promotion of a near-retirement employee into a higher-paid position, will you require a public staff report disclosing the projected lifetime pension cost of that promotion?</p></div>
+      <div class="va-item"><span class="box"></span><p><span class="qnum">09</span>Do you believe the City Manager should be an independent professional administrator rather than a former council colleague — and will you support recruiting professional city management for future vacancies?</p></div>
+    </div>
+    <p class="va-note">These questions are drawn directly from documented gaps in the public record described above. They are offered so voters can ask their own questions of candidates — not as an implied answer.</p>
+  </div>
+</section>
+
+<section class="fullband">
+  <div class="wrap fullband-inner">
+    <div>
+      <h3>Want every source, quote, and figure?</h3>
+      <p>The full record includes exact dates, dollar amounts, vote tallies, and a complete reference list organized by source and document type.</p>
+    </div>
+    <a class="btn-primary" href="La-Palma-Record-Full.pdf">Open the Full Record (PDF) →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>About this record</h4>
+        <p class="authorship">Compiled by Bob Carruth, spokesperson for the group of residents who opposed Measure W in 2024. Several primary documents cited — including consultant records, campaign finance filings, and sign-ordinance correspondence — were obtained via California Public Records Act requests filed by the author. This page presents what the record shows; it is not an official City of La Palma publication.</p>
+      </div>
+      <div>
+        <h4>On this page</h4>
+        <p><a href="#thread-1">Term Limits</a></p>
+        <p><a href="#thread-2">Pension Record</a></p>
+        <p><a href="#thread-3">Leadership</a></p>
+        <p><a href="#thread-4">Litigation</a></p>
+        <p><a href="#thread-5">Transparency</a></p>
+        <p><a href="#voter-questions">What Voters Can Do</a></p>
+      </div>
+      <div>
+        <h4>Full document</h4>
+        <p><a href="La-Palma-Record-Full.pdf">Complete Record (PDF)</a></p>
+        <p><a href="La-Palma-Record-Full.pdf#page=13">References &amp; Sources</a></p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      Prepared August 2026, ahead of the November 3, 2026 election for La Palma City Council Districts 2 and 4.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
