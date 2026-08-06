@@ -396,6 +396,7 @@
   cursor:pointer;
 }
 .carousel-dot.is-active{background:var(--gold);}
+.carousel-playpause{display:none;}
 .threads .carousel-arrow{background:var(--paper);}
 .voteraction .carousel-arrow{background:var(--parchment);}
 @media (max-width:640px){
