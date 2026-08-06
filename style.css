@@ -249,7 +249,7 @@
   }
   footer .foot-grid{
     display:grid;
-    grid-template-columns:2fr 1fr 1fr;
+    grid-template-columns:1fr 1fr;
     gap:30px;
   }
   footer h4{
@@ -269,6 +269,13 @@
     margin-top:28px;padding-top:18px;
     color:#8A96C9;font-size:0.8rem;
   }
+  .foot-tagline{
+    display:block;
+    margin-top:6px;
+    color:#8A96C9;
+  }
+  .foot-tagline a{color:#C7CFEA;}
+  .foot-tagline a:hover{color:#fff;}
 
   /* Voter action checklist */
   section.voteraction{
@@ -505,6 +512,9 @@
   max-width:74ch;
   font-size:1rem;
   line-height:1.68;
+}
+.detail-body .entry.entry-wide{
+  max-width:none;
 }
 .detail-body .entry .date{
   font-weight:700;
