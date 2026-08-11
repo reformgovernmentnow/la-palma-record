@@ -38,10 +38,15 @@
 
   /* Header / masthead */
   header.masthead{
-    background:linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+    position:relative;
+    background:
+      linear-gradient(160deg, rgba(16,20,36,.62) 0%, rgba(11,14,26,.72) 100%),
+      url('lapalma-cityhall.jpeg') center 80%/cover no-repeat;
     color:#fff;
     padding:34px 0 28px;
+    overflow:hidden;
   }
+  header.masthead .wrap{position:relative;z-index:1;}
   .eyebrow{
     font-family:'IBM Plex Mono', monospace;
     font-size:0.78rem;
@@ -58,12 +63,14 @@
     margin:0 0 12px;
     max-width:none;
     white-space:nowrap;
+    text-shadow:0 2px 10px rgba(0,0,0,.55);
   }
   .subtitle{
     font-size:1.08rem;
     color:#C7CFEA;
     max-width:none;
     margin:0 0 18px;
+    text-shadow:0 1px 6px rgba(0,0,0,.5);
   }
   .meta-line{
     font-family:'IBM Plex Mono', monospace;
