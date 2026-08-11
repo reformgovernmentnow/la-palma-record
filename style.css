@@ -144,13 +144,13 @@
     grid-template-columns:repeat(6, 1fr);
     gap:16px;
   }
-  .stat{border-left:3px solid var(--palm);padding-left:12px;}
+  .stat{border-left:3px solid var(--alert);padding-left:12px;}
   .stat.alert{border-left-color:var(--alert);}
   .stat .num{
     font-family:'Source Serif 4', serif;
     font-weight:700;
     font-size:1.55rem;
-    color:var(--navy);
+    color:var(--alert);
     display:block;
     line-height:1.05;
     margin-bottom:2px;
