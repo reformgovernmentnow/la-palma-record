@@ -28,7 +28,7 @@
   /* Disclaimer strip */
   .disclaimer{
     background:var(--navy-deep);
-    color:#C7CFEA;
+    color:#fff;
     font-size:0.78rem;
     letter-spacing:.04em;
     text-align:center;
