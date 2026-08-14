@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Depositions | Byer v. City of La Palma | La Palma Record</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Deposition-specific additions — built on the existing token set, no new colors introduced */
+
+  .witness{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:4px;
+    margin:0 0 26px;
+    max-width:none;
+    position:relative;
+    overflow:hidden;
+  }
+  .witness-tag{
+    position:absolute;
+    top:0; left:0;
+    background:var(--navy);
+    color:#fff;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:5px 12px 5px 14px;
+    border-bottom-right-radius:4px;
+  }
+  .witness-head{
+    padding:38px 24px 18px;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  .witness-head h3{
+    font-family:'Source Serif 4', serif;
+    font-weight:700;
+    color:var(--navy);
+    font-size:1.35rem;
+    margin:0 0 4px;
+  }
+  .witness-role{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:.03em;
+  }
+  .witness-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    text-align:right;
+    line-height:1.7;
+  }
+  .witness-status{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:var(--palm);
+    border:1px solid var(--palm);
+    border-radius:20px;
+    padding:3px 10px;
+    margin-top:6px;
+  }
+  .witness-status::before{
+    content:"";
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--palm);
+  }
+  .witness-body{padding:22px 24px 28px;}
+  .witness-body .kicker-sm{
+    font-family:'Source Sans 3', sans-serif;
+    font-weight:700;
+    color:var(--gold-deep);
+    font-size:0.78rem;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    margin:20px 0 8px;
+  }
+  .witness-body .kicker-sm:first-child{margin-top:0;}
+  .witness-body p{margin:0 0 12px;max-width:none;font-size:1rem;line-height:1.68;color:var(--ink);}
+
+  .relevance{
+    background:var(--parchment);
+    border-left:3px solid var(--alert);
+    padding:14px 18px;
+    margin:10px 0 6px;
+    max-width:none;
+    font-size:0.94rem;
+  }
+  .relevance strong{color:var(--gold-deep);}
+
+  .caveat{
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    border-top:1px dashed var(--line);
+    margin-top:20px;
+    padding-top:14px;
+  }
+
+  .placeholder-entry{
+    border:1px dashed var(--line);
+    border-radius:4px;
+    padding:22px 24px;
+    color:var(--ink-soft);
+    font-size:0.94rem;
+    max-width:none;
+  }
+
+  @media (max-width:640px){
+    .witness-meta{text-align:left;}
+  }
+
+  /* Deposition tab navigation */
+  .dep-nav{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(190px, 1fr));
+    gap:10px;
+    margin:0 0 30px;
+  }
+  .dep-nav-btn{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-align:left;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:12px 14px;
+    cursor:pointer;
+    font-family:'Source Sans 3', sans-serif;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .dep-nav-btn:hover{
+    border-color:var(--navy);
+  }
+  .dep-nav-btn.is-active{
+    background:var(--navy);
+    border-color:var(--navy);
+  }
+  .dep-nav-num{
+    flex:0 0 auto;
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    color:var(--ink-soft);
+  }
+  .dep-nav-btn.is-active .dep-nav-num{
+    border-color:#fff;
+    color:#fff;
+  }
+  .dep-nav-text{display:flex; flex-direction:column; gap:1px; min-width:0;}
+  .dep-nav-text strong{
+    font-size:0.92rem;
+    color:var(--ink);
+    line-height:1.25;
+  }
+  .dep-nav-btn.is-active .dep-nav-text strong{color:#fff;}
+  .dep-nav-text small{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .dep-nav-btn.is-active .dep-nav-text small{color:rgba(255,255,255,.75);}
+
+  /* Only one deposition tile visible at a time */
+  .witness{display:none;}
+  .witness.is-visible{display:block;}
+
+  .depo-source-link{
+    margin:16px 0 0;
+    padding-top:14px;
+    border-top:1px solid var(--line);
+  }
+  .depo-source-link a{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:0.92rem;
+    font-weight:600;
+    color:var(--navy);
+    text-decoration:none;
+    border-bottom:1px solid var(--navy);
+    padding-bottom:1px;
+  }
+  .depo-source-link a:hover{color:var(--gold-deep);border-color:var(--gold-deep);}
+</style>
+</head>
+<body>
+
+<div class="disclaimer">
+  INDEPENDENT RESEARCH. NOT AN OFFICIAL PUBLICATION OF THE CITY OF LA PALMA OR LAPALMACA.GOV
+</div>
+
+<header class="detail-header">
+  <div class="wrap">
+    <div class="detail-header-top">
+      <p class="breadcrumb"><a href="index.html">Home</a> / <a href="litigation.html">Litigation</a> / Depositions</p>
+      <a class="btn-home" href="index.html">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>
+        Home
+      </a>
+    </div>
+    <span class="thread-badge-lg">D</span>
+    <h1>Depositions: Byer v. City of La Palma</h1>
+    <p class="dsub dsub-wide">Deposition testimony from the reverse discrimination and retaliation lawsuit that ended in an $8.4 million jury verdict against the City of La Palma.</p>
+    <p class="meta-line">ROSS BYER, PLAINTIFF, v. CITY OF LA PALMA, DEFENDANT &nbsp;·&nbsp; ORANGE COUNTY SUPERIOR COURT, CASE NO. 30-2024-01394359-CU-OE-CJC &nbsp;·&nbsp; VERDICT: DEC. 9, 2025</p>
+  </div>
+</header>
+
+<section class="detail-body">
+  <div class="wrap">
+
+    <p class="entry entry-wide">A jury found the City of La Palma liable for failing to prevent race and national-origin discrimination against Ross Byer, a former La Palma police officer, who alleged he was subjected to reverse discrimination and retaliation by a supervisor. This page tracks deposition testimony from the case as transcripts become available to the La Palma Record, summarizing who each witness is, how they connect to the case, and what their testimony suggests about the conduct the jury found the City responsible for.</p>
+
+    <div class="note-block">
+      <strong>A note on completeness:</strong> This page reflects excerpts from eight depositions, not full transcripts. Ronald Lopino's testimony, added below, is the last deposition transcript currently on file with the La Palma Record for this case. These transcripts were obtained through the Orange County Superior Court's <a href="https://www.occourts.org/online-services/case-access" target="_blank" rel="noopener">online case access and record system</a>. In some cases, the only records available through that system are excerpts; complete deposition transcripts are not always available to the public. Where a summary below draws an inference beyond what the excerpt directly shows, that is flagged explicitly.
+    </div>
+
+    <div class="dep-nav" role="tablist" aria-label="Select a deposition to view">
+      <button class="dep-nav-btn is-active" type="button" data-target="dep-wilkerson" role="tab" aria-selected="true">
+        <span class="dep-nav-num">1</span>
+        <span class="dep-nav-text"><strong>Crystal L. Wilkerson</strong><small>HR Analyst</small></span>
+      </button>
+      <button class="dep-nav-btn" type="button" data-target="dep-choi" role="tab" aria-selected="false">
+        <span class="dep-nav-num">2</span>
+        <span class="dep-nav-text"><strong>Jay Kyoo Choi</strong><small>Officer, Byer's ex-partner</small></span>
+      </button>
+      <button class="dep-nav-btn" type="button" data-target="dep-olson" role="tab" aria-selected="false">
+        <span class="dep-nav-num">3</span>
+        <span class="dep-nav-text"><strong>James &ldquo;Jim&rdquo; Olson</strong><small>Third-party witness</small></span>
+      </button>
+      <button class="dep-nav-btn" type="button" data-target="dep-amend" role="tab" aria-selected="false">
+        <span class="dep-nav-num">4</span>
+        <span class="dep-nav-text"><strong>Jesse Amend</strong><small>Captain</small></span>
+      </button>
+      <button class="dep-nav-btn" type="button" data-target="dep-goble" role="tab" aria-selected="false">
+        <span class="dep-nav-num">5</span>
+        <span class="dep-nav-text"><strong>Zachary Goble</strong><small>Former officer</small></span>
+      </button>
+      <button class="dep-nav-btn" type="button" data-target="dep-koh" role="tab" aria-selected="false">
+        <span class="dep-nav-num">6</span>
+        <span class="dep-nav-text"><strong>Won Il Koh</strong><small>Sergeant (accused supervisor)</small></span>
+      </button>
+      <button class="dep-nav-btn" type="button" data-target="dep-byer" role="tab" aria-selected="false">
+        <span class="dep-nav-num">7</span>
+        <span class="dep-nav-text"><strong>Ross Byer</strong><small>Plaintiff</small></span>
+      </button>
+      <button class="dep-nav-btn" type="button" data-target="dep-lopino" role="tab" aria-selected="false">
+        <span class="dep-nav-num">8</span>
+        <span class="dep-nav-text"><strong>Ronald Lopino</strong><small>Former officer, Byer's FTO</small></span>
+      </button>
+    </div>
+
+    <div class="witness is-visible" id="dep-wilkerson">
+      <span class="witness-tag">Deposition 1 of 8</span>
+      <div class="witness-head">
+        <div>
+          <h3>Crystal L. Wilkerson</h3>
+          <p class="witness-role">City employee · Human Resources Analyst, City of La Palma</p>
+          <span class="witness-status">Transcript excerpts reviewed</span>
+        </div>
+        <div class="witness-meta">
+          Deposed: March 18, 2025<br>
+          Called by: Plaintiff (Petronelli)<br>
+          Pages reviewed: 9&ndash;10, 27&ndash;29, 34&ndash;39, 42&ndash;44, 50&ndash;51, 69&ndash;70, 74 (of 78)
+        </div>
+      </div>
+      <div class="witness-body">
+
+        <p class="kicker-sm">Who she is</p>
+        <p>Wilkerson is a current City of La Palma employee, working as a Human Resources Analyst at the time of her testimony and during the events described. She reported to Ryan Hallett, whose title changed from Administrative Services Director to Assistant City Manager during the relevant period while he remained in the same supervisory role over HR. She testified that complaints about retaliation or discrimination are "processed by Ryan Hallett and solely through Ryan Hallett," and that she wasn't aware of anyone else at the City who decided which complaints got investigated.</p>
+
+        <p class="kicker-sm">Connection to the case</p>
+        <p>Wilkerson conducted Ross Byer's exit interview on June 8, 2023, the day he resigned from the La Palma Police Department. She testified that the reasons Byer gave for resigning were the same concerns she documented in her handwritten notes from that meeting &mdash; which she later typed up and sent to Hallett, without retaining the handwritten originals. Byer subsequently sent her two follow-up emails: one on June 28, 2023 (roughly three weeks after the meeting) with additional detail on his complaints, and another on October 25, 2023. She testified she believes she forwarded the June 28 email to Hallett, but does not recall receiving or forwarding the October 25 email at all &mdash; and when she later searched her own email for correspondence with Byer, that October email did not turn up in the search.</p>
+
+        <p class="kicker-sm">Key testimony</p>
+        <p>During the exit interview, Byer told Wilkerson that Sergeant Koh had instructed him to engage in what Byer believed was racial profiling, and that he had previously reported this to Captain Jesse Amend. Wilkerson testified the allegations "of course" caused her concern and that she "definitely believe[d] we should look into it" &mdash; but that the decision to investigate wasn't hers to make. Asked whether she was aware of anyone &mdash; Hallett, anyone else at the City, or anyone at the police department &mdash; investigating Byer's complaints at any point after the June 8 meeting or either follow-up email, she answered "correct" each time she was asked whether she was <em>not</em> aware of any such investigation. She also testified she had never seen the La Palma police officers' policy manual.</p>
+
+        <p class="kicker-sm">Possible relevance to the verdict</p>
+        <div class="relevance">
+          <strong>Direct evidence, not just inference:</strong> This excerpt shows the City's own HR analyst confirming she received Byer's discrimination and retaliation complaints on three separate occasions over about four and a half months (June 8, June 28, and October 25, 2023), routed them to the one official she said was solely responsible for deciding whether to investigate, and is not aware that anyone ever did. Combined with her testimony that she personally believed the allegations warranted a look, this speaks directly to the jury's finding that the City failed to prevent discrimination and retaliation against Byer.
+        </div>
+
+        <p class="caveat">This summary is based on selected excerpts (highlighted portions of a 78-page transcript, not the complete document) spanning the exit interview, both follow-up emails, and closing questioning. It does not reflect the full testimony, cross-examination in its entirety, or any context the excerpted portions omit.</p>
+      
+        <p class="depo-source-link"><a href="Wilkerson-Crystal.pdf" target="_blank" rel="noopener">View full deposition excerpt (PDF) &mdash; Crystal L. Wilkerson</a></p>
+      </div>
+    </div>
+
+    <div class="witness" id="dep-choi">
+      <span class="witness-tag">Deposition 2 of 8</span>
+      <div class="witness-head">
+        <div>
+          <h3>Jay Kyoo Choi</h3>
+          <p class="witness-role">City employee · La Palma Police Officer, Byer's former shift partner</p>
+          <span class="witness-status">Transcript excerpts reviewed</span>
+        </div>
+        <div class="witness-meta">
+          Deposed: August 4, 2025<br>
+          Called by: Plaintiff (Petronelli)<br>
+          Pages reviewed: 11, 16&ndash;17, 25, 27&ndash;28, 32, 39&ndash;51, 54&ndash;55, 58, 87&ndash;88 (of 96)
+        </div>
+      </div>
+      <div class="witness-body">
+
+        <p class="kicker-sm">Who he is</p>
+        <p>Choi is a current City of La Palma police officer, hired in March 2022. He has about ten years in law enforcement, including prior positions with the City of Imperial (2016&ndash;2019) and the City of Baldwin Park (2019&ndash;2022) before joining La Palma. He testified he is Korean-American. For roughly four months, Choi and Byer were shift partners on Beat 2, both reporting to Sergeant Koh.</p>
+
+        <p class="kicker-sm">Connection to the case</p>
+        <p>As Byer's beat partner under the same supervisor, Choi was in a position to directly observe how Koh assigned work between the two officers. He testified that Koh had a practice &mdash; referred to within the department as "sergeant specials" &mdash; of personally making traffic stops and then assigning the resulting paperwork to an officer on patrol. Choi confirmed Koh assigned him five or more sergeant specials over the period, but assigned noticeably more to Byer, though he couldn't give an exact count. Choi testified he twice volunteered to take a sergeant special off Byer's plate &mdash; at least partly because he wanted the arrest statistic for his own record &mdash; and that Koh denied the request at least once.</p>
+
+        <p class="kicker-sm">Key testimony</p>
+        <p>Choi testified he never heard Sergeant Koh say anything about race, national origin, or an "all-Korean" shift or department, and never heard Koh give a directive to racially profile citizens. He also testified no one &mdash; not Wilkerson, not anyone else in HR, not anyone in the police department &mdash; ever contacted him, before or after Byer left, to ask about Koh's treatment of Byer or the concerns Byer had raised. Choi said he never observed Koh treating him and Byer differently in tone or expectations, had a positive opinion of Byer's performance, and was "sad" to learn Byer was leaving the department. He also testified that Crystal Wilkerson &mdash; the HR analyst who took Byer's complaint &mdash; is married to Ron Wilkerson, who was a City of La Palma police captain during the relevant period and later served roughly a year as police chief before retiring in mid-2024.</p>
+
+        <p class="kicker-sm">Possible relevance to the verdict</p>
+        <div class="relevance">
+          <strong>Cuts both ways:</strong> Choi independently corroborates one specific, observable piece of Byer's claim &mdash; that Koh assigned him disproportionately more "sergeant special" stops than a comparable officer &mdash; from a witness with no apparent stake in the outcome. At the same time, Choi flatly did not corroborate the racial-profiling directive or the "all-Korean shift" comment central to the discrimination theory; he said he never heard either. His testimony that no one from HR or the department ever asked him what he'd observed, despite being the officer best positioned to know, reinforces the "no investigation happened" pattern established by Wilkerson's testimony above. The Wilkerson&ndash;Wilkerson family relationship (HR analyst married to a captain, later chief, in the same small department) isn't itself evidence of wrongdoing, but is a relevant structural fact for readers weighing how complaints were handled.
+        </div>
+
+        <p class="caveat">This summary is based on selected excerpts (highlighted portions of a 96-page transcript, not the complete document). It does not reflect the full testimony, cross-examination in its entirety, or any context the excerpted portions omit.</p>
+      
+        <p class="depo-source-link"><a href="Choi-Jay.pdf" target="_blank" rel="noopener">View full deposition excerpt (PDF) &mdash; Jay Kyoo Choi</a></p>
+      </div>
+    </div>
+
+    <div class="witness" id="dep-olson">
+      <span class="witness-tag">Deposition 3 of 8</span>
+      <div class="witness-head">
+        <div>
+          <h3>James &ldquo;Jim&rdquo; Olson</h3>
+          <p class="witness-role">Third-party fact witness · Retired Cypress PD Commander</p>
+          <span class="witness-status">Transcript reviewed</span>
+        </div>
+        <div class="witness-meta">
+          Deposed: Dec. 2, 2026<br>
+          Called by: Plaintiff (Petronelli)<br>
+          Pages reviewed: 6&ndash;11
+        </div>
+      </div>
+      <div class="witness-body">
+
+        <p class="kicker-sm">Who he is</p>
+        <p>Olson is a retired police commander from the City of Cypress with 27 years in law enforcement, starting his career with the Los Angeles County Sheriff&rsquo;s Department before lateraling to Cypress PD. He retired in December 2018 and now trains law-enforcement instructors for National Training Concepts (NTC) across California and Arizona. He is not employed by La Palma and was not designated as an expert witness — defense counsel objected on that basis, but the court overruled it, allowing him to testify to what he personally observed and practiced as a 14-year sergeant.</p>
+
+        <p class="kicker-sm">Connection to the case</p>
+        <p>Olson testified he met Ross Byer roughly seven years earlier at the Golden West Law Enforcement Training Center (a police academy), establishing a personal, professional acquaintance with the plaintiff predating the events at issue.</p>
+
+        <p class="kicker-sm">Key testimony</p>
+        <p>Plaintiff&rsquo;s counsel asked Olson about the practice of sergeants patrolling beats assigned to patrol officers, making traffic stops, and handing those stops off to a patrol officer to complete. Olson said he hadn&rsquo;t heard the practice described that way but had seen it done — and that it was "frowned upon" at the agencies where he worked, because sergeants are expected to lead by example and handle their own self-initiated stops rather than turn them over.</p>
+        <p>He testified that offloading a stop onto an already-busy officer — particularly a newer officer already carrying a heavy load of open reports — could add to their workload and stress, in his words causing "a high level of anxiety."</p>
+
+        <p class="kicker-sm">Possible relevance to the verdict</p>
+        <div class="relevance">
+          <strong>Inference, not a confirmed trial finding:</strong> Olson's testimony reads as an effort to establish a standard for supervisory conduct — that sergeants are expected to handle their own stops rather than offload the resulting paperwork onto subordinates. If evidence at trial showed a supervisor departing from that norm with Byer specifically, this deposition could have supported the retaliation and failure-to-prevent-discrimination theory the jury accepted. The six pages reviewed here don't show that connection being drawn explicitly.
+        </div>
+
+        <p class="caveat">This summary is based on a six-page excerpt (pages 6–11) covering Olson's background and the opening of substantive questioning. It doesn't reflect his full testimony, cross-examination, or how — if at all — it was tied to specific trial allegations.</p>
+      
+        <p class="depo-source-link"><a href="Olson-James.pdf" target="_blank" rel="noopener">View full deposition excerpt (PDF) &mdash; James "Jim" Olson</a></p>
+      </div>
+    </div>
+
+    <div class="witness" id="dep-amend">
+      <span class="witness-tag">Deposition 4 of 8</span>
+      <div class="witness-head">
+        <div>
+          <h3>Jesse Amend</h3>
+          <p class="witness-role">City employee · Captain, La Palma Police Department (Koh's and Byer's chain of command)</p>
+          <span class="witness-status">Transcript excerpts reviewed</span>
+        </div>
+        <div class="witness-meta">
+          Deposed: August 12, 2025 (Vol. I)<br>
+          Called by: Plaintiff (Petronelli)<br>
+          Pages reviewed: 15&ndash;16, 21&ndash;25, 31&ndash;38, 43&ndash;45, 47&ndash;50, 65&ndash;70, 79&ndash;80, 87&ndash;90, 98, 101&ndash;110, 118&ndash;119, 123&ndash;126, 129&ndash;134, 143 (of 143)
+        </div>
+      </div>
+      <div class="witness-body">
+
+        <p class="kicker-sm">Who he is</p>
+        <p>Amend was a captain in the La Palma Police Department throughout the relevant period and remains employed there. He testified the chief of police is the department's highest-ranking position and reports to the city manager, and that &ldquo;overall responsibility&rdquo; for ensuring officers follow department policy &ldquo;lies on the chief of police.&rdquo; He described a rapid turnover at the top of the department &mdash; Ron Wilkerson served as chief for about a year (mid-2023 to late summer/early fall 2024) before being succeeded by current Chief Joe Guerrero. Sergeant Koh reported up through Amend's chain of command; Amend testified he prepared roughly two of Koh's own annual performance evaluations.</p>
+
+        <p class="kicker-sm">Connection to the case</p>
+        <p>Amend was the first member of command staff Byer went to. Around January 2023, Byer texted Amend asking to speak &ldquo;informally,&rdquo; and the two met off-site at a coffee shop outside city limits rather than at the station. Byer told Amend that Sergeant Koh &mdash; who supervised both Byer and his shift partner, Officer Jay Choi, while both were still on 18-month probation &mdash; was personally making traffic stops (&ldquo;sergeant specials&rdquo;) and then calling Byer over to complete the resulting paperwork, and that he felt he was being treated differently than Choi. Amend testified he told Byer he would raise it with Koh, but it was &ldquo;a matter of several weeks&rdquo; before he actually did, and Byer raised the concern with him multiple times in the interim. Amend confirmed he never documented the initial complaint, any follow-up conversations with Byer, or the eventual conversation with Koh &mdash; on a personnel complaint form or &ldquo;at all.&rdquo;</p>
+
+        <p class="kicker-sm">Key testimony</p>
+        <p>When Amend finally raised the issue with Koh (with then-Captain Ron Wilkerson also present), he testified he told Koh that Byer &ldquo;didn't seem to be receiving what Koh was doing very well&rdquo; and suggested Koh &ldquo;reevaluate your approach,&rdquo; and separately told Koh it wasn't appropriate to have told Byer to &ldquo;tell your wife your job is on the line.&rdquo; But Amend testified, repeatedly and specifically, that he never told Koh to stop assigning sergeant specials to Byer, never told Koh he was prohibited from retaliating against Byer, never asked Koh how his stop counts for Byer compared to Choi, never opened any investigation into Byer's complaint, and is unaware of anyone at La Palma ever opening one. He also testified he never spoke with Choi at all about Byer's concerns, and never asked Choi whether he felt he was being treated more favorably than Byer because of his race. Separately, Amend testified that Officer Zachary Goble had raised a &ldquo;similar complaint&rdquo; about Koh's sergeant-special practice to command staff, and that Koh had confronted Goble in a parking lot after learning he'd complained &mdash; though Amend said he didn't recall the specific &ldquo;bitching and moaning&rdquo; language Goble reported to him. On Byer's performance, Amend testified that Koh alone decided and wrote Byer's &ldquo;needs improvement&rdquo; annual evaluation, that Amend never independently verified Koh's claim that Choi wasn't having similar performance issues, and that everything negative he knew about Byer's performance came from Koh. Walked through La Palma's own Personnel Complaints Policy and Anti-Retaliation Policy during questioning, Amend agreed, section by section, that supervisors are required to document complaints, acknowledge and route them to the chief through the chain of command, investigate them, and monitor for further retaliation &mdash; and confirmed he did none of those things after Byer's complaint. Amend also confirmed that Sergeant Koh was involved in a December 2024 pursuit that ended in a collision killing a 67-year-old woman, Maria Casey, and that Koh remains employed by La Palma as a sergeant.</p>
+
+        <p class="kicker-sm">Possible relevance to the verdict</p>
+        <div class="relevance">
+          <strong>The clearest chain-of-command failure shown so far:</strong> Amend is the captain Byer went to first, months before the exit interview Wilkerson later documented, and his own testimony establishes that La Palma's written anti-retaliation policy required documentation, notification up the chain, investigation, and monitoring &mdash; and that none of it happened. Amend's account of confronting Koh only about specific remarks, without ever restricting the underlying practice Byer complained about or verifying Koh's justification for it, mirrors the pattern Wilkerson's and Choi's testimony already suggests: complaints reached command staff and went nowhere. His acknowledgment that Koh alone authored Byer's negative evaluation, unchecked, adds a direct link between the alleged retaliatory conduct and a concrete employment consequence &mdash; the kind of evidence a jury could rely on for both the discrimination and retaliation theories. The Goble parking-lot confrontation, if credited, suggests a pattern beyond Byer alone.</div>
+
+        <p class="caveat">This summary is based on selected excerpts (highlighted portions of a 143-page transcript, not the complete document). It does not reflect the full testimony, cross-examination in its entirety, or any context the excerpted portions omit. Some questions in the reviewed excerpt were limited or objected to on Pitchess grounds (personnel-record confidentiality), and Amend's answers on certain disciplinary topics were correspondingly restricted.</p>
+      
+        <p class="depo-source-link"><a href="Amend-Jesse.pdf" target="_blank" rel="noopener">View full deposition excerpt (PDF) &mdash; Jesse Amend</a></p>
+      </div>
+    </div>
+
+    <div class="witness" id="dep-goble">
+      <span class="witness-tag">Deposition 5 of 8</span>
+      <div class="witness-head">
+        <div>
+          <h3>Zachary Goble</h3>
+          <p class="witness-role">Former City employee · Ex-La Palma Police Officer, previously supervised by Sgt. Koh alongside Byer</p>
+          <span class="witness-status">Transcript excerpts reviewed</span>
+        </div>
+        <div class="witness-meta">
+          Deposed: June 30, 2025<br>
+          Called by: Plaintiff (Petronelli)<br>
+          Pages reviewed: 6&ndash;7, 14&ndash;17, 19&ndash;23, 25&ndash;26, 35 (of ~40)
+        </div>
+      </div>
+      <div class="witness-body">
+
+        <p class="kicker-sm">Who he is</p>
+        <p>Goble worked as a patrol officer for the La Palma Police Department from summer 2021 until early January 2023, when his employment ended. He is no longer with La Palma and now works as a police officer for another department, with about five years total in law enforcement. For roughly four months in later 2022, Goble and Byer worked the same shift, both supervised by Sergeant Koh.</p>
+
+        <p class="kicker-sm">Connection to the case</p>
+        <p>Goble is an independent witness who worked directly under Sergeant Koh at the same time as Byer, giving him firsthand knowledge of Koh's supervisory style toward officers he perceived as pushing back on him. Goble testified that he "wouldn't have chosen Koh as my supervisor" because Koh was, in his word, "retaliatory" &mdash; that if an officer disagreed with him or didn't share his approach to police work, Koh "would go out of his way to make sure you were staying busy throughout the night." Goble described personally experiencing this: after Koh spotted him (via patrol-car GPS) parked and talking with another officer near the end of a shift, Koh told them, visibly upset, "I'm going to go out and find something for you guys."</p>
+
+        <p class="kicker-sm">Key testimony</p>
+        <p>Goble testified he raised this concern directly with command staff in a meeting with then-Captain Wilkerson, at which then-Captain Amend also appeared &mdash; asking, in substance, whether he was "doing something wrong for this sergeant to go out of his way and do those things." He testified their response was that he "needed to learn to work with other types of personalities." Goble also read into the record a contemporaneous phone note from April 12, 2022, describing Koh following him outside to confront him after learning &mdash; from someone other than Amend &mdash; about his "bitching and complaining"; Koh told him to bring future problems directly to Koh rather than Amend, adding that "his behavior wouldn't change" even if the problem went unresolved. Goble said Koh appeared "definitely upset" during that confrontation and that he believes, though isn't certain, that he raised it with HR afterward. Asked directly for his opinion of Byer's job performance, Goble testified &mdash; over an objection on foundation grounds that was ultimately allowed &mdash; that Byer was "effectively performing his job" as an officer. Separately, Goble testified his own employment was terminated about two weeks after he filed an unrelated HR complaint against a different sergeant (not Koh), under then-Chief Terry Kim; he believes his performance evaluation contained factual inaccuracies connected to that termination, but was careful to distinguish this personal grievance as unrelated to the Koh matter.</p>
+
+        <p class="kicker-sm">Possible relevance to the verdict</p>
+        <div class="relevance">
+          <strong>Independent, pre-dating corroboration of the command-staff pattern:</strong> Goble's account places both Wilkerson and Amend on notice of Koh's retaliatory work-assignment style roughly nine months before Byer's own January 2023 complaint to Amend &mdash; and shows them responding to that earlier warning with the same "learn to work with other personalities" deflection rather than any documented follow-up, investigation, or correction of Koh's conduct. That mirrors, and predates, the pattern Amend's own deposition already shows: complaints about Koh reaching command staff and going nowhere. As a witness with no apparent personal stake in Byer's specific claims (his own termination, on his own telling, was unrelated to Koh), Goble's testimony that Byer was performing his job effectively directly undercuts the "needs improvement" narrative that Koh alone authored and that command staff never independently verified. Combined, this deposition strengthens the jury's basis for finding the City had actual, repeated notice of a supervisor's retaliatory pattern well before it affected Byer, and did not act on it.</div>
+
+        <p class="caveat">This summary is based on selected excerpts (highlighted portions of a roughly 40-page transcript, not the complete document), including some passages affected by a mid-testimony video connection interruption. It does not reflect the full testimony, cross-examination in its entirety, or any context the excerpted portions omit. Goble's own termination and the sergeant involved in that separate complaint are distinct from the Koh/Byer matter and should not be conflated with it.</p>
+      
+        <p class="depo-source-link"><a href="Goble-Zachary.pdf" target="_blank" rel="noopener">View full deposition excerpt (PDF) &mdash; Zachary Goble</a></p>
+      </div>
+    </div>
+
+    <div class="witness" id="dep-koh">
+      <span class="witness-tag">Deposition 6 of 8</span>
+      <div class="witness-head">
+        <div>
+          <h3>Won Il Koh</h3>
+          <p class="witness-role">City employee · Sergeant, La Palma Police Department (Byer's, Choi's, Goble's, and Genera's direct supervisor)</p>
+          <span class="witness-status">Transcript excerpts reviewed</span>
+        </div>
+        <div class="witness-meta">
+          Deposed: March 19, 2025<br>
+          Called by: Plaintiff (Petronelli)<br>
+          Pages reviewed: 23&ndash;27, 54&ndash;55, 58&ndash;60, 68&ndash;70, 73, 81, 84, 105&ndash;108, 117, 125&ndash;126, 129&ndash;134, 148&ndash;149, 153 (of 167)
+        </div>
+      </div>
+      <div class="witness-body">
+
+        <p class="kicker-sm">Who he is</p>
+        <p>Koh is the sergeant whose conduct is at the center of Byer's lawsuit. He supervised Byer directly and, at various points, also supervised Officer Choi, Officer Goble, and Officer Ryan Genera. This is the accused supervisor's own sworn testimony &mdash; not a third party's account of what he did.</p>
+
+        <p class="kicker-sm">Connection to the case</p>
+        <p>Koh confirmed that, aside from Byer, two other officers &mdash; Goble and Genera &mdash; had complained to command staff (Captain Amend and then-Captain Wilkerson) about the same core practice: Koh personally making traffic stops and then assigning the resulting paperwork to a subordinate. He placed Genera's complaint at roughly a year before this deposition and Goble's at roughly two and a half years before &mdash; corroborating, from the accused supervisor himself, the timeline and substance of Goble's separate testimony. Koh testified that Byer complained about him to Captain Amend, that he was told about it in a single in-person meeting in the chief's office with then-Chief Wilkerson present, and that Amend's entire message to him was that Amend "didn't like that I was making stops and basically having him handle those stops." Koh testified no one &mdash; not Amend, not Wilkerson, not anyone else at La Palma &mdash; ever told him he needed to change his behavior as a result.</p>
+
+        <p class="kicker-sm">Key testimony</p>
+        <p>Under direct questioning, Koh estimated he personally made stops in Officer Choi's beat and assigned them to Choi "about three times," but made stops in Byer's beat and assigned them to Byer "about nine" times over the same 2023 period &mdash; a roughly three-to-one disparity, by Koh's own estimate, between the two officers he supervised simultaneously. On Byer's negative annual evaluation, which Koh authored, Koh acknowledged criticizing Byer for failing to keep a detained person in a "seated position" while acting as a cover officer on one of Choi's stops &mdash; but admitted he never counseled Choi for the same conduct because he said he "never saw" Choi do it, and never asked the officers involved whose decision it actually was. Koh also testified extensively to a list of performance issues he attributed to Byer (sleeping in his vehicle, carrying his firearm while escorting an un-handcuffed prisoner, letting suspects get away, re-citing repeat offenders) but was not asked, and did not volunteer, any comparable scrutiny of Choi's record. Asked directly about the "all-Korean police force" comment, Koh denied ever saying that specific phrase, but volunteered, unprompted, that he might have said something close to it &mdash; naming himself, Choi, and two Korean reserve officers (Kim and Suh) and suggesting he could have said "if we had Officer Suh here today, we'd have an all-Korean shift." Koh confirmed the department's anti-retaliation and personnel-complaints policies cover bias-based policing, racial profiling, and unlawful discrimination, and agreed that Officer Choi was voted La Palma's 2023 Employee of the Year &mdash; a nomination Koh believes he personally cast. Koh confirmed no one from the police department or city manager's office ever asked him about the all-Korean comment or about racial profiling, and that he is not aware of any investigation into Byer's complaints having occurred before this lawsuit was filed.</p>
+
+        <p class="kicker-sm">Possible relevance to the verdict</p>
+        <div class="relevance">
+          <strong>The accused supervisor's own numbers and words:</strong> This is arguably the most direct evidence in the case so far, because it comes from Koh himself rather than from witnesses describing his conduct. A roughly 3-to-1 disparity in "sergeant special" assignments between Byer and Choi, admitted by Koh under oath, corroborates Choi's independent testimony and gives the jury a concrete, quantified basis for disparate treatment. Koh's near-admission on the "all-Korean shift" comment &mdash; denying the exact phrase while acknowledging he may have said something substantively similar &mdash; could have let a jury credit the substance of Byer's discrimination claim even without a verbatim match. And Koh's admission that he never applied the same scrutiny to Choi that he applied to Byer, paired with his own account of a single, toothless conversation with Amend that changed nothing, closes the loop on the pattern the earlier depositions on this page already suggest: complaints were raised, minimally addressed, and never followed by correction, investigation, or documentation.</div>
+
+        <p class="caveat">This summary is based on selected excerpts (highlighted portions of a 167-page transcript, not the complete document), including some passages affected by a mid-testimony audio interruption that required a portion of the record to be read back. It does not reflect the full testimony, cross-examination in its entirety, or any context the excerpted portions omit.</p>
+      
+        <p class="depo-source-link"><a href="Koh-Won-II.pdf" target="_blank" rel="noopener">View full deposition excerpt (PDF) &mdash; Won Il Koh</a></p>
+      </div>
+    </div>
+
+    <div class="witness" id="dep-byer">
+      <span class="witness-tag">Deposition 7 of 8</span>
+      <div class="witness-head">
+        <div>
+          <h3>Ross Byer</h3>
+          <p class="witness-role">Plaintiff · Former La Palma Police Officer</p>
+          <span class="witness-status">Transcript excerpts reviewed</span>
+        </div>
+        <div class="witness-meta">
+          Deposed: February 20, 2025 (videotaped, via Zoom)<br>
+          Called by: Defendant (Cohen), with follow-up by plaintiff's counsel (Petronelli)<br>
+          Pages reviewed: 22, 33&ndash;36, 45&ndash;51, 70&ndash;71, 75&ndash;79, 99&ndash;103, 107&ndash;111, 116&ndash;118, 125&ndash;128, 133&ndash;140, 144&ndash;145, 149&ndash;153, 159&ndash;162, 169&ndash;170, 179&ndash;180, 194&ndash;196, 204&ndash;209, 213&ndash;215, 251&ndash;253, 256 (of 256)
+        </div>
+      </div>
+      <div class="witness-body">
+
+        <p class="kicker-sm">Who he is</p>
+        <p>Byer is the plaintiff. He began his law enforcement career as a probationary officer with the Huntington Beach Police Department, leaving without completing probation around April 2021 after being told his training would not continue. He joined the La Palma Police Department as a trainee shortly after, trained under Officer Justin Braasch (Phase I &amp; II) and Officer Ron Lopino (Phase III &amp; &ldquo;Ghost Phase&rdquo;), and became a solo patrol officer around the end of December 2022. His training and completion were approved up the chain by then-Captain Amend and then-Chief Kim. Officer Jay Choi, who had started roughly two months ahead of him, became his regular partner at the same time Sergeant Koh became his supervisor.</p>
+
+        <p class="kicker-sm">Connection to the case</p>
+        <p>As the officer who reported directly to Sergeant Koh and worked the same beat as Officer Choi, Byer is the person whose treatment is compared throughout the case to a similarly situated colleague. Byer testified his first supervisor, Sergeant Garcia, evaluated him mid-2022 as needing &ldquo;more proactivity&rdquo; (more traffic, pedestrian, and bike stops) and cited report-writing errors &mdash; criticism Byer said he acted on by increasing stop activity and having his partner review his reports. When Koh took over as his supervisor around late December 2022, Byer testified the character of supervision changed almost immediately: within the first couple of weeks, Koh began coming into the field, personally making traffic stops in Byer's beat, and calling Byer over to &ldquo;take the handle&rdquo; &mdash; complete the paperwork &mdash; on stops Koh himself had initiated. Byer testified this happened &ldquo;almost daily,&rdquo; multiple times a shift, a practice he and other officers called a &ldquo;sergeant special.&rdquo; Byer testified he asked Choi repeatedly whether the same thing was happening to him and Choi consistently said no, and that in roughly a full shift schedule partnered with Choi, Byer could not recall Koh ever doing the same to Choi's beat.</p>
+
+        <p class="kicker-sm">Key testimony</p>
+        <p>Byer testified Koh made a comment during a briefing, after Byer returned from a family vacation, saying &ldquo;nice tan&rdquo; &mdash; which Officer Miranda, his partner that day, told him afterward was a backhanded remark because new officers were expected not to take time off. Byer testified Koh separately said, on a different occasion as watch commander, that he wished he had an &ldquo;all Korean police staff or police force,&rdquo; naming himself, Choi, and two Korean reserve officers; Byer said he felt &ldquo;shocked&rdquo; a supervisor would say that in front of others. Byer testified Koh was &ldquo;constantly very friendly&rdquo; with Choi &mdash; discussing Korean baseball, Korean food, and Korean-language phrases &mdash; and that he experienced none of that same rapport with Koh himself. Byer also testified Koh instructed him, more than once, to look for &ldquo;Black people with prison tats&rdquo; and drivers who &ldquo;appear to have prison tats,&rdquo; and separately to focus on Hispanic and Black male drivers; Byer recounted one specific nighttime stop of an African-American driver where he told Koh he &ldquo;couldn't tell any prison tats&rdquo; because it was dark. Byer testified he complained to Captain Amend about the volume of &ldquo;sergeant special&rdquo; stops starting around mid-to-late January 2023 (an informal, off-site meeting at a coffee shop before his shift), and complained again about what he described to Amend as &ldquo;racial profiling&rdquo; in a second meeting in late January or early February 2023 &mdash; followed by additional complaints on February 9 and March 31, 2023, the specifics of which he could not recall in detail. Byer testified Amend's response was consistently some version of &ldquo;don't expect anything to happen overnight, but I will talk to him,&rdquo; and that Byer told Amend he could not continue tolerating the treatment and did not want to have to leave his job. Byer testified he does not have direct knowledge that Amend ever spoke to Koh, but believed he did because the number of car stops assigned to him in his own beat increased further afterward. Byer also testified about two personnel-log entries Koh wrote him up on &mdash; one accusing him of falling asleep on shift (which Byer disputed, saying he simply didn't hear a radio call before immediately answering a follow-up phone call), and one involving jail-cell key handling during an inmate transport, where Byer testified some of Koh's written details were inaccurate but that he was told refusing to sign such logs was &ldquo;heavily frowned upon,&rdquo; so he signed anyway. Byer testified his May 31, 2023 annual evaluation, authored solely by Koh, gave him an overall rating of &ldquo;Needs Improvement&rdquo; and recommended against a step increase he was otherwise eligible for, despite having received a step increase at his six-month mark. Byer submitted his resignation within a day of signing that evaluation, testifying it was the deciding factor together with his fear &mdash; based on what he says happened to his prior partner, Officer Zack Goble, whose probation was extended near its 18-month mark and who was terminated shortly after complaining to HR &mdash; that continuing at La Palma would lead to the same outcome. Byer testified that in his exit interview and a follow-up written email to HR analyst Crystal Wilkerson, he reported Koh's treatment, the &ldquo;all Korean&rdquo; comment, and his prior complaints to Amend and to Sergeant Guerrero, and that he never received a response to his follow-up requests for an update. He also testified he understood two other officers, Andrew Kim and an officer he knew as &ldquo;Suh&rdquo; &mdash; both of whom he believed to be Asian &mdash; had separately had complaints or issues with Koh, including one instance where Koh confronted Kim in a parking lot after learning Kim had given him an unfavorable anonymous review.</p>
+
+        <p class="kicker-sm">Possible relevance to the verdict</p>
+        <div class="relevance">
+          <strong>The plaintiff's own account, and the throughline connecting it:</strong> Because Byer is the plaintiff, this testimony is inherently self-interested and should be weighed accordingly &mdash; but it is also the account that ties together every other deposition summarized on this page. His description of the disparity in &ldquo;sergeant special&rdquo; stops between himself and Choi lines up with what Choi and Koh each separately testified to (Koh himself later put a number on it &mdash; roughly nine assignments to Byer versus three to Choi). His timeline of repeated, undocumented complaints to Captain Amend beginning in January 2023 matches the gap in documentation Amend's own deposition acknowledges. And his account of resigning immediately after a negative evaluation he believed was written to force him out mirrors what he says happened to Zack Goble under the same supervisor. Combined with the other depositions on this page, Byer's testimony supplies the connective narrative &mdash; disparate treatment, repeated complaints, no documented investigation, and a negative evaluation that preceded his departure &mdash; that a jury could have relied on in reaching the $8.4 million verdict.
+        </div>
+
+        <p class="caveat">This summary is based on selected excerpts across a 256-page transcript, not the complete document, and reflects both direct examination by defense counsel and a brief re-direct by plaintiff's counsel at the close of the deposition. As the plaintiff, Byer has a direct financial and personal stake in the outcome of the case, and this account should be read alongside &mdash; not in place of &mdash; the other depositions on this page. It does not reflect the full testimony, cross-examination in its entirety, or any context the excerpted portions omit.</p>
+      
+        <p class="depo-source-link"><a href="Byer-Ross.pdf" target="_blank" rel="noopener">View full deposition excerpt (PDF) &mdash; Ross Byer</a></p>
+      </div>
+    </div>
+
+    <div class="witness" id="dep-lopino">
+      <span class="witness-tag">Deposition 8 of 8</span>
+      <div class="witness-head">
+        <div>
+          <h3>Ronald Lopino</h3>
+          <p class="witness-role">Former City employee · Field Training Officer &amp; Corporal, La Palma Police Department (2015&ndash;2024); currently Orange County Sheriff's Department</p>
+          <span class="witness-status">Transcript excerpts reviewed</span>
+        </div>
+        <div class="witness-meta">
+          Deposed: August 11, 2025 (remote videorecorded)<br>
+          Called by: Plaintiff (Petronelli), with brief follow-up by defense counsel (Cohen)<br>
+          Pages reviewed: 1&ndash;2, 9&ndash;21, 24&ndash;31, 34&ndash;43, 46&ndash;47, 51&ndash;52, 54, 56&ndash;57 (of 59)
+        </div>
+      </div>
+      <div class="witness-body">
+
+        <p class="kicker-sm">Who he is</p>
+        <p>Lopino worked for the La Palma Police Department full-time from approximately 2015 to 2024 &mdash; about nine years, and his first position as a sworn officer, following roughly five years of part-time law enforcement work and a stint as a teenage Police Explorer. He left in 2024 for the Orange County Sheriff's Department, testifying the move was driven by "a plethora of reasons," including greater opportunity at the Sheriff's Department and difficulties at La Palma. Over his time at La Palma he held several collateral assignments &mdash; armorer, range positions, and, most notably, field training officer (FTO) and corporal &mdash; and estimates he trained roughly ten new officers over about seven years as an FTO. He reported to Sergeant Won Koh for seven of his nine years at the department. He identifies as white, of Italian, German, and Swedish or other European descent.</p>
+
+        <p class="kicker-sm">Connection to the case</p>
+        <p>Lopino was Ross Byer's field training officer for Byer's third training phase and his final "ghost phase" &mdash; the stage where a trainee patrols essentially unsupervised while the FTO rides along without intervening. He personally completed Byer's daily observation reports and both end-of-phase written summaries, and testified he wrote them himself, without assistance, based solely on his own observations. He also had some role training Officer Jay Choi at an earlier point in Choi's onboarding, though he could not recall the specifics, and was separately supervised by Sergeant Koh &mdash; the accused supervisor at the center of the case &mdash; for most of his tenure, including during the period Koh also supervised Byer.</p>
+
+        <p class="kicker-sm">Key testimony</p>
+        <p>On Byer's training, Lopino testified Byer "performed well" and "satisfactorily," with report-writing style and structure &mdash; not accuracy or content &mdash; as his only noted area for improvement; he recommended Byer be advanced first to phase four and later to solo patrol status. Asked to compare Byer's and Choi's performance, Lopino testified the two were "very similar," that "one didn't absolutely outshine the other," and that both were signed off to work solo without issue, though he noted Byer had more life experience and came across as more comfortable interacting with the public.</p>
+        <p>On Sergeant Koh, Lopino gave an extended, independent account of the "sergeant special" practice &mdash; corroborating the mechanism Choi and Koh each separately described, but adding detail from his own experience as one of the officers he says was targeted by it. He testified Koh would personally pull over vehicles in an officer's beat and then hand off the resulting paperwork, ostensibly to give newer officers training reps, but that in practice Koh spared officers he personally liked &mdash; naming one four-to-six-year officer, Bradley Stene, specifically &mdash; while repeatedly dumping specials on veteran officers he didn't favor, including Lopino himself. Lopino testified he pulled his own activity statistics from the department's records system (referred to as "Spillman" or "Flex") and compared them to Stene's over a four-month window, finding he had substantially more traffic stops and other self-initiated activity than Stene despite receiving far more "sergeant specials" &mdash; directly undercutting the stated rationale that the specials were about proactivity or training need. He testified "[t]here was no level of proactive you can be to satisfy him if he did not like you."</p>
+        <p>Lopino also testified that officers could once cross-check these statistics on a shared drive, until administration restricted access to it around 2022 or 2023, after Officer Zachary Goble used the same records to show that a negative evaluation he'd received was inaccurate. Lopino testified he learned secondhand from a dispatcher that Captain Amend had directed a records employee to lock the file specifically after Goble's use of it. Separately, Lopino testified he served as a witness in an internal-affairs investigation into Koh that resulted in Koh's sergeant probationary status being extended and a delayed pay raise; Koh confronted him afterward at a courthouse, telling him "you cost me money," which Lopino said marked an escalation in "sergeant specials," negative evaluations, and close GPS monitoring of his patrol vehicle. He described one specific incident in which fear of a negative evaluation over insufficient vehicle movement &mdash; monitored via GPS by Koh &mdash; led him to keep driving in circles rather than pull over for a break during a night shift, until he fell asleep at the wheel with his foot on the brake at a red light for what he estimated was several minutes, waking only when a passing car alerted him. He testified he reported the incident to Captain Amend and asked to be moved to a different shift; Amend's only response, according to Lopino, was that he "need[ed] to grow up and learn to get along with people," with no shift change and no corrective action taken regarding Koh's conduct. Lopino testified he raised concerns about Koh with Captain Amend two or three times, always verbally and never in writing, and that "on no level was it ever handled" &mdash; the behavior "either continued or sometimes got worse." He also testified that a workplace survey he'd been told was anonymous evidently wasn't, since Koh confronted him in a hallway shortly afterward about something he'd written in it. Asked directly, Lopino did not attribute Koh's treatment of him to race or national origin; he characterized it as arbitrary personal favoritism, and separately testified he believed Koh favored Choi in a similar way.</p>
+
+        <p class="kicker-sm">Possible relevance to the verdict</p>
+        <div class="relevance">
+          <strong>Independent corroboration &mdash; with an important complication:</strong> Lopino has no apparent personal stake in Byer's outcome, yet his testimony corroborates, from his own separate experience, the same core mechanism at the heart of the case: Koh distributing "sergeant special" work based on personal favor rather than performance, tracked and provable through the department's own records system. His account of that records system being locked down shortly after Officer Goble used it to contest a bad evaluation reinforces a pattern &mdash; visible across several depositions on this page &mdash; of internal documentation surfacing problems and then becoming inaccessible rather than acted on. His testimony that he complained to Captain Amend multiple times, always verbally, and that nothing changed, extends the "no investigation, no correction" pattern established by Wilkerson, Choi, Goble, and Amend's own deposition. The GPS-monitoring and fell-asleep-at-the-wheel account is a concrete, independent example of a complaint and a request for relief (a shift change) reaching Amend directly and going nowhere beyond a comment that Lopino needed to "get along with people." At the same time, Lopino's own explanation for why he was targeted &mdash; personal favoritism, not race or national origin &mdash; is a meaningful complication for readers: as a white officer who says he was treated the same way Byer describes being treated, his testimony supports a broader picture of an arbitrary, poorly supervised sergeant and an unresponsive chain of command, but does not on its own corroborate the racial or national-origin motive central to Byer's specific discrimination claim.
+        </div>
+
+        <p class="caveat">This summary is based on selected excerpts (highlighted portions of a 59-page transcript, not the complete document). It does not reflect the full testimony, cross-examination in its entirety, or any context the excerpted portions omit.</p>
+      
+        <p class="depo-source-link"><a href="Lopino-Ronald.pdf" target="_blank" rel="noopener">View full deposition excerpt (PDF) &mdash; Ronald Lopino</a></p>
+      </div>
+    </div>
+
+    <p class="kicker-sm" style="margin-top:34px;">Status of this record</p>
+    <div class="placeholder-entry">
+      Ronald Lopino's deposition, above, is the last deposition transcript currently on file with the La Palma Record for Byer v. City of La Palma. If additional transcripts become available, this page will be updated.
+    </div>
+
+  </div>
+</section>
+
+<section class="detail-nav-foot">
+  <div class="wrap">
+    <h4>Browse the other threads</h4>
+    <div class="nav-links">
+        <a class="pill" href="term-limits.html">⧖ Term Limits</a>
+        <a class="pill" href="pension-record.html">$ Measure JJ and the Pension Debt</a>
+        <a class="pill" href="leadership.html">♛ Leadership Transitions</a>
+        <a class="pill" href="litigation.html">⚖ Employment Litigation</a>
+        <a class="pill current" href="depositions.html">D Depositions</a>
+        <a class="pill" href="transparency.html">⊞ Public Meeting Access and Transparency</a>
+        <a class="pill" href="voter-questions.html">✓ Candidate Questions</a>
+        <a class="pill" href="sources.html">§ Sources</a>
+        <a class="pill" href="contact.html">✉ Contact</a>
+        <a class="pill" href="about.html">ⓘ About</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <nav class="foot-links">
+      <a href="index.html">Summary Home</a>
+      <a href="voter-questions.html">Questions for City Council Candidates</a>
+      <a href="sources.html">Sources</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="foot-bottom">
+      Independent research concerning La Palma city government.
+      <span class="foot-tagline">You can send comments, questions, and corrections to <a href="mailto:lapalmarecord@gmail.com">lapalmarecord@gmail.com</a>.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var buttons = document.querySelectorAll('.dep-nav-btn');
+    buttons.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var targetId = btn.getAttribute('data-target');
+
+        buttons.forEach(function(b){
+          b.classList.remove('is-active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-selected', 'true');
+
+        document.querySelectorAll('.witness').forEach(function(w){
+          w.classList.remove('is-visible');
+        });
+        var target = document.getElementById(targetId);
+        if (target) {
+          target.classList.add('is-visible');
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
