@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#101424"/>
+
+  <!-- trunk: short, bold, straight -->
+  <path d="M29 52 L 31 26 L 37 26 L 35 52 Z" fill="#F3FAF8"/>
+
+  <!-- fronds: 4 fat teardrop leaves fanning from crown -->
+  <g fill="#F3FAF8">
+    <path d="M33 27 C 33 27, 12 24, 8 12 C 20 12, 32 18, 33 27 Z"/>
+    <path d="M33 27 C 33 27, 10 30, 10 42 C 18 34, 28 29, 33 27 Z"/>
+    <path d="M33 27 C 33 27, 54 24, 58 12 C 46 12, 34 18, 33 27 Z"/>
+    <path d="M33 27 C 33 27, 56 30, 56 42 C 48 34, 38 29, 33 27 Z"/>
+  </g>
+
+  <!-- single coconut accent -->
+  <circle cx="33" cy="28" r="3.6" fill="#EA463A"/>
+</svg>
