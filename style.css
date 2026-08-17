@@ -197,7 +197,7 @@
     margin:2px 0 10px;
     color:var(--navy);
   }
-  .thread p.summary{margin:0 0 14px;max-width:none;}
+  .thread p.summary{margin:0 0 14px;max-width:70ch;}
   .thread ul.facts{
     list-style:none;margin:0 0 18px;padding:0;
     display:grid;gap:8px;
@@ -431,12 +431,20 @@
 }
 .carousel-dots{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;max-width:220px;}
 .carousel-dot{
-  width:8px;height:8px;border-radius:50%;
+  width:28px;height:28px;
   border:none;padding:0;
-  background:var(--line);
+  background:transparent;
   cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
 }
-.carousel-dot.is-active{background:var(--gold);}
+.carousel-dot::after{
+  content:'';
+  width:8px;height:8px;border-radius:50%;
+  background:var(--line);
+  display:block;
+  transition:background .15s ease;
+}
+.carousel-dot.is-active::after{background:var(--gold);}
 .carousel-playpause{
   display:none;
   position:absolute;
@@ -478,7 +486,7 @@
   font-size:0.8rem;
   font-weight:600;
   border:1px solid rgba(255,255,255,.35);
-  padding:7px 14px;
+  padding:13px 16px;
   border-radius:20px;
   white-space:nowrap;
   transition:background .15s ease, border-color .15s ease;
@@ -527,7 +535,7 @@
   line-height:1.68;
 }
 .detail-body .entry.entry-wide{
-  max-width:none;
+  max-width:80ch;
 }
 .detail-body .entry .date{
   font-weight:700;
@@ -555,7 +563,7 @@
   color:var(--navy);
   text-decoration:none;
   font-size:0.88rem;
-  padding:9px 15px;
+  padding:13px 16px;
   border-radius:20px;
 }
 .pill:hover{border-color:var(--navy);background:var(--palm-light);}
@@ -583,11 +591,18 @@ figure.chart-figure figcaption{
   border-top:1px solid var(--line);
   background:var(--parchment);
 }
+.table-scroll{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  margin:18px 0 26px;
+  max-width:900px;
+}
 .promise-table{
   width:100%;
+  min-width:560px;
   max-width:none;
   border-collapse:collapse;
-  margin:18px 0 26px;
+  margin:0;
   font-size:0.92rem;
 }
 .promise-table th{
@@ -665,4 +680,16 @@ ul.src-list li a{word-break:break-word;}
 .src-note strong{color:var(--navy);}
 @media (max-width:640px){
   .src-jump{flex-direction:column;}
+}
+
+/* Accessible focus states, styled to match brand rather than browser default */
+a:focus-visible,
+button:focus-visible,
+.pill:focus-visible,
+.carousel-arrow:focus-visible,
+.carousel-dot:focus-visible,
+.dep-nav-btn:focus-visible{
+  outline:3px solid var(--gold);
+  outline-offset:2px;
+  border-radius:4px;
 }
