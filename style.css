@@ -693,3 +693,15 @@ button:focus-visible,
   outline-offset:2px;
   border-radius:4px;
 }
+
+/* Source / document / external reference links: bold, underlined, blue */
+.source-link,
+.source-link:visited{
+  font-weight:700;
+  text-decoration:underline;
+  color:#1550c9;
+}
+.source-link:hover{
+  color:#0d3a94;
+  text-decoration:underline;
+}
