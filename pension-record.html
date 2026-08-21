@@ -17,15 +17,6 @@
 <link rel="icon" href="favicon-192x192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="style.css">
-<style>
-  /* Wide-format override for dense data-dashboard graphics (this page only).
-     The shared .chart-figure rule caps at max-width:74ch (~650px), which is
-     right for the simple jj-chart.png but far too narrow for a multi-panel
-     dashboard graphic — it was rendering at under half its designed width.
-     This scoped class removes that cap for this figure only. */
-  figure.chart-figure.chart-figure-wide{max-width:none;width:100%;}
-  figure.chart-figure.chart-figure-wide figcaption{font-size:0.9rem;line-height:1.55;}
-</style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WNBM73BE3Q"></script>
 <script>
@@ -45,13 +36,31 @@
   <div class="wrap">
     <div class="detail-header-top">
       <div class="breadcrumb"><a href="index.html">The La Palma Record</a> / Measure JJ and the Pension Debt</div>
-      <a class="btn-home" href="index.html"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 7.5 8 2l6 5.5M4 6.5V14h8V6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Home</a>
     </div>
     <div class="thread-badge-lg">$</div>
     <h1>Measure JJ and the Pension Debt</h1>
     <p class="dsub dsub-wide">Measure JJ promised a nine-year pension payoff in 2016. The audited numbers, and what a sitting official told the council in 2025.</p>
   </div>
 </header>
+
+<nav class="threadnav" id="threads">
+  <div class="wrap">
+    <ul>
+      <li><a href="index.html"><span class="num"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-2px"><path d="M2 7.5 8 2l6 5.5M4 6.5V14h8V6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Home</a></li>
+      <li><a href="term-limits.html"><span class="num">⧖</span>Term Limits</a></li>
+      <li><a class="current" href="pension-record.html"><span class="num">$</span>Pension Debt</a></li>
+      <li><a href="leadership.html"><span class="num">♛</span>Leadership</a></li>
+      <li><a href="litigation.html"><span class="num">⚖</span>Litigation</a></li>
+      <li><a href="depositions.html"><span class="num">D</span>Depositions</a></li>
+      <li><a href="transparency.html"><span class="num">⊞</span>Transparency</a></li>
+      <li><a href="voter-questions.html"><span class="num">✓</span>Candidate Questions</a></li>
+      <li><a href="La-Palma-Record-Full.pdf" target="_blank" rel="noopener"><span class="num">⬇</span>Full Record (PDF)</a></li>
+      <li><a href="sources.html"><span class="num">§</span>Sources</a></li>
+      <li><a href="contact.html"><span class="num">✉</span>Contact</a></li>
+      <li><a href="about.html"><span class="num">ⓘ</span>About</a></li>
+    </ul>
+  </div>
+</nav>
 
 <section class="detail-body">
   <div class="wrap">
@@ -77,11 +86,13 @@
         <li>CalPERS' current amortization schedule for the Safety plan alone extends to Fiscal Year 2043-44 and shows <strong><em>$7,927,851</em></strong> in interest still projected to be paid on that plan's UAL under the existing schedule — the opposite of the “$20 million saved” the campaign promised. <strong style="text-decoration:underline;text-transform:uppercase;">No public accounting showing $20 million in realized savings, in any form, has been identified in the record reviewed for this document.</strong></li>
       </ul>
 
-      <p class="entry entry-wide">The chart below extends this trend across the full decade CalPERS has on file, drawn from CalPERS' Actuarial Valuation Reports for the City's Safety/Police and Miscellaneous plans, June 30, 2015 through June 30, 2024.</p>
+      <p class="entry entry-wide"><span class="date">The trend, charted — </span>CalPERS publishes the underlying employer contribution rates and funding-history figures every year; the numbers above are the two most recent data points in a nine-year climb, not an isolated bad year. Charted below, using CalPERS' own Actuarial Valuation Reports from June 30, 2015 through June 30, 2024: the employer normal cost rate on every one of the City's four rate plans has risen every year since 2015, led by the Safety (police) first-tier plan, which climbed from 21.4% of payroll in 2015 to 29.4% in 2024; the combined annual UAL payment grew from $0.9 million to $2.5 million over the same period, a 175.6% increase; and while the City's total pension Accrued Liability grew 77.7% (from $52.0 million to $92.4 million), the Unfunded Accrued Liability grew faster in dollar terms — from $15.6 million to $25.3 million — leaving the funded ratio at 72.6% in 2024, still short of where it stood at its 2021 peak of 82.9% and still well short of fully funded.</p>
 
-      <figure class="chart-figure chart-figure-wide">
-        <img src="calpers-employer-contribution-funding-history.png" alt="City of La Palma employer contribution and funding history, CalPERS actuarial valuations June 30, 2015 through June 30, 2024. Top panel shows employer normal cost rates rising across all four rate plans shown (Safety 691 First Tier 21.4% to 29.4%, Safety 25729 PEPRA 13.5% to 18.1%, Misc. 690 9.9% to 11.9%, Misc. 27220 PEPRA 6.5% to 8.0%) alongside the combined annual unfunded liability payment climbing from $0.9 million in 2015 to $2.5 million in 2024, a 175.6% increase (CalPERS' published schedule has no reported FY 2022 figure and moves directly from 2021 to 2023). Bottom panel is a stacked bar chart showing Accrued Liability split into its funded portion and its Unfunded Accrued Liability portion for each year 2015 to 2024, with a full data table alongside listing Accrued Liability, Unfunded Accrued Liability, and Funded Ratio for all ten years.">
-        <figcaption>A decade of CalPERS data compiled in one view. <strong>Top:</strong> employer normal cost rates have risen across every rate plan shown since 2015, while the combined annual UAL payment has grown 175.6% ($0.9M &#8594; $2.5M) — CalPERS' own published schedule has no reported figure for FY 2022, moving directly from 2021 to 2023. <strong>Bottom:</strong> total Accrued Liability has grown from $52.0M to $92.4M, and the Unfunded Accrued Liability portion of it — shown in gold within each bar — grew from $15.6M to $25.3M, as the funded ratio inched from 70.1% to 72.6%, still short of fully funded. Source: CalPERS Actuarial Valuation Reports, Employer Contribution History and Funding History tables (Safety/Police and Miscellaneous).</figcaption>
+      <figure class="chart-figure">
+        <a href="calpers-employer-contribution-funding-history.png" target="_blank" rel="noopener" aria-label="Open full-size chart in a new tab">
+          <img src="calpers-employer-contribution-funding-history.png" alt="Two-panel CalPERS dashboard for the City of La Palma, June 30, 2015 through June 30, 2024. Top panel: employer normal cost rate by rate plan, showing Safety 691 rising from 21.4% to 29.4% of payroll, and combined annual unfunded liability payment rising from $0.9 million to $2.5 million. Bottom panel: Accrued Liability and Unfunded Accrued Liability by year, showing Accrued Liability growing from $52.0 million to $92.4 million and Unfunded Accrued Liability growing from $15.6 million to $25.3 million, with a funding history summary table listing AL, UAL, and funded percentage for every year 2015-2024.">
+        </a>
+        <figcaption><span class="zoom-hint">Tap image to view full size</span>Nine years of CalPERS' own Actuarial Valuation Reports for the City of La Palma (Safety and Miscellaneous plans combined), June 30, 2015 through June 30, 2024: employer normal cost rates by plan, the combined annual UAL payment, and Accrued Liability vs. Unfunded Accrued Liability with a full year-by-year funding history table. Source: CalPERS Actuarial Valuation Reports, Employer Contribution History and Funding History tables (Safety/Police and Miscellaneous).</figcaption>
       </figure>
 
       <p class="entry entry-wide"><span class="date">Promise vs. documented result — </span>The comparison below places the campaign's specific, quantified commitments next to what CalPERS' own records show nine years later.</p>
@@ -106,23 +117,6 @@
   </div>
 </section>
 
-<section class="detail-nav-foot">
-  <div class="wrap">
-    <h4>Browse the other threads</h4>
-    <div class="nav-links">
-        <a class="pill" href="term-limits.html">⧖ Term Limits</a>
-        <a class="pill current" href="pension-record.html">$ Measure JJ and the Pension Debt</a>
-        <a class="pill" href="leadership.html">♛ Leadership Transitions</a>
-        <a class="pill" href="litigation.html">⚖ Employment Litigation</a>
-        <a class="pill" href="depositions.html">D Depositions</a>
-        <a class="pill" href="transparency.html">⊞ Public Meeting Access and Transparency</a>
-        <a class="pill" href="voter-questions.html">✓ Candidate Questions</a>
-        <a class="pill" href="sources.html">§ Sources</a>
-        <a class="pill" href="contact.html">✉ Contact</a>
-        <a class="pill" href="about.html">ⓘ About</a>
-    </div>
-  </div>
-</section>
 
 <footer>
   <div class="wrap">
@@ -136,6 +130,7 @@
     <div class="foot-bottom">
       INDEPENDENT RESEARCH CONCERNING LA PALMA CITY GOVERNMENT.
       <span class="foot-tagline">You can send comments, questions, and corrections to <a href="mailto:lapalmarecord@gmail.com">lapalmarecord@gmail.com</a>.</span>
+      <span class="foot-tagline">Privacy: this site uses Google Analytics to measure traffic and readership. It does not collect your name, email, or other personally identifying information, and nothing collected is sold, shared with the City of La Palma, or used for advertising. Most browsers and ad-blocking extensions can block it entirely without affecting your ability to read this site. See Google's privacy policy at <a class="source-link" href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</span>
     </div>
   </div>
 </footer>
