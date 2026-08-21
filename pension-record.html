@@ -17,6 +17,15 @@
 <link rel="icon" href="favicon-192x192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="style.css">
+<style>
+  /* Wide-format override for dense data-dashboard graphics (this page only).
+     The shared .chart-figure rule caps at max-width:74ch (~650px), which is
+     right for the simple jj-chart.png but far too narrow for a multi-panel
+     dashboard graphic — it was rendering at under half its designed width.
+     This scoped class removes that cap for this figure only. */
+  figure.chart-figure.chart-figure-wide{max-width:none;width:100%;}
+  figure.chart-figure.chart-figure-wide figcaption{font-size:0.9rem;line-height:1.55;}
+</style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WNBM73BE3Q"></script>
 <script>
@@ -70,7 +79,7 @@
 
       <p class="entry entry-wide">The chart below extends this trend across the full decade CalPERS has on file, drawn from CalPERS' Actuarial Valuation Reports for the City's Safety/Police and Miscellaneous plans, June 30, 2015 through June 30, 2024.</p>
 
-      <figure class="chart-figure">
+      <figure class="chart-figure chart-figure-wide">
         <img src="calpers-employer-contribution-funding-history.png" alt="City of La Palma employer contribution and funding history, CalPERS actuarial valuations June 30, 2015 through June 30, 2024. Top panel shows employer normal cost rates rising across all four rate plans shown (Safety 691 First Tier 21.4% to 29.4%, Safety 25729 PEPRA 13.5% to 18.1%, Misc. 690 9.9% to 11.9%, Misc. 27220 PEPRA 6.5% to 8.0%) alongside the combined annual unfunded liability payment climbing from $0.9 million in 2015 to $2.5 million in 2024, a 175.6% increase (CalPERS' published schedule has no reported FY 2022 figure and moves directly from 2021 to 2023). Bottom panel is a stacked bar chart showing Accrued Liability split into its funded portion and its Unfunded Accrued Liability portion for each year 2015 to 2024, with a full data table alongside listing Accrued Liability, Unfunded Accrued Liability, and Funded Ratio for all ten years.">
         <figcaption>A decade of CalPERS data compiled in one view. <strong>Top:</strong> employer normal cost rates have risen across every rate plan shown since 2015, while the combined annual UAL payment has grown 175.6% ($0.9M &#8594; $2.5M) — CalPERS' own published schedule has no reported figure for FY 2022, moving directly from 2021 to 2023. <strong>Bottom:</strong> total Accrued Liability has grown from $52.0M to $92.4M, and the Unfunded Accrued Liability portion of it — shown in gold within each bar — grew from $15.6M to $25.3M, as the funded ratio inched from 70.1% to 72.6%, still short of fully funded. Source: CalPERS Actuarial Valuation Reports, Employer Contribution History and Funding History tables (Safety/Police and Miscellaneous).</figcaption>
       </figure>
