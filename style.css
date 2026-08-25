@@ -214,13 +214,13 @@
     font-size:1.5rem;
     margin:2px 0 10px;
     color:var(--navy);
-    max-width:70ch;
+    max-width:100ch;
   }
-  .thread p.summary{margin:0 0 14px;max-width:70ch;}
+  .thread p.summary{margin:0 0 14px;max-width:100ch;}
   .thread ul.facts{
     list-style:none;margin:0 0 18px;padding:0;
     display:grid;gap:8px;
-    max-width:70ch;
+    max-width:100ch;
   }
   .thread ul.facts li{
     font-size:0.95rem;
@@ -280,7 +280,7 @@
     margin:0 0 6px;
     font-size:1.35rem;
   }
-  .fullband p{margin:0;color:var(--ink-soft);max-width:52ch;}
+  .fullband p{margin:0;color:var(--ink-soft);max-width:none;}
 
   /* Footer */
   footer{
@@ -873,6 +873,7 @@ details.tl-entry summary .tl-teaser{font-weight:600;font-size:0.95rem;color:var(
 }
 .tag-documented{background:var(--palm-light);color:var(--navy);}
 .tag-analysis{background:rgba(234,70,58,0.13);color:var(--gold-deep);}
+.tag-opinion{background:rgba(75,94,166,0.13);color:var(--palm);}
 
 /* Documents callout */
 .docs-callout{
