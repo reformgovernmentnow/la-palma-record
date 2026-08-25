@@ -249,6 +249,20 @@
   .thread .readmore:hover{color:var(--gold-deep);border-color:var(--gold-deep);}
   .thread .readmore svg{width:13px;height:13px;}
 
+  .see-record{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:0.95rem;
+    font-weight:600;
+    color:var(--navy);
+    text-decoration:none;
+    border-bottom:1px solid var(--navy);
+    padding-bottom:1px;
+  }
+  .see-record:hover{color:var(--gold-deep);border-color:var(--gold-deep);}
+  .see-record svg{width:13px;height:13px;}
+
   /* Full record CTA band */
   section.fullband{
     background:var(--palm-light);
@@ -650,6 +664,22 @@ figure.chart-figure figcaption{
   font-size:0.94rem;
 }
 .note-block strong{color:var(--navy);}
+
+/* Source-document citations — marks every inline citation link (PDFs,
+   court filings, news coverage, government records) as visually distinct
+   from ordinary same-site navigation links. */
+.source-link{
+  color:var(--palm);
+  text-decoration:underline;
+  text-decoration-style:dotted;
+  text-decoration-color:var(--palm);
+  text-underline-offset:2px;
+}
+.source-link:hover{color:var(--gold-deep);text-decoration-color:var(--gold-deep);}
+.source-link[href$=".pdf"]::after{content:" 📄";font-size:0.82em;}
+.source-link[href$=".png"]::after,
+.source-link[href$=".jpg"]::after,
+.source-link[href$=".jpeg"]::after{content:" 🖼";font-size:0.82em;}
 
 /* Sources / references page */
 .src-jump{
