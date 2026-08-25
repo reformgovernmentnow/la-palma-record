@@ -515,6 +515,13 @@
 }
 .breadcrumb a{color:#C7CFEA;text-decoration:none;}
 .breadcrumb a:hover{color:#fff;text-decoration:underline;}
+.last-updated{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.78rem;
+  letter-spacing:.04em;
+  color:#8A96C9;
+  margin:14px 0 0;
+}
 .btn-home{
   display:inline-flex;
   align-items:center;
