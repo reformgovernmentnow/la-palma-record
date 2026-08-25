@@ -214,11 +214,13 @@
     font-size:1.5rem;
     margin:2px 0 10px;
     color:var(--navy);
+    max-width:70ch;
   }
   .thread p.summary{margin:0 0 14px;max-width:70ch;}
   .thread ul.facts{
     list-style:none;margin:0 0 18px;padding:0;
     display:grid;gap:8px;
+    max-width:70ch;
   }
   .thread ul.facts li{
     font-size:0.95rem;
