@@ -825,7 +825,7 @@ details.tl-entry summary .tl-date{
 }
 details.tl-entry summary .tl-teaser{font-weight:600;font-size:0.95rem;color:var(--navy);}
 .tl-body{padding:0 18px 20px 46px;}
-.tl-body .entry{margin:0 0 16px;font-size:0.97rem;max-width:74ch;}
+.tl-body .entry{margin:0 0 16px;font-size:0.97rem;max-width:100ch;}
 .tl-body .entry:last-child{margin-bottom:0;}
 
 /* Fact / analysis tags */
