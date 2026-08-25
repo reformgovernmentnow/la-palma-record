@@ -58,15 +58,16 @@
   h1.title{
     font-family:'Source Serif 4', serif;
     font-weight:700;
-    font-size:clamp(1.7rem, 8vw, 3.3rem);
+    font-size:clamp(1.8rem, 4.4vw, 3.3rem);
     line-height:1.12;
     margin:0 0 12px;
     max-width:none;
+    white-space:nowrap;
     text-shadow:0 2px 10px rgba(0,0,0,.55);
   }
   .subtitle{
     font-size:1.08rem;
-    color:#C7CFEA;
+    color:#fff;
     max-width:none;
     margin:0 0 18px;
     text-shadow:0 1px 6px rgba(0,0,0,.5);
@@ -130,7 +131,6 @@
     border-right:1px solid rgba(255,255,255,.08);
   }
   nav.threadnav a:hover{color:#fff;background:rgba(255,255,255,.05);}
-  nav.threadnav a.current{color:#fff;background:rgba(255,255,255,.1);font-weight:600;}
   nav.threadnav .num{color:var(--gold);font-family:'IBM Plex Mono',monospace;margin-right:6px;}
 
   /* Stat strip */
@@ -372,11 +372,6 @@
     .thread-badge{margin-bottom:4px;}
     nav.threadnav a{border-right:none;border-bottom:1px solid rgba(255,255,255,.08);flex:1 1 100%;}
   }
-  @media (max-width:480px){
-    .wrap{padding:0 18px;}
-    .stat-grid{grid-template-columns:1fr;}
-    .stat{padding-left:10px;}
-  }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto;}
     .carousel-item.is-active{animation:none;}
@@ -583,15 +578,10 @@ figure.chart-figure{
   background:var(--paper);
   max-width:74ch;
 }
-figure.chart-figure a{
-  display:block;
-  line-height:0;
-}
 figure.chart-figure img{
   display:block;
   width:100%;
   height:auto;
-  cursor:zoom-in;
 }
 figure.chart-figure figcaption{
   padding:12px 16px;
@@ -601,31 +591,11 @@ figure.chart-figure figcaption{
   border-top:1px solid var(--line);
   background:var(--parchment);
 }
-figure.chart-figure .zoom-hint{
-  display:block;
-  font-style:normal;
-  font-weight:600;
-  font-size:0.76rem;
-  letter-spacing:.03em;
-  text-transform:uppercase;
-  color:var(--palm);
-  margin-bottom:4px;
-}
 .table-scroll{
   overflow-x:auto;
   -webkit-overflow-scrolling:touch;
   margin:18px 0 26px;
   max-width:900px;
-}
-@media (max-width:640px){
-  .table-scroll::before{
-    content:"Swipe to see full table →";
-    display:block;
-    font-size:0.78rem;
-    font-style:italic;
-    color:var(--ink-soft);
-    margin-bottom:6px;
-  }
 }
 .promise-table{
   width:100%;
@@ -659,51 +629,19 @@ figure.chart-figure .zoom-hint{
 .note-block strong{color:var(--navy);}
 
 /* Sources / references page */
+.src-jump{
+  display:flex;flex-wrap:wrap;gap:10px;
+  margin:0 0 8px;
+}
 .src-group{margin:38px 0 6px;}
 .src-group:first-of-type{margin-top:6px;}
 .src-group h2{
   font-family:'Source Serif 4', serif;
   color:var(--navy);
   font-size:1.4rem;
-  margin:0;
+  margin:0 0 6px;
   padding-bottom:10px;
-}
-.src-group summary{
-  cursor:pointer;
-  list-style:none;
   border-bottom:2px solid var(--navy);
-}
-.src-group summary::-webkit-details-marker{display:none;}
-.src-group summary::marker{content:"";}
-.src-group summary h2{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px;
-  border-bottom:none;
-  padding-bottom:10px;
-}
-.src-group summary h2::after{
-  content:"+";
-  font-family:'Source Sans 3', sans-serif;
-  font-weight:700;
-  font-size:1.5rem;
-  line-height:1;
-  color:var(--palm);
-  flex-shrink:0;
-}
-.src-group[open] summary h2::after{
-  content:"–";
-}
-.src-group summary:hover h2{
-  color:var(--gold-deep);
-}
-.src-group summary:focus-visible{
-  outline:2px solid var(--gold-deep);
-  outline-offset:3px;
-}
-.src-group-body{
-  padding-top:2px;
 }
 .src-sub{
   font-family:'Source Sans 3', sans-serif;
@@ -740,6 +678,9 @@ ul.src-list li a{word-break:break-word;}
   color:var(--ink-soft);
 }
 .src-note strong{color:var(--navy);}
+@media (max-width:640px){
+  .src-jump{flex-direction:column;}
+}
 
 /* Accessible focus states, styled to match brand rather than browser default */
 a:focus-visible,
@@ -751,16 +692,4 @@ button:focus-visible,
   outline:3px solid var(--gold);
   outline-offset:2px;
   border-radius:4px;
-}
-
-/* Source / document / external reference links: bold, underlined, blue */
-.source-link,
-.source-link:visited{
-  font-weight:700;
-  text-decoration:underline;
-  color:#1550c9;
-}
-.source-link:hover{
-  color:#0d3a94;
-  text-decoration:underline;
 }
