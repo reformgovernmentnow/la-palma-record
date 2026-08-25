@@ -245,19 +245,19 @@
 
 <nav class="threadnav" id="threads">
   <div class="wrap">
-    <ul>
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="threadnavList">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span>Menu</span>
+    </button>
+    <ul id="threadnavList">
       <li><a href="index.html"><span class="num"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-2px"><path d="M2 7.5 8 2l6 5.5M4 6.5V14h8V6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Home</a></li>
+      <li><a href="litigation.html"><span class="num">⚖</span>Litigation</a></li>
       <li><a href="term-limits.html"><span class="num">⧖</span>Term Limits</a></li>
       <li><a href="pension-record.html"><span class="num">$</span>Pension Debt</a></li>
-      <li><a href="leadership.html"><span class="num">♛</span>Leadership</a></li>
-      <li><a href="litigation.html"><span class="num">⚖</span>Litigation</a></li>
-      <li><a class="current" href="depositions.html"><span class="num">D</span>Depositions</a></li>
       <li><a href="transparency.html"><span class="num">⊞</span>Transparency</a></li>
+      <li><a href="leadership.html"><span class="num">♛</span>Leadership</a></li>
+      <li><a class="current" href="depositions.html"><span class="num">D</span>Depositions</a></li>
       <li><a href="voter-questions.html"><span class="num">✓</span>Candidate Questions</a></li>
-      <li><a href="La-Palma-Record-Full.pdf" target="_blank" rel="noopener"><span class="num">⬇</span>Full Record (PDF)</a></li>
-      <li><a href="sources.html"><span class="num">§</span>Sources</a></li>
-      <li><a href="contact.html"><span class="num">✉</span>Contact</a></li>
-      <li><a href="about.html"><span class="num">ⓘ</span>About</a></li>
     </ul>
   </div>
 </nav>
@@ -265,7 +265,7 @@
 <section class="detail-body">
   <div class="wrap">
 
-    <p class="entry entry-wide">A jury found the City of La Palma liable for failing to prevent race and national-origin discrimination against Ross Byer, a former La Palma police officer, who alleged he was subjected to reverse discrimination and retaliation by a supervisor. This page tracks deposition testimony from the case as transcripts become available to the La Palma Record, summarizing who each witness is, how they connect to the case, and what their testimony suggests about the conduct the jury found the City responsible for.</p>
+    <p class="entry entry-wide">A jury found the City of La Palma liable for failing to prevent race and national-origin discrimination against Ross Byer, a former La Palma police officer, who alleged he was subjected to reverse discrimination and retaliation by a supervisor. This page tracks deposition testimony from the case as transcripts become available to the La Palma Record, summarizing who each witness is, how they connect to the case, and what their testimony suggests about the conduct the jury found the City responsible for. <a class="source-link" href="Byer-Jury-Verdict.pdf" target="_blank" rel="noopener">View the signed jury verdict forms (PDF)</a>.</p>
 
     <div class="note-block">
       <strong>A note on completeness:</strong> This page reflects excerpts from eight depositions, not full transcripts. Ronald Lopino's testimony, added below, is the last deposition transcript currently on file with the La Palma Record for this case. These transcripts were obtained through the Orange County Superior Court's <a class="source-link" href="https://www.occourts.org/online-services/case-access" target="_blank" rel="noopener">online case access and record system</a>. In some cases, the only records available through that system are excerpts; complete deposition transcripts are not always available to the public. Where a summary below draws an inference beyond what the excerpt directly shows, that is flagged explicitly.
@@ -647,5 +647,6 @@
   })();
 </script>
 
+<script src="nav-toggle.js" defer></script>
 </body>
 </html>

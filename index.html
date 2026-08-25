@@ -47,18 +47,18 @@
 
 <nav class="threadnav" id="threads">
   <div class="wrap">
-    <ul>
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="threadnavList">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span>Menu</span>
+    </button>
+    <ul id="threadnavList">
+      <li><a href="litigation.html"><span class="num">⚖</span>Litigation</a></li>
       <li><a href="term-limits.html"><span class="num">⧖</span>Term Limits</a></li>
       <li><a href="pension-record.html"><span class="num">$</span>Pension Debt</a></li>
-      <li><a href="leadership.html"><span class="num">♛</span>Leadership</a></li>
-      <li><a href="litigation.html"><span class="num">⚖</span>Litigation</a></li>
-      <li><a href="depositions.html"><span class="num">D</span>Depositions</a></li>
       <li><a href="transparency.html"><span class="num">⊞</span>Transparency</a></li>
+      <li><a href="leadership.html"><span class="num">♛</span>Leadership</a></li>
+      <li><a href="depositions.html"><span class="num">D</span>Depositions</a></li>
       <li><a href="voter-questions.html"><span class="num">✓</span>Candidate Questions</a></li>
-      <li><a href="La-Palma-Record-Full.pdf"><span class="num">⬇</span>Full Record (PDF)</a></li>
-      <li><a href="sources.html"><span class="num">§</span>Sources</a></li>
-      <li><a href="contact.html"><span class="num">✉</span>Contact</a></li>
-      <li><a href="about.html"><span class="num">ⓘ</span>About</a></li>
     </ul>
   </div>
 </nav>
@@ -96,8 +96,8 @@
 
 <section class="intro">
   <div class="wrap">
-    <h2 class="intro-header">Five Threads</h2>
-    <p class="lede">This page presents a fact-based record built from public records, sworn filings, and the City's own documents and records. Five threads run through the last decade of La Palma governance. Each is summarized below, with the full sourced account and timeline one click away.</p>
+    <h2 class="intro-header">Five Things La Palma Residents Should Know</h2>
+    <p class="lede">A fact-based look at five major issues shaping La Palma City Hall, drawn from public records, sworn filings, and the City's own documents. Each topic is summarized below, with the full sourced record one click away.</p>
   </div>
 </section>
 
@@ -106,10 +106,25 @@
     <div class="carousel" id="threadsCarousel" data-autoplay="8000" aria-roledescription="carousel" aria-label="The five threads of the La Palma Record">
       <div class="carousel-viewport">
 
-        <article class="thread carousel-item is-active" id="thread-1" data-index="0">
+        <article class="thread carousel-item is-active" id="thread-4" data-index="0">
           <div class="thread-badge">01</div>
           <div>
-            <h2>Term Limits: From 1996 to Measure W</h2>
+            <h2>The Cases City Hall Can’t Ignore</h2>
+            <p class="summary">A police officer's discrimination complaints went undocumented and uninvestigated — a jury later awarded $8.4 million (the City's appeal is pending). Four months on, a second former employee sued over unpaid wages under nearly identical institutional silence. Separately, the City also faces a pending wrongful death suit over a December 2024 police pursuit.</p>
+            <ul class="facts">
+              <li>Dec. 2025: $8.4M verdict in Byer v. City of La Palma; City appeals — appeal still pending as of August 2026</li>
+              <li>Apr. 2026: second lawsuit filed — Torres v. City of La Palma</li>
+              <li>Mar. 2026: $30M wrongful death claim in Casey v. City of La Palma et al. over a December 2024 police pursuit — pending, no trial date set</li>
+              <li>Council has not committed to an independent investigation</li>
+            </ul>
+            <a class="readmore" href="litigation.html">Click here for full details on Litigation <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+
+        <article class="thread carousel-item" id="thread-1" data-index="1">
+          <div class="thread-badge">02</div>
+          <div>
+            <h2>Term Limits: Who Wrote, Paid for, and Benefited from Measure W?</h2>
             <p class="summary">In 2019, the council proposed extending term limits and tabled it after residents packed a meeting to oppose it. Five years later, essentially the same proposal returned as Measure W — this time backed by a taxpayer-funded outreach contract and a privately funded campaign run by the officials it benefited.</p>
             <ul class="facts">
               <li>Aug.–Sept. 2019: proposal advanced 3-0, then tabled 5-0 after 11 residents spoke against it</li>
@@ -122,10 +137,10 @@
           </div>
         </article>
 
-        <article class="thread carousel-item" id="thread-2" data-index="1">
-          <div class="thread-badge">02</div>
+        <article class="thread carousel-item" id="thread-2" data-index="2">
+          <div class="thread-badge">03</div>
           <div>
-            <h2>Measure JJ and the Pension Debt</h2>
+            <h2>What Happened to the Measure JJ Pension Payoff Promise?</h2>
             <p class="summary">Voters approved a permanent 1% sales tax in 2016 on a promise the pension debt would be paid off in nine years. It rose nearly 30% instead — and in 2025, a sitting official told the council the opposite from the dais.</p>
             <ul class="facts">
               <li>2016: UAL was $18.2M; promised payoff in 9 years</li>
@@ -137,10 +152,24 @@
           </div>
         </article>
 
-        <article class="thread carousel-item" id="thread-3" data-index="2">
-          <div class="thread-badge">03</div>
+        <article class="thread carousel-item" id="thread-5" data-index="3">
+          <div class="thread-badge">04</div>
           <div>
-            <h2>Leadership Transitions</h2>
+            <h2>Why Couldn't Residents Watch Council Meetings?</h2>
+            <p class="summary">Meetings were cut in half under COVID and never restored. Video livestreaming was refused three years running — while the City found $80,000 for other technology — until a 2026 state law removed the choice. Even then, the City announced a delay to its own promised start date one day before the meeting where it was due to begin.</p>
+            <ul class="facts">
+              <li>2020: regular meetings cut from twice-monthly to once monthly, never restored</li>
+              <li>2023–2024: only 1 of 2 OC cities without livestreaming; lowest accessibility grade</li>
+              <li>2026: streaming ordered under state law (SB 707) — then delayed to October, announced only a few days before the August 4, 2026 meeting</li>
+            </ul>
+            <a class="readmore" href="transparency.html">Click here for full details on Transparency <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+
+        <article class="thread carousel-item" id="thread-3" data-index="4">
+          <div class="thread-badge">05</div>
+          <div>
+            <h2>What's Happened to City Leadership?</h2>
             <p class="summary">City Manager, Police Chief, and City Attorney all changed hands across the decade — usually through internal promotion, and often without the due diligence of an external search to identify the best and most qualified talent available.</p>
             <ul class="facts">
               <li>Three city managers in, one departure never publicly announced to residents</li>
@@ -149,35 +178,6 @@
               <li>2025: former councilmember appointed City Manager over 86 other applicants</li>
             </ul>
             <a class="readmore" href="leadership.html">Click here for full details on Leadership <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          </div>
-        </article>
-
-        <article class="thread carousel-item" id="thread-4" data-index="3">
-          <div class="thread-badge">04</div>
-          <div>
-            <h2>Litigation</h2>
-            <p class="summary">A police officer's discrimination complaints went undocumented and uninvestigated — a jury later awarded $8.4 million (the City's appeal is pending). Four months on, a second former employee sued over unpaid wages under nearly identical institutional silence. Separately, the City also faces a pending wrongful death suit over a December 2024 police pursuit.</p>
-            <ul class="facts">
-              <li>Dec. 2025: $8.4M verdict in Byer v. City of La Palma; City appeals — appeal still pending as of August 2026</li>
-              <li>Apr. 2026: second lawsuit filed — Torres v. City of La Palma</li>
-              <li>Mar. 2026: $30M wrongful death claim in Casey v. City of La Palma et al. over a December 2024 police pursuit — pending, no trial date set</li>
-              <li>Council has not committed to an independent investigation</li>
-            </ul>
-            <a class="readmore" href="litigation.html">Click here for full details on Litigation <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          </div>
-        </article>
-
-        <article class="thread carousel-item" id="thread-5" data-index="4">
-          <div class="thread-badge">05</div>
-          <div>
-            <h2>Public Meeting Access</h2>
-            <p class="summary">Meetings were cut in half under COVID and never restored. Video livestreaming was refused three years running — while the City found $80,000 for other technology — until a 2026 state law removed the choice. Even then, the City announced a delay to its own promised start date one day before the meeting where it was due to begin.</p>
-            <ul class="facts">
-              <li>2020: regular meetings cut from twice-monthly to once monthly, never restored</li>
-              <li>2023–2024: only 1 of 2 OC cities without livestreaming; lowest accessibility grade</li>
-              <li>2026: streaming ordered under state law (SB 707) — then delayed to October, announced only a few days before the August 4, 2026 meeting</li>
-            </ul>
-            <a class="readmore" href="transparency.html">Click here for full details on Transparency <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </article>
 
@@ -394,5 +394,6 @@
   });
 })();
 </script>
+<script src="nav-toggle.js" defer></script>
 </body>
 </html>

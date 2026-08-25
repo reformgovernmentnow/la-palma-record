@@ -132,6 +132,24 @@
   }
   nav.threadnav a:hover{color:#fff;background:rgba(255,255,255,.05);}
   nav.threadnav .num{color:var(--gold);font-family:'IBM Plex Mono',monospace;margin-right:6px;}
+  nav.threadnav .wrap{position:relative;}
+  .nav-toggle{
+    display:none;
+    align-items:center;
+    gap:8px;
+    background:transparent;
+    border:none;
+    color:#C7CFEA;
+    font:inherit;
+    font-size:0.86rem;
+    font-weight:600;
+    padding:13px 16px;
+    cursor:pointer;
+    width:100%;
+    text-align:left;
+  }
+  .nav-toggle:hover{color:#fff;}
+  .nav-toggle svg{flex:0 0 auto;}
 
   /* Stat strip */
   section.stats{
@@ -371,6 +389,9 @@
     .thread{grid-template-columns:1fr;}
     .thread-badge{margin-bottom:4px;}
     nav.threadnav a{border-right:none;border-bottom:1px solid rgba(255,255,255,.08);flex:1 1 100%;}
+    .nav-toggle{display:flex;}
+    nav.threadnav ul{display:none;}
+    nav.threadnav.is-open ul{display:flex;}
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto;}
@@ -692,4 +713,172 @@ button:focus-visible,
   outline:3px solid var(--gold);
   outline-offset:2px;
   border-radius:4px;
+}
+
+/* ============================================================ */
+/* Layered detail-page template — dek / key facts / collapsible  */
+/* timeline / documents callout / fact-analysis tags.             */
+/* Added for the term-limits.html rebuild pilot.                  */
+/* ============================================================ */
+
+.tldr{
+  background:var(--parchment);
+  border-left:3px solid var(--palm);
+  padding:18px 22px;
+  margin:0 0 30px;
+  max-width:none;
+}
+.tldr h2{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.78rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--gold-deep);
+  margin:0 0 8px;
+}
+.tldr p{margin:0;max-width:76ch;font-size:1.02rem;color:var(--ink);}
+
+.jumplinks{
+  display:flex;flex-wrap:wrap;gap:10px;
+  margin:0 0 34px;
+}
+.jumplinks a{
+  display:inline-block;
+  font-size:0.86rem;
+  font-weight:600;
+  color:var(--navy);
+  text-decoration:none;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:9px 15px;
+}
+.jumplinks a:hover{border-color:var(--navy);background:var(--paper);}
+
+.key-facts-head{
+  font-family:'Source Serif 4', serif;
+  color:var(--navy);
+  font-size:1.15rem;
+  margin:0 0 14px;
+}
+.key-facts-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  gap:14px;
+  margin:0 0 8px;
+}
+.key-fact{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-top:3px solid var(--gold);
+  border-radius:4px;
+  padding:16px 18px;
+  font-size:0.93rem;
+  line-height:1.5;
+}
+
+.section-head{
+  font-family:'Source Serif 4', serif;
+  color:var(--navy);
+  font-size:1.3rem;
+  margin:44px 0 6px;
+  padding-top:26px;
+  border-top:1px solid var(--line);
+}
+.section-sub{margin:0 0 22px;color:var(--ink-soft);font-size:0.95rem;max-width:70ch;}
+
+/* Collapsible timeline */
+.timeline{margin:0 0 8px;}
+details.tl-entry{
+  border:1px solid var(--line);
+  border-radius:4px;
+  margin-bottom:10px;
+  background:var(--paper);
+  overflow:hidden;
+}
+details.tl-entry[open]{border-color:var(--palm);}
+details.tl-entry summary{
+  list-style:none;
+  cursor:pointer;
+  padding:14px 18px;
+  display:flex;
+  gap:14px;
+  align-items:baseline;
+  flex-wrap:wrap;
+}
+details.tl-entry summary::-webkit-details-marker{display:none;}
+details.tl-entry summary::before{
+  content:"+";
+  font-family:'IBM Plex Mono', monospace;
+  color:var(--gold-deep);
+  flex:0 0 auto;
+  width:14px;
+  font-weight:700;
+}
+details.tl-entry[open] summary::before{content:"–";}
+details.tl-entry summary .tl-date{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.78rem;
+  letter-spacing:.04em;
+  color:var(--gold-deep);
+  flex:0 0 auto;
+  white-space:nowrap;
+}
+details.tl-entry summary .tl-teaser{font-weight:600;font-size:0.95rem;color:var(--navy);}
+.tl-body{padding:0 18px 20px 46px;}
+.tl-body .entry{margin:0 0 16px;font-size:0.97rem;max-width:74ch;}
+.tl-body .entry:last-child{margin-bottom:0;}
+
+/* Fact / analysis tags */
+.tag{
+  display:inline-block;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.68rem;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  padding:3px 9px;
+  border-radius:3px;
+  margin:0 0 8px;
+}
+.tag-documented{background:var(--palm-light);color:var(--navy);}
+.tag-analysis{background:rgba(234,70,58,0.13);color:var(--gold-deep);}
+
+/* Documents callout */
+.docs-callout{
+  background:var(--navy);
+  color:#fff;
+  border-radius:6px;
+  padding:26px 26px 22px;
+  margin:0 0 8px;
+}
+.docs-callout h3{
+  font-family:'Source Serif 4', serif;
+  font-size:1.15rem;
+  margin:0 0 4px;
+  color:#fff;
+}
+.docs-callout .docs-note{color:#C7CFEA;font-size:0.9rem;margin:0 0 16px;}
+ul.docs-list{list-style:none;margin:0;padding:0;display:grid;gap:2px;}
+ul.docs-list li a{
+  display:flex;align-items:center;gap:10px;
+  color:#fff;text-decoration:none;
+  font-size:0.92rem;
+  padding:11px 12px;
+  border-radius:4px;
+}
+ul.docs-list li a:hover{background:rgba(255,255,255,.1);}
+ul.docs-list li a .docicon{color:var(--gold);flex:0 0 auto;}
+.docs-callout .docs-more{
+  display:inline-block;
+  margin-top:14px;
+  color:#AFDDD0;
+  font-size:0.88rem;
+  text-decoration:none;
+  border-bottom:1px solid rgba(175,221,208,.5);
+}
+.docs-callout .docs-more:hover{color:#fff;}
+
+@media (max-width:640px){
+  .key-facts-grid{grid-template-columns:1fr;}
+  details.tl-entry summary{flex-wrap:wrap;}
+  .tl-body{padding-left:18px;}
 }
