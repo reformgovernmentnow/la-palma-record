@@ -948,6 +948,46 @@ details.tl-entry summary .tl-teaser{font-weight:600;font-size:0.95rem;color:var(
 .tag-analysis{background:rgba(198,138,61,0.13);color:var(--gold-deep);}
 .tag-opinion{background:rgba(43,110,130,0.13);color:var(--palm);}
 
+/* Standalone Fact / Analysis pair — used sparingly, for the single most
+   consequential claim on a page, to separate the bare documented number
+   from the record's interpretation of it. */
+.fact-analysis{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  border:1px solid var(--line);
+  border-radius:6px;
+  overflow:hidden;
+  margin:0 0 28px;
+}
+.fact-analysis .fa-block{padding:22px 24px;}
+.fact-analysis .fa-fact{
+  background:var(--palm-light);
+  border-right:1px solid var(--line);
+}
+.fact-analysis .fa-analysis{background:rgba(198,138,61,.14);}
+.fact-analysis .fa-label{
+  display:block;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.72rem;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.fact-analysis .fa-fact .fa-label{color:var(--navy);}
+.fact-analysis .fa-analysis .fa-label{color:var(--gold-deep);}
+.fact-analysis .fa-text{
+  margin:0;
+  font-size:1.05rem;
+  line-height:1.5;
+  color:var(--ink);
+}
+@media (max-width:640px){
+  .fact-analysis{grid-template-columns:1fr;}
+  .fact-analysis .fa-fact{border-right:none;border-bottom:1px solid var(--line);}
+}
+
 /* Documents callout */
 .docs-callout{
   background:var(--navy);
