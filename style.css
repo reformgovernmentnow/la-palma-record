@@ -947,6 +947,7 @@ details.tl-entry summary .tl-teaser{font-weight:600;font-size:0.95rem;color:var(
 .tag-documented{background:var(--palm-light);color:var(--navy);}
 .tag-analysis{background:rgba(198,138,61,0.13);color:var(--gold-deep);}
 .tag-opinion{background:rgba(43,110,130,0.13);color:var(--palm);}
+.tag-allegation{background:rgba(90,95,109,0.14);color:#5A5F6D;}
 
 /* Standalone Fact / Analysis pair — used sparingly, for the single most
    consequential claim on a page, to separate the bare documented number
