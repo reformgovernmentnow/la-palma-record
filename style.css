@@ -281,6 +281,20 @@
   .thread .readmore:hover{color:var(--gold-deep);border-color:var(--gold-deep);}
   .thread .readmore svg{width:13px;height:13px;}
 
+  .thread .chart-callout{
+    display:inline-block;
+    font-size:0.84rem;
+    font-weight:600;
+    color:var(--gold-deep);
+    background:rgba(198,138,61,.12);
+    border:1px solid rgba(198,138,61,.4);
+    border-radius:4px;
+    padding:7px 12px;
+    text-decoration:none;
+    margin:2px 0 14px;
+  }
+  .thread .chart-callout:hover{background:rgba(198,138,61,.22);}
+
   .see-record{
     display:inline-flex;
     align-items:center;
@@ -656,6 +670,22 @@ figure.chart-figure{
   background:var(--paper);
   max-width:74ch;
 }
+figure.chart-figure.featured{
+  border:2px solid var(--gold);
+  box-shadow:0 6px 22px rgba(16,20,36,.14), 0 1px 3px rgba(16,20,36,.08);
+  max-width:none;
+}
+figure.chart-figure.featured .fig-eyebrow{
+  display:block;
+  background:var(--gold);
+  color:#fff;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.74rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:8px 16px;
+}
 figure.chart-figure img{
   display:block;
   width:100%;
@@ -851,9 +881,14 @@ button:focus-visible,
 }
 .tldr p{margin:0;max-width:100ch;font-size:1.02rem;color:var(--ink);}
 
+.key-facts-header-row{
+  display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 20px;
+  margin:0 0 20px;
+}
+.key-facts-header-row .key-facts-head{margin:0;}
 .jumplinks{
   display:flex;flex-wrap:wrap;gap:10px;
-  margin:0 0 34px;
+  margin:0;
 }
 .jumplinks a{
   display:inline-block;
