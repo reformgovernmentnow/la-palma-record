@@ -670,6 +670,20 @@ figure.chart-figure{
   background:var(--paper);
   max-width:74ch;
 }
+.figure-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  margin:22px 0 26px;
+}
+.figure-row figure.chart-figure{
+  flex:1 1 320px;
+  max-width:calc(50% - 10px);
+  margin:0;
+}
+@media (max-width:640px){
+  .figure-row figure.chart-figure{max-width:100%;}
+}
 figure.chart-figure.featured{
   border:2px solid var(--gold);
   box-shadow:0 6px 22px rgba(16,20,36,.14), 0 1px 3px rgba(16,20,36,.08);
