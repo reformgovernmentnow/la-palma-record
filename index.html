@@ -100,6 +100,8 @@
   <div class="wrap">
     <h2 class="intro-header">Five Things La Palma Residents Should Know</h2>
     <p class="lede">Five major issues. One documented record. Start with the key facts, then follow the evidence behind each one.</p>
+
+    <div class="carousel-jumptabs" data-carousel-jumptabs aria-label="Jump to a thread"></div>
   </div>
 </section>
 
@@ -179,10 +181,6 @@
         <button type="button" class="carousel-arrow" data-carousel-next aria-label="Next thread">
           <svg viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
-        <button type="button" class="carousel-arrow carousel-playpause" data-carousel-toggle aria-label="Pause automatic rotation" aria-pressed="false">
-          <svg data-icon-pause viewBox="0 0 16 16" fill="none"><rect x="4" y="3" width="2.6" height="10" rx="0.8" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" rx="0.8" fill="currentColor"/></svg>
-          <svg data-icon-play viewBox="0 0 16 16" fill="none" style="display:none"><path d="M5 3.3v9.4a.6.6 0 0 0 .92.5l7.4-4.7a.6.6 0 0 0 0-1l-7.4-4.7A.6.6 0 0 0 5 3.3Z" fill="currentColor"/></svg>
-        </button>
       </div>
     </div>
   </div>
@@ -226,11 +224,9 @@
     var currentEl = root.querySelector('[data-carousel-current]');
     var totalEl = root.querySelector('[data-carousel-total]');
     var dotsEl = root.querySelector('[data-carousel-dots]');
+    var jumpEl = document.querySelector('[data-carousel-jumptabs]');
     var prevBtn = root.querySelector('[data-carousel-prev]');
     var nextBtn = root.querySelector('[data-carousel-next]');
-    var toggleBtn = root.querySelector('[data-carousel-toggle]');
-    var pauseIcon = toggleBtn ? toggleBtn.querySelector('[data-icon-pause]') : null;
-    var playIcon = toggleBtn ? toggleBtn.querySelector('[data-icon-play]') : null;
 
     var index = items.findIndex(function (el) { return el.classList.contains('is-active'); });
     if (index < 0) index = 0;
@@ -249,6 +245,21 @@
       });
     }
 
+    if (jumpEl) {
+      jumpEl.innerHTML = '';
+      items.forEach(function (item, i) {
+        var tab = document.createElement('button');
+        tab.type = 'button';
+        tab.className = 'carousel-jumptab';
+        var titleEl = item.querySelector('h2');
+        var shortTitle = titleEl ? titleEl.textContent.split(':')[0].trim() : ('Item ' + (i + 1));
+        tab.textContent = (i + 1) + '. ' + shortTitle;
+        tab.setAttribute('aria-label', 'Jump to ' + shortTitle);
+        tab.addEventListener('click', function () { show(i, { scroll: true }); restartAutoplay(); });
+        jumpEl.appendChild(tab);
+      });
+    }
+
     function show(i, opts) {
       opts = opts || {};
       index = ((i % total) + total) % total;
@@ -259,6 +270,11 @@
       if (dotsEl) {
         Array.prototype.forEach.call(dotsEl.children, function (d, j) {
           d.classList.toggle('is-active', j === index);
+        });
+      }
+      if (jumpEl) {
+        Array.prototype.forEach.call(jumpEl.children, function (t, j) {
+          t.classList.toggle('is-active', j === index);
         });
       }
       if (opts.scroll) {
@@ -285,26 +301,13 @@
     // ---- Autoplay ----
     var autoplayMs = total > 1 ? parseInt(root.dataset.autoplay, 10) : 0;
     var timer = null;
-    var userPaused = false;
-    var hovered = false;
-    var focused = false;
-    var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    function updateToggleUI() {
-      if (!toggleBtn) return;
-      var isPaused = userPaused;
-      toggleBtn.setAttribute('aria-pressed', String(isPaused));
-      toggleBtn.setAttribute('aria-label', isPaused ? 'Resume automatic rotation' : 'Pause automatic rotation');
-      if (pauseIcon) pauseIcon.style.display = isPaused ? 'none' : '';
-      if (playIcon) playIcon.style.display = isPaused ? '' : 'none';
-    }
 
     function tick() {
       show(index + 1);
     }
 
     function startAutoplay() {
-      if (!autoplayMs || userPaused || hovered || focused) return;
+      if (!autoplayMs) return;
       stopAutoplayTimer();
       timer = window.setInterval(tick, autoplayMs);
     }
@@ -319,29 +322,7 @@
     }
 
     if (autoplayMs) {
-      if (toggleBtn) {
-        toggleBtn.style.display = 'flex';
-        toggleBtn.addEventListener('click', function () {
-          userPaused = !userPaused;
-          updateToggleUI();
-          if (userPaused) { stopAutoplayTimer(); } else { startAutoplay(); }
-        });
-      }
-
-      root.addEventListener('mouseenter', function () { hovered = true; stopAutoplayTimer(); });
-      root.addEventListener('mouseleave', function () { hovered = false; startAutoplay(); });
-      root.addEventListener('focusin', function () { focused = true; stopAutoplayTimer(); });
-      root.addEventListener('focusout', function () {
-        // small delay so focus moving between children in the same carousel doesn't flicker-resume
-        window.setTimeout(function () {
-          if (!root.contains(document.activeElement)) { focused = false; startAutoplay(); }
-        }, 0);
-      });
-
-      updateToggleUI();
       startAutoplay();
-    } else if (toggleBtn) {
-      toggleBtn.style.display = 'none';
     }
 
     show(index);
