@@ -1106,6 +1106,25 @@ ul.docs-list li a.docs-featured{
 }
 ul.docs-list li a.docs-featured:hover{background:rgba(198,138,61,.26);}
 ul.docs-list li a.docs-featured .docicon{font-size:1.15em;}
+
+.featured-cta-button{
+  display:block;
+  text-align:center;
+  background:var(--navy);
+  color:#fff;
+  font-family:'IBM Plex Mono', monospace;
+  font-weight:700;
+  font-size:1.3rem;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+  text-decoration:none;
+  padding:20px 24px;
+  border-radius:6px;
+  margin:0 0 30px;
+  line-height:1.35;
+  transition:background .15s ease;
+}
+.featured-cta-button:hover{background:var(--gold-deep);}
 .docs-callout .docs-more{
   display:inline-block;
   margin-top:14px;
