@@ -38,7 +38,7 @@
 <header class="masthead">
   <div class="wrap">
     <h1 class="title">The La Palma Record</h1>
-    <p class="subtitle">What has been happening at La Palma City Hall?<br>Public records. Court filings. City documents. News articles.<br>Read the evidence and decide for yourself.</p>
+    <p class="subtitle">What has La Palma City Hall not told you?<br>Public records. Court filings. Sworn testimony. Campaign finance disclosures.<br><span id="electionCountdownLine">Nine weeks to Election Day. Read the record yourself, then decide.</span></p>
   </div>
 </header>
 
@@ -360,6 +360,31 @@
 </script>
 <script src="fuse.min.js"></script>
 <script src="search.js" defer></script>
+<script>
+// Live-computed "N weeks to Election Day" line — deliberately not
+// hardcoded, since a static number would silently go stale within a
+// week and undermine a site built on precision. Recomputes on every
+// page load. Replaces the whole sentence (not just the number) so the
+// grammar stays correct both before and after Election Day.
+(function () {
+  var el = document.getElementById('electionCountdownLine');
+  if (!el) return;
+  var ELECTION_DAY = new Date('2026-11-03T00:00:00-08:00');
+  var now = new Date();
+  var daysRemaining = (ELECTION_DAY - now) / (1000 * 60 * 60 * 24);
+
+  if (daysRemaining <= 0) {
+    el.textContent = 'The record continues after Election Day, November 3, 2026.';
+    return;
+  }
+
+  var weeks = Math.max(1, Math.round(daysRemaining / 7));
+  var WORDS = ['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen'];
+  var label = weeks < WORDS.length ? WORDS[weeks] : String(weeks);
+  var unit = weeks === 1 ? 'week' : 'weeks';
+  el.textContent = label + ' ' + unit + ' to Election Day. Read the record yourself, then decide.';
+})();
+</script>
 <script src="nav-toggle.js" defer></script>
 </body>
 </html>
