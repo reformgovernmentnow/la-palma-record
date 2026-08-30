@@ -22,3 +22,34 @@
     });
   });
 })();
+
+// Deep-link auto-expand — if the page loads (or the hash changes) pointing
+// at a <details> element's id, such as a #tl-... timeline entry linked
+// from the master timeline page, open it and scroll it into view. Closed
+// <details> elements are still focusable targets for a URL hash, but their
+// body content stays hidden until opened — this makes the link actually
+// land somewhere useful instead of just landing on the closed summary.
+(function () {
+  function openTargetFromHash() {
+    var hash = window.location.hash;
+    if (!hash || hash.length < 2) return;
+    var target;
+    try {
+      target = document.querySelector(hash);
+    } catch (e) {
+      return;
+    }
+    if (!target) return;
+    var details = target.closest ? target.closest('details') : null;
+    if (details && !details.open) {
+      details.open = true;
+    }
+    // Defer scroll slightly so the newly-revealed content has laid out.
+    window.setTimeout(function () {
+      target.scrollIntoView({ block: 'start' });
+    }, 50);
+  }
+
+  document.addEventListener('DOMContentLoaded', openTargetFromHash);
+  window.addEventListener('hashchange', openTargetFromHash);
+})();

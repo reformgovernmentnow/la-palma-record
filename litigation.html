@@ -18,6 +18,7 @@
 <link rel="icon" href="favicon-192x192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="search-ui.css">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WNBM73BE3Q"></script>
 <script>
@@ -76,6 +77,9 @@
       <li><a href="voter-questions.html"><span class="num">✓</span>Be Ready to Vote</a></li>
       <li><a href="sources.html"><span class="num">§</span>Sources</a></li>
     </ul>
+      <button class="search-toggle" type="button" data-search-toggle aria-label="Search the record">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
   </div>
 </nav>
 
@@ -109,7 +113,7 @@
 
       <div class="timeline">
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-jan-june-2023">
           <summary><span class="tl-date">Jan.–June 2023</span><span class="tl-teaser">Officer Byer reports discrimination twice; no investigation, no documentation</span></summary>
           <div class="tl-body">
             <p class="entry entry-wide">Inside the La Palma Police Department, Officer Ross Byer reports discriminatory treatment by his supervisor to department leadership twice (January and February 2023), including an allegation that the supervisor said he “wanted a police organization made up entirely of Korean Americans” and — most seriously — directed officers to target Black drivers for traffic stops. Sworn testimony later establishes: <strong><em>no formal investigation was initiated at any level, the complaint was not documented, and no witnesses were interviewed</em></strong>.</p>
@@ -118,7 +122,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-dec-18-2024">
           <summary><span class="tl-date">Dec. 18, 2024</span><span class="tl-teaser">Marianne Casey is killed when a fleeing suspect runs a red light during a police pursuit</span></summary>
           <div class="tl-body">
             <p class="entry entry-wide">A separate, unrelated matter begins: at approximately 12:49 p.m., Marianne Casey is lawfully driving southbound on Moody Street and enters the intersection with La Palma Avenue on a green light. According to the operative complaint, the incident originated with a suspected shoplifting call in Fullerton; the suspect, Anthony Hanzal, fled from law enforcement, and multiple agencies — Fullerton, Buena Park, and La Palma police — became involved in the pursuit at various points.</p>
@@ -127,7 +131,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-dec-9-2025">
           <summary><span class="tl-date">Dec. 9, 2025</span><span class="tl-teaser">Jury awards $8.4M in the Byer case — 112 times the City's own settlement offer</span></summary>
           <div class="tl-body">
             <span class="tag tag-documented">Documented — signed jury verdict forms</span>
@@ -148,7 +152,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-mar-5-2026">
           <summary><span class="tl-date">Mar. 5, 2026</span><span class="tl-teaser">New City Manager declines to discuss the Byer verdict; residents demand an independent investigation</span></summary>
           <div class="tl-body">
             <p class="entry entry-wide">New City Manager Peter Kim — the former councilmember appointed unanimously by the Council six months earlier — acknowledges the verdict but declines to discuss details. The conduct at issue occurred under former City Manager McNamara, now running Whittier.</p>
@@ -157,7 +161,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-mar-13-2026">
           <summary><span class="tl-date">Mar. 13, 2026</span><span class="tl-teaser">Casey's heirs file an amended complaint — naming three cities and multiple officers</span></summary>
           <div class="tl-body">
             <span class="tag tag-allegation">Allegation — from a pending complaint, not a finding</span>
@@ -171,7 +175,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-apr-8-2026">
           <summary><span class="tl-date">Apr. 8, 2026</span><span class="tl-teaser">Torres files a second suit, alleging 15 hours a week of unpaid, off-the-clock work</span></summary>
           <div class="tl-body">
             <span class="tag tag-allegation">Allegation — from Torres's complaint, not yet adjudicated</span>
@@ -184,14 +188,14 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-june-8-2026">
           <summary><span class="tl-date">June 8, 2026</span><span class="tl-teaser">Torres adds a federal overtime claim; the case leaves state court</span></summary>
           <div class="tl-body">
             <p class="entry entry-wide">The case moves to federal court. On June 8, 2026, Torres files a First Amended Complaint that adds a federal claim for failure to pay overtime wages under the Fair Labor Standards Act — a change that moves the case out of Orange County Superior Court and into the U.S. District Court for the Central District of California, Southern Division, where it is now pending as Torres v. City of La Palma, Case No. 8:26-cv-01754-FWS-KES.</p>
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-july-14-2026">
           <summary><span class="tl-date">July 14, 2026</span><span class="tl-teaser">City denies Torres's allegations and raises sixteen affirmative defenses</span></summary>
           <div class="tl-body">
             <span class="tag tag-documented">Documented — City’s own Answer, not a finding on the merits</span>
@@ -200,7 +204,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-as-of-aug-2026">
           <summary><span class="tl-date">As of Aug. 2026</span><span class="tl-teaser">The $8.4M Byer appeal remains pending; interest continues to accrue</span></summary>
           <div class="tl-body">
             <p class="entry entry-wide">The City's appeal of the $8.4 million Byer verdict remains pending; no ruling has been issued and the judgment has not been resolved. Post-judgment interest may continue to accrue on the award while the appeal remains pending, subject to applicable law and the ultimate disposition of the judgment.</p>
@@ -241,6 +245,8 @@
   </div>
 </footer>
 
+<script src="fuse.min.js"></script>
+<script src="search.js" defer></script>
 <script src="nav-toggle.js" defer></script>
 </body>
 </html>

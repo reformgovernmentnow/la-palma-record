@@ -18,6 +18,7 @@
 <link rel="icon" href="favicon-192x192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="search-ui.css">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WNBM73BE3Q"></script>
 <script>
@@ -76,6 +77,9 @@
       <li><a href="voter-questions.html"><span class="num">✓</span>Be Ready to Vote</a></li>
       <li><a href="sources.html"><span class="num">§</span>Sources</a></li>
     </ul>
+      <button class="search-toggle" type="button" data-search-toggle aria-label="Search the record">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
   </div>
 </nav>
 
@@ -110,7 +114,7 @@
 
       <div class="timeline">
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-july-11-2016">
           <summary><span class="tl-date">July 11, 2016</span><span class="tl-teaser">Four council members and a former mayor sign the ballot argument in support of Measure JJ</span></summary>
           <div class="tl-body">
             <span class="tag tag-documented">Documented — <a class="source-link" href="La-Palma-CC-Minutes-2016-07-11-Special.pdf" target="_blank" rel="noopener">special meeting minutes</a></span>
@@ -120,14 +124,14 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-the-9-year-payoff-plan">
           <summary><span class="tl-date">The 9-year payoff plan</span><span class="tl-teaser">Measure JJ promises a 9-year pension payoff and $20 million in savings</span></summary>
           <div class="tl-body">
             <p class="entry entry-wide">Proponents — including sitting council members — promise voters the tax will <strong><em>pay off the City's unfunded pension debt in 9 years</em></strong>, save the city $20 million, rebuild reserves, establish a pension stabilization fund, restore services, and lower the Utility Users Tax. The City's unfunded pension liability (UAL) at the time: approximately $18.2 million (FY 2016-17).</p>
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-yes-on-jjs-own-chart">
           <summary><span class="tl-date">Yes on JJ's own chart</span><span class="tl-teaser">Their plan tells voters the debt will be paid off by FY 2025-26</span></summary>
           <div class="tl-body">
             <p class="entry entry-wide">The committee behind the 2016 Yes on Measure JJ campaign published its own financial forecast, titled “What Fiscally Sound Looks Like.” It projected that Measure JJ would reverse a documented $309,200 deficit and produce a $1.8 million surplus by Fiscal Year 2025–26, while increasing the General Fund balance from roughly $10.2 million in FY 2016–17 to $14.3 million by FY 2026–27.</p>
@@ -140,7 +144,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-nov-8-2016">
           <summary><span class="tl-date">Nov. 8, 2016</span><span class="tl-teaser">Measure JJ passes 60%-40%; the official ballot arguments name the site's founder among its opponents</span></summary>
           <div class="tl-body">
             <span class="tag tag-documented">Documented — <a class="source-link" href="https://ballotpedia.org/La_Palma,_California,_Sales_Tax_Increase,_Measure_JJ_(November_2016)" target="_blank" rel="noopener">Orange County Elections Office, via Ballotpedia</a></span>
@@ -150,14 +154,14 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-dec-19-2019">
           <summary><span class="tl-date">Dec. 19, 2019</span><span class="tl-teaser">Laurie Murray retired six years before the promised surplus was due</span></summary>
           <div class="tl-body">
             <p class="entry entry-wide">As shown above, the committee's page names a specific city official as the one committed to acting on the chart's projected surplus: it states that City Manager Laurie Murray intended to recommend directing the FY 2025-26 surplus toward rebuilding reserves, restoring services, and lowering the Utility Users Tax, closing with the line that the past cannot be changed but today's action can build a better future. Murray retired effective December 19, 2019 — see <a href="leadership.html">Leadership Transitions</a> — nearly six years before the fiscal year in which the campaign's own chart said she would make that recommendation. The official the campaign named as responsible for delivering the promised surplus left office long before the year the promise came due.</p>
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-aug-5-2025">
           <summary><span class="tl-date">Aug. 5, 2025</span><span class="tl-teaser">A council member stated the debt had “gone down”; audited records show it had increased</span></summary>
           <div class="tl-body">
             <span class="tag tag-documented">Documented — audited financial reports vs. an official's dais statement</span>
@@ -167,7 +171,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-the-trend-charted">
           <summary><span class="tl-date">The trend, charted</span><span class="tl-teaser">Nine years, nine straight increases — contribution rates and the unfunded liability both climbed every year</span></summary>
           <div class="tl-body">
             <p class="entry entry-wide">CalPERS publishes the underlying employer contribution rates and funding figures every year. The numbers above are not an isolated bad year. They are the two most recent data points in a nine-year trend.</p>
@@ -184,7 +188,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-a-broken-promise">
           <summary><span class="tl-date">A broken promise</span><span class="tl-teaser">CalPERS reports $25.3M combined UAL and payoff projected in 2040-41</span></summary>
           <div class="tl-body">
             <span class="tag tag-documented">Documented — CalPERS' own actuarial valuation reports</span>
@@ -265,6 +269,8 @@
   </div>
 </footer>
 
+<script src="fuse.min.js"></script>
+<script src="search.js" defer></script>
 <script src="nav-toggle.js" defer></script>
 </body>
 </html>

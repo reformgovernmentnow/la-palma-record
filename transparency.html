@@ -18,6 +18,7 @@
 <link rel="icon" href="favicon-192x192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="search-ui.css">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WNBM73BE3Q"></script>
 <script>
@@ -76,6 +77,9 @@
       <li><a href="voter-questions.html"><span class="num">✓</span>Be Ready to Vote</a></li>
       <li><a href="sources.html"><span class="num">§</span>Sources</a></li>
     </ul>
+      <button class="search-toggle" type="button" data-search-toggle aria-label="Search the record">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
   </div>
 </nav>
 
@@ -108,7 +112,7 @@
 
       <div class="timeline">
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-june-2-2020">
           <summary><span class="tl-date">June 2, 2020</span><span class="tl-teaser">Council cuts regular meetings in half, citing COVID — never restores the schedule</span></summary>
           <div class="tl-body">
             <span class="tag tag-documented">Documented — City’s own resolution and later admission</span>
@@ -116,7 +120,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-feb-7-2023">
           <summary><span class="tl-date">Feb. 7, 2023</span><span class="tl-teaser">Council rejects livestreaming — even a no-cost proposal to research it</span></summary>
           <div class="tl-body">
             <span class="tag tag-opinion">Quoted opinion — Councilmembers Keo Conklin and Patel</span>
@@ -125,7 +129,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-mar-8-2023">
           <summary><span class="tl-date">Mar. 8, 2023</span><span class="tl-teaser">Voice of OC's report on the vote: audio-only research approved 3-2, a broader video-research motion fails first</span></summary>
           <div class="tl-body">
             <p class="entry entry-wide">Voice of OC's published account of the February 7 meeting adds detail the agenda item alone doesn't capture. Before the council took up audio improvements, Councilmembers Janet Keo Conklin and Marshall Goodman first offered a substitute motion asking staff to research the cost of improving <em>both</em> audio quality and adding video livestreaming. <a class="source-link" href="https://voiceofoc.org/2023/03/la-palma-to-research-methods-of-improving-audio-broadcasts-of-council-meetings/" target="_blank" rel="noopener">That broader motion failed</a> on a council majority vote.</p>
@@ -133,7 +137,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-feb-21-2024">
           <summary><span class="tl-date">Feb. 21, 2024</span><span class="tl-teaser">La Palma gets a "D" — the county's lowest grade for public meeting accessibility</span></summary>
           <div class="tl-body">
             <span class="tag tag-documented">Documented — Voice of OC / Chapman University investigation</span>
@@ -143,7 +147,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-nov-5-2024">
           <summary><span class="tl-date">Nov. 5, 2024</span><span class="tl-teaser">City finds $80,000 for other IT upgrades while still citing cost against streaming</span></summary>
           <div class="tl-body">
             <span class="tag tag-opinion">Quoted opinion — Mayor Waldman's own explanation</span>
@@ -151,7 +155,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-dec-10-2024">
           <summary><span class="tl-date">Dec. 10, 2024</span><span class="tl-teaser">New agenda rule stops video proposal one month later</span></summary>
           <div class="tl-body">
             <p class="entry entry-wide">At the council's December 10 meeting, Councilmember Janet Keo Conklin proposes adding video directly — “I propose we now look into [adding] audio and visual,” she says — pointing to Census data showing roughly one in five La Palma residents are of retirement age, and telling <a class="source-link" href="https://voiceofoc.org/2024/12/no-plans-in-sight-for-video-streaming-in-la-palma/" target="_blank" rel="noopener">Voice of OC</a> afterward that she hoped to bring a proposal forward for greater transparency and accountability. No colleague seconds a further push, and the council instead adopts, 4-1, a “Code of Conduct” requiring <strong><em>two council members' consent</em></strong> to place any item on the public agenda.</p>
@@ -160,7 +164,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-may-6-2025">
           <summary><span class="tl-date">May 6, 2025</span><span class="tl-teaser">Professor Samuel Stone: doing the minimum “is not always what everybody wants”</span></summary>
           <div class="tl-body">
             <span class="tag tag-opinion">Quoted opinion — Councilmembers Keo Conklin, Waldman, and Patel</span>
@@ -170,7 +174,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-oct-3-2025">
           <summary><span class="tl-date">Oct. 3, 2025</span><span class="tl-teaser">Sacramento passes SB 707, requiring video access to public meetings by July 1, 2026</span></summary>
           <div class="tl-body">
             <span class="tag tag-documented">Documented — signed legislation</span>
@@ -178,7 +182,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-apr-7-2026">
           <summary><span class="tl-date">Apr. 7, 2026</span><span class="tl-teaser">After State law removes the choice, the council directs staff to implement video</span></summary>
           <div class="tl-body">
             <span class="tag tag-documented">Documented — Voice of OC reporting and the City’s own staff report</span>
@@ -189,7 +193,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-aug-3-2026">
           <summary><span class="tl-date">Aug. 3, 2026</span><span class="tl-teaser">One day before the meeting, the City announces its own promised system is delayed</span></summary>
           <div class="tl-body">
             <p class="entry entry-wide">One day before the council's regular August 4 meeting, the City posts on its official Facebook page that the video livestreaming system it says the council approved on June 2, 2026 will not be ready as promised. Citing <strong><em>“equipment delays”</em></strong> — with no further detail offered — the post states the City now anticipates video streaming will not begin until the <strong><em>October 6, 2026</em></strong> meeting, pushing back by at least two months the August 2026 target reported when the council directed staff to pursue the system in April.</p>
@@ -234,6 +238,8 @@
   </div>
 </footer>
 
+<script src="fuse.min.js"></script>
+<script src="search.js" defer></script>
 <script src="nav-toggle.js" defer></script>
 </body>
 </html>

@@ -18,6 +18,7 @@
 <link rel="icon" href="favicon-192x192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="search-ui.css">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WNBM73BE3Q"></script>
 <script>
@@ -76,6 +77,9 @@
       <li><a href="voter-questions.html"><span class="num">✓</span>Be Ready to Vote</a></li>
       <li><a href="sources.html"><span class="num">§</span>Sources</a></li>
     </ul>
+      <button class="search-toggle" type="button" data-search-toggle aria-label="Search the record">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
   </div>
 </nav>
 
@@ -109,28 +113,28 @@
 
       <div class="timeline">
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-nov-17-2015">
           <summary><span class="tl-date">Nov. 17, 2015</span><span class="tl-teaser">Laurie Murray promoted to City Manager — the first of three the City would have in a decade</span></summary>
           <div class="tl-body">
             <p class="entry entry-wide">The City Council appoints Laurie Murray as City Manager, an internal promotion: hired in 2006 as the City's first Administrative Services Manager and elevated to Administrative Services Director in 2014, she becomes the City's ninth city manager.</p>
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-dec-19-2019">
           <summary><span class="tl-date">Dec. 19, 2019</span><span class="tl-teaser">Murray retires — barely three years into the pension payoff clock</span></summary>
           <div class="tl-body">
             <p class="entry entry-wide">City Manager Murray announces her retirement in September 2019, effective December 19, 2019 — <strong><em>roughly three years into the nine-year pension-payoff period</em></strong> promoted during the Measure JJ campaign. The City's own <a class="source-link" href="https://www.lapalmaca.gov/List.aspx?MID=1135" target="_blank" rel="noopener">retirement announcement</a> lists among her proudest achievements “the passage of Measure JJ and the restructuring of the City's unfunded pension obligations, both of which contributed towards La Palma's long term financial stability.” Murray retired several years before the promised nine-year payoff period ended — and, as the audited numbers would later show, the unfunded liability kept growing.</p>
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-apr-1-2020">
           <summary><span class="tl-date">Apr. 1, 2020</span><span class="tl-teaser">Conal McNamara hired as City Manager — recruited from Whittier, the city he'd return to five years later</span></summary>
           <div class="tl-body">
             <p class="entry entry-wide">After a period under an interim city manager, the council hires Conal McNamara as City Manager, recruited from the City of Whittier where he had been Director of Community Development. Two months into his tenure, the council adopts the resolution cutting its meeting schedule in half. McNamara served as City Manager for the next five years, during which several events examined elsewhere on this site occurred: the permanent meeting reduction, the repeated streaming refusals, the undocumented and uninvestigated Byer complaints, the police chief carousel, the Tripepi Smith ballot-measure contract his office administered, and the treatment of the Tiny Tots program employee.</p>
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-aug-sept-2023">
           <summary><span class="tl-date">Aug.–Sept. 2023</span><span class="tl-teaser">Chief Kim retires on 15 days' notice, weeks after the Byer complaints went nowhere</span></summary>
           <div class="tl-body">
             <span class="tag tag-analysis">Analysis — sequence disclosed, no connection alleged</span>
@@ -141,7 +145,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-sept-3-2024">
           <summary><span class="tl-date">Sept. 3, 2024</span><span class="tl-teaser">City Attorney's firm changes — no RFP, no search, no record of either</span></summary>
           <div class="tl-body">
             <span class="tag tag-documented">Documented — no RFP or competitive review found on record</span>
@@ -153,14 +157,14 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-sept-7-2024">
           <summary><span class="tl-date">Sept. 7, 2024</span><span class="tl-teaser">Wilkerson retires after less than a year; Guerrero promoted to Chief</span></summary>
           <div class="tl-body">
             <p class="entry entry-wide">After less than one year as chief, Wilkerson retires effective September 7, 2024, closing out a 28-year career with a single year at the department's top salary. The same day's announcement names his successor: City Manager McNamara promotes Captain Joe Guerrero — himself a 28-year veteran — to Chief of Police effective September 8, 2024.</p>
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-march-2025">
           <summary><span class="tl-date">March 2025</span><span class="tl-teaser">Police command staff end the Reserve Program; longtime volunteers get no formal acknowledgment</span></summary>
           <div class="tl-body">
             <p class="entry entry-wide">Chief Joe Guerrero and the command staff of the La Palma Police Department end the La Palma Police Reserve Program. According to two former Reserve Program officers who contacted The La Palma Record, participating reserve officers were directed to return department-issued equipment and leave the station, with little acknowledgment of their service.</p>
@@ -169,7 +173,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-mar-25-2025">
           <summary><span class="tl-date">Mar. 25, 2025</span><span class="tl-teaser">McNamara resigns; the City's only word on it comes three weeks later, folded into an unrelated release</span></summary>
           <div class="tl-body">
             <p class="entry entry-wide">City Manager McNamara resigns to become City Manager of Whittier — the city he came from — departing almost exactly five years after his April 1, 2020 start date. Consistent with everything else in this record, the City never issued its own standalone announcement of the resignation itself: his departure became publicly known through discussion during public comment at a Cypress City Council meeting and subsequent news reporting, and the Event-News Enterprise confirmed it through the Whittier Daily News, which reported Whittier's council was scheduling his contract approval.</p>
@@ -178,7 +182,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-sept-2-2025">
           <summary><span class="tl-date">Sept. 2, 2025</span><span class="tl-teaser">Council selects former Councilmember Peter Kim as City Manager from a field of 87 applicants</span></summary>
           <div class="tl-body">
             <p class="entry entry-wide">The council unanimously appoints Peter L. Kim as the next City Manager, effective October 27, 2025, ending roughly seven months under interim management. Kim is not a professional city administrator — he is a former two-term La Palma City Councilmember and Mayor (2012–2020), the very Mayor who signed Conal McNamara's employment agreement in 2020.</p>
@@ -190,7 +194,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-oct-25-2025">
           <summary><span class="tl-date">Oct. 25, 2025</span><span class="tl-teaser">Guerrero retires; four chiefs in about 26 months</span></summary>
           <div class="tl-body">
             <span class="tag tag-documented">Documented — City announcement and press coverage</span>
@@ -199,7 +203,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-the-pension-effect">
           <summary><span class="tl-date">The pension effect</span><span class="tl-teaser">Two captains promoted to Chief just before retirement, raising the compensation their pensions are based on</span></summary>
           <div class="tl-body">
             <span class="tag tag-analysis">Analysis — effect described, intent not alleged</span>
@@ -209,7 +213,7 @@
           </div>
         </details>
 
-        <details class="tl-entry">
+        <details class="tl-entry" id="tl-dec-9-2025">
           <summary><span class="tl-date">Dec. 9, 2025</span><span class="tl-teaser">Patel selected Mayor the same day the Byer verdict comes down</span></summary>
           <div class="tl-body">
             <p class="entry entry-wide">December 9, 2025 — The council selects Nitesh Patel as Mayor for 2026 the same day a jury returns its verdict in Byer v. City of La Palma. See Litigation, below.</p>
@@ -252,6 +256,8 @@
   </div>
 </footer>
 
+<script src="fuse.min.js"></script>
+<script src="search.js" defer></script>
 <script src="nav-toggle.js" defer></script>
 </body>
 </html>

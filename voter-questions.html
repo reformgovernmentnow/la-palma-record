@@ -18,6 +18,7 @@
 <link rel="icon" href="favicon-192x192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="search-ui.css">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WNBM73BE3Q"></script>
 <script>
@@ -76,6 +77,9 @@
       <li><a class="current" href="voter-questions.html"><span class="num">✓</span>Be Ready to Vote</a></li>
       <li><a href="sources.html"><span class="num">§</span>Sources</a></li>
     </ul>
+      <button class="search-toggle" type="button" data-search-toggle aria-label="Search the record">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
   </div>
 </nav>
 
@@ -129,18 +133,18 @@
       </a>
     </div>
     <div class="va-grid">
-      <div class="va-item"><span class="box"></span><p><span class="qnum">01</span>Will you vote to restore twice-monthly regular council meetings? (This requires only a council resolution — three votes could do it at any meeting.)</p></div>
-      <div class="va-item"><span class="box"></span><p><span class="qnum">02</span>Will you vote to commission a truly independent, external investigation of the police department's complaint-handling practices, with authority to review records and interview personnel?</p></div>
-      <div class="va-item"><span class="box"></span><p><span class="qnum">03</span>Will you direct staff to present a full public accounting of every Measure JJ promise made in 2016 against actual results — pension payoff, the $20 million in savings, reserves, the stabilization fund, and the Utility Users Tax?</p></div>
-      <div class="va-item"><span class="box"></span><p><span class="qnum">04</span>Will you vote to repeal the two-member consent requirement for placing items on the council agenda?</p></div>
-      <div class="va-item"><span class="box"></span><p><span class="qnum">05</span>Will you support posting all campaign finance filings on the city website, as neighboring cities already do?</p></div>
-      <div class="va-item"><span class="box"></span><p><span class="qnum">06</span>Did you support or oppose Measure W, and did you or your campaign receive support from any sitting council member or their family?</p></div>
-      <div class="va-item"><span class="box"></span><p><span class="qnum">07</span>Will you commit to never spending General Fund money on consultants to draft or promote ballot measures that extend council members' own tenure — and to disclosing, in any city-funded material about a future measure, every provision that benefits sitting incumbents?</p></div>
-      <div class="va-item"><span class="box"></span><p><span class="qnum">08</span>Before approving any future promotion of a near-retirement employee into a higher-paid position, will you require a public staff report disclosing the projected lifetime pension cost of that promotion?</p></div>
-      <div class="va-item"><span class="box"></span><p><span class="qnum">09</span>Do you believe the City Manager should be an independent professional administrator rather than a former council colleague — and will you support recruiting professional city management for future vacancies?</p></div>
-      <div class="va-item"><span class="box"></span><p><span class="qnum">10</span>Will you support amending Measure W so that years already served count toward the term limit — closing the provision that lets a sitting member serve up to 20 consecutive years without a break?</p></div>
-      <div class="va-item"><span class="box"></span><p><span class="qnum">11</span>Will you support establishing the Pension Stabilization Fund promised to Measure JJ voters in 2016 — and on what timeline?</p></div>
-      <div class="va-item"><span class="box"></span><p><span class="qnum">12</span>Will you require a competitive, externally run search — rather than an internal appointment — for the next City Manager, Police Chief, or City Attorney vacancy?</p></div>
+      <div class="va-item" id="q01"><span class="box"></span><p><span class="qnum">01</span>Will you vote to restore twice-monthly regular council meetings? (This requires only a council resolution — three votes could do it at any meeting.)</p></div>
+      <div class="va-item" id="q02"><span class="box"></span><p><span class="qnum">02</span>Will you vote to commission a truly independent, external investigation of the police department's complaint-handling practices, with authority to review records and interview personnel?</p></div>
+      <div class="va-item" id="q03"><span class="box"></span><p><span class="qnum">03</span>Will you direct staff to present a full public accounting of every Measure JJ promise made in 2016 against actual results — pension payoff, the $20 million in savings, reserves, the stabilization fund, and the Utility Users Tax?</p></div>
+      <div class="va-item" id="q04"><span class="box"></span><p><span class="qnum">04</span>Will you vote to repeal the two-member consent requirement for placing items on the council agenda?</p></div>
+      <div class="va-item" id="q05"><span class="box"></span><p><span class="qnum">05</span>Will you support posting all campaign finance filings on the city website, as neighboring cities already do?</p></div>
+      <div class="va-item" id="q06"><span class="box"></span><p><span class="qnum">06</span>Did you support or oppose Measure W, and did you or your campaign receive support from any sitting council member or their family?</p></div>
+      <div class="va-item" id="q07"><span class="box"></span><p><span class="qnum">07</span>Will you commit to never spending General Fund money on consultants to draft or promote ballot measures that extend council members' own tenure — and to disclosing, in any city-funded material about a future measure, every provision that benefits sitting incumbents?</p></div>
+      <div class="va-item" id="q08"><span class="box"></span><p><span class="qnum">08</span>Before approving any future promotion of a near-retirement employee into a higher-paid position, will you require a public staff report disclosing the projected lifetime pension cost of that promotion?</p></div>
+      <div class="va-item" id="q09"><span class="box"></span><p><span class="qnum">09</span>Do you believe the City Manager should be an independent professional administrator rather than a former council colleague — and will you support recruiting professional city management for future vacancies?</p></div>
+      <div class="va-item" id="q10"><span class="box"></span><p><span class="qnum">10</span>Will you support amending Measure W so that years already served count toward the term limit — closing the provision that lets a sitting member serve up to 20 consecutive years without a break?</p></div>
+      <div class="va-item" id="q11"><span class="box"></span><p><span class="qnum">11</span>Will you support establishing the Pension Stabilization Fund promised to Measure JJ voters in 2016 — and on what timeline?</p></div>
+      <div class="va-item" id="q12"><span class="box"></span><p><span class="qnum">12</span>Will you require a competitive, externally run search — rather than an internal appointment — for the next City Manager, Police Chief, or City Attorney vacancy?</p></div>
     </div>
     <p class="va-note">These questions are drawn directly from documented gaps in the public record. They are offered so voters can ask their own questions of candidates — not as an implied answer.</p>
   </div>
@@ -163,6 +167,8 @@
   </div>
 </footer>
 
+<script src="fuse.min.js"></script>
+<script src="search.js" defer></script>
 <script src="nav-toggle.js" defer></script>
 </body>
 </html>
