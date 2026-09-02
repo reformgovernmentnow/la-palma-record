@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master Timeline: Every Documented Event, 2015–2026 — The La Palma Record</title>
+<meta name="description" content="Every dated event across all five investigative threads — Term Limits, Pension Debt, Leadership, Litigation, and Transparency — in one chronological view, with links back to the full documented record for each.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Master Timeline: Every Documented Event, 2015–2026 — The La Palma Record">
+<meta property="og:description" content="Every dated event across all five investigative threads — Term Limits, Pension Debt, Leadership, Litigation, and Transparency — in one chronological view, with links back to the full documented record for each.">
+<meta property="og:image" content="https://www.lapalmarecord.org/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon-192x192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="search-ui.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WNBM73BE3Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WNBM73BE3Q');
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "The La Palma Record",
+      "item": "https://www.lapalmarecord.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Master Timeline",
+      "item": "https://www.lapalmarecord.org/timeline.html"
+    }
+  ]
+}
+</script>
+<style>
+  /* Master timeline page — extends style.css rather than duplicating it */
+  .mt-filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px;}
+  .mt-chip{
+    font-family:'Source Sans 3',sans-serif;font-size:0.86rem;font-weight:600;
+    padding:8px 16px;border-radius:20px;border:1px solid var(--line);
+    background:var(--paper);color:var(--ink-soft);cursor:pointer;
+    display:inline-flex;align-items:center;gap:6px;
+    transition:background .12s ease, color .12s ease, border-color .12s ease;
+  }
+  .mt-chip .chip-icon{font-size:0.9em;}
+  .mt-chip:hover{border-color:var(--gold);}
+  .mt-chip.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+  .mt-chip.active .chip-icon{color:var(--gold);}
+
+  .mt-legend{display:flex;flex-wrap:wrap;gap:20px;margin:0 0 34px;padding:14px 18px;background:var(--paper);border:1px solid var(--line);border-radius:6px;}
+  .mt-legend-item{display:flex;align-items:center;gap:9px;font-size:0.82rem;color:var(--ink-soft);}
+  .mt-legend-marker{
+    width:20px;height:20px;background:var(--gold);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;
+    flex:0 0 auto;
+  }
+  .mt-legend-marker.ev{border-radius:50%;}
+  .mt-legend-marker.ms{border-radius:3px;transform:rotate(45deg);width:17px;height:17px;background:var(--navy);}
+  .mt-legend-marker.ms span{transform:rotate(-45deg);display:block;}
+
+  .mt-timeline{position:relative;padding-left:34px;max-width:none;}
+  .mt-timeline::before{
+    content:"";position:absolute;left:10px;top:6px;bottom:6px;width:2px;
+    background:var(--line);
+  }
+  .mt-entry{position:relative;margin-bottom:26px;}
+  .mt-entry.mt-hidden{display:none;}
+
+  .mt-dot{
+    position:absolute;left:-34px;top:2px;width:22px;height:22px;border-radius:50%;
+    background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;
+    font-size:0.78rem;font-weight:700;
+    box-shadow:0 0 0 4px var(--parchment);
+  }
+  .mt-entry.milestone .mt-dot{
+    border-radius:4px;transform:rotate(45deg);width:24px;height:24px;left:-35px;top:0;
+    background:var(--navy);
+  }
+  .mt-entry.milestone .mt-dot span{display:block;transform:rotate(-45deg);}
+
+  .mt-date{
+    font-family:'IBM Plex Mono',monospace;font-size:0.76rem;letter-spacing:.04em;
+    color:var(--gold-deep);text-transform:uppercase;margin-bottom:3px;font-weight:600;
+  }
+  .mt-entry.milestone .mt-date{color:var(--navy);}
+  .mt-text{font-size:0.98rem;color:var(--ink);line-height:1.4;}
+  .mt-text strong{color:var(--navy);}
+  .mt-entry.milestone .mt-text{font-size:1.05rem;font-weight:600;}
+  .mt-readmore{
+    display:inline-block;margin-left:2px;font-size:0.88rem;font-weight:600;
+    color:var(--navy);text-decoration:none;border-bottom:1px solid var(--navy);
+    white-space:nowrap;
+  }
+  .mt-readmore:hover{color:var(--gold-deep);border-color:var(--gold-deep);}
+
+  .mt-callout{
+    margin:6px 0 26px 0;padding:12px 16px;background:rgba(198,138,61,.10);
+    border-left:3px solid var(--gold);border-radius:0 4px 4px 0;
+    font-size:0.86rem;color:var(--ink-soft);font-style:italic;
+  }
+  .mt-callout.mt-hidden{display:none;}
+
+  .mt-yearmark{
+    font-family:'Source Serif 4',serif;font-weight:700;font-size:1.3rem;color:var(--navy);
+    margin:34px 0 18px -34px;padding-left:34px;position:relative;
+  }
+  .mt-yearmark::before{
+    content:"";position:absolute;left:6px;top:8px;width:12px;height:12px;border-radius:50%;
+    background:var(--navy);box-shadow:0 0 0 4px var(--parchment);
+  }
+  .mt-yearmark.mt-hidden{display:none;}
+</style>
+</head>
+<body>
+<header class="detail-header">
+  <div class="wrap">
+    <div class="detail-header-top">
+      <div class="breadcrumb"><a href="index.html">The La Palma Record</a> / Master Timeline</div>
+    </div>
+    <div class="thread-badge-lg">◈</div>
+    <h1>Master Timeline: Every Documented Event, 2015–2026</h1>
+    <p class="dsub dsub-wide">All five threads — Term Limits, Pension Debt, Leadership, Litigation, and Transparency — in one chronological view. No claims of cause and effect are made here; proximity in time is shown as documented fact, and readers can draw their own conclusions.</p>
+    <p class="last-updated">Last updated: August 2026</p>
+  </div>
+</header>
+
+<nav class="threadnav" id="threads">
+  <div class="wrap">
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="threadnavList">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span>Menu</span>
+    </button>
+    <ul id="threadnavList">
+      <li><a href="index.html"><span class="num"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-2px"><path d="M2 7.5 8 2l6 5.5M4 6.5V14h8V6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Home</a></li>
+      <li><a href="pension-record.html"><span class="num">$</span>Pension Debt</a></li>
+      <li><a href="litigation.html"><span class="num">⚖</span>Litigation</a></li>
+      <li><a href="term-limits.html"><span class="num">⧖</span>Term Limits</a></li>
+      <li><a href="leadership.html"><span class="num">♛</span>Leadership</a></li>
+      <li><a href="transparency.html"><span class="num">⊞</span>Transparency</a></li>
+      <li><a href="voter-questions.html"><span class="num">✓</span>Be Ready to Vote</a></li>
+      <li><a href="sources.html"><span class="num">§</span>Sources</a></li>
+    </ul>
+      <button class="search-toggle" type="button" data-search-toggle aria-label="Search the record">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+  </div>
+</nav>
+
+<section class="detail-body">
+  <div class="wrap">
+
+      <div class="tldr">
+        <h2>Why this matters</h2>
+        <p>Each of the five threads on this site tells one part of La Palma's recent history. This page puts every dated event from all five side by side, in the order it actually happened, so patterns across threads — not just within them — are visible. Nothing here is new reporting; every entry links back to the fully sourced version on its home page. A few entries don't carry a specific calendar date on their home page (background context, named analysis sections); those are placed at the point in the sequence they best fit, and are labeled with their original name rather than an invented date.</p>
+      </div>
+
+      <div class="mt-filters" id="mtFilters">
+        <button class="mt-chip active" data-filter="all">All Threads</button>
+        <button class="mt-chip" data-filter="litigation"><span class="chip-icon">⚖</span> Litigation</button>
+        <button class="mt-chip" data-filter="term-limits"><span class="chip-icon">⧖</span> Term Limits</button>
+        <button class="mt-chip" data-filter="pension"><span class="chip-icon">$</span> Pension Debt</button>
+        <button class="mt-chip" data-filter="transparency"><span class="chip-icon">⊞</span> Transparency</button>
+        <button class="mt-chip" data-filter="leadership"><span class="chip-icon">♛</span> Leadership</button>
+      </div>
+
+      <div class="mt-legend">
+        <div class="mt-legend-item"><span class="mt-legend-marker ev"></span> Event — ordinary documented development</div>
+        <div class="mt-legend-item"><span class="mt-legend-marker ms"><span>◆</span></span> Milestone — major outcome or turning point</div>
+      </div>
+
+      <div class="mt-timeline" id="mtTimeline">
+
+    <div class="mt-yearmark" data-year="1996">1996</div>
+    <div class="mt-entry" data-thread="term-limits"><span class="mt-dot">⧖</span><div class="mt-date">1996</div><div class="mt-text">Voters set an 8-year consecutive term limit. <a class="mt-readmore" href="term-limits.html#tl-1996">Read the full record →</a></div></div>
+    <div class="mt-yearmark" data-year="2015">2015</div>
+    <div class="mt-entry" data-thread="leadership"><span class="mt-dot">♛</span><div class="mt-date">Nov. 17, 2015</div><div class="mt-text">Laurie Murray promoted to City Manager — the first of three the City would have in a decade. <a class="mt-readmore" href="leadership.html#tl-nov-17-2015">Read the full record →</a></div></div>
+    <div class="mt-yearmark" data-year="2016">2016</div>
+    <div class="mt-entry" data-thread="pension"><span class="mt-dot">$</span><div class="mt-date">July 11, 2016</div><div class="mt-text">Four council members and a former mayor sign the ballot argument in support of Measure JJ. <a class="mt-readmore" href="pension-record.html#tl-july-11-2016">Read the full record →</a></div></div>
+    <div class="mt-entry milestone" data-thread="pension"><span class="mt-dot"><span>$</span></span><div class="mt-date">The 9-year payoff plan</div><div class="mt-text">Measure JJ promises a 9-year pension payoff and $20 million in savings. <a class="mt-readmore" href="pension-record.html#tl-the-9-year-payoff-plan">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="pension"><span class="mt-dot">$</span><div class="mt-date">Yes on JJ's own chart</div><div class="mt-text">Their plan tells voters the debt will be paid off by FY 2025-26. <a class="mt-readmore" href="pension-record.html#tl-yes-on-jjs-own-chart">Read the full record →</a></div></div>
+    <div class="mt-entry milestone" data-thread="pension"><span class="mt-dot"><span>$</span></span><div class="mt-date">Nov. 8, 2016</div><div class="mt-text">Measure JJ passes 60%-40%; the official ballot arguments name the site's founder among its opponents. <a class="mt-readmore" href="pension-record.html#tl-nov-8-2016">Read the full record →</a></div></div>
+    <div class="mt-yearmark" data-year="2019">2019</div>
+    <div class="mt-entry" data-thread="term-limits"><span class="mt-dot">⧖</span><div class="mt-date">Aug. 20, 2019</div><div class="mt-text">Patel raises extending terms; council directs staff to draft it. <a class="mt-readmore" href="term-limits.html#tl-aug-20-2019">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="term-limits"><span class="mt-dot">⧖</span><div class="mt-date">Sept. 3, 2019</div><div class="mt-text">11 residents object; the council tables it 5-0. <a class="mt-readmore" href="term-limits.html#tl-sept-3-2019">Read the full record →</a></div></div>
+    <div class="mt-entry milestone" data-thread="leadership"><span class="mt-dot"><span>♛</span></span><div class="mt-date">Dec. 19, 2019</div><div class="mt-text">Murray retires — barely three years into the pension payoff clock. <a class="mt-readmore" href="leadership.html#tl-dec-19-2019">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="pension"><span class="mt-dot">$</span><div class="mt-date">Dec. 19, 2019</div><div class="mt-text">Laurie Murray retired six years before the promised surplus was due. <a class="mt-readmore" href="pension-record.html#tl-dec-19-2019">Read the full record →</a></div></div>
+    <div class="mt-callout" data-threads="leadership pension">The same date — December 19, 2019 — appears independently on two separate pages of this record: as City Manager Murray's retirement date, and as the point roughly three years into the nine-year pension payoff period she was still overseeing.</div>
+    <div class="mt-yearmark" data-year="2020">2020</div>
+    <div class="mt-entry" data-thread="leadership"><span class="mt-dot">♛</span><div class="mt-date">Apr. 1, 2020</div><div class="mt-text">Conal McNamara hired as City Manager — recruited from Whittier, the city he'd return to five years later. <a class="mt-readmore" href="leadership.html#tl-apr-1-2020">Read the full record →</a></div></div>
+    <div class="mt-entry milestone" data-thread="transparency"><span class="mt-dot"><span>⊞</span></span><div class="mt-date">June 2, 2020</div><div class="mt-text">Council cuts regular meetings in half, citing COVID — never restores the schedule. <a class="mt-readmore" href="transparency.html#tl-june-2-2020">Read the full record →</a></div></div>
+    <div class="mt-yearmark" data-year="2023">2023</div>
+    <div class="mt-entry" data-thread="transparency"><span class="mt-dot">⊞</span><div class="mt-date">Feb. 7, 2023</div><div class="mt-text">Council rejects livestreaming — even a no-cost proposal to research it. <a class="mt-readmore" href="transparency.html#tl-feb-7-2023">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="litigation"><span class="mt-dot">⚖</span><div class="mt-date">Jan.–June 2023</div><div class="mt-text">Officer Byer reports discrimination twice; no investigation, no documentation. <a class="mt-readmore" href="litigation.html#tl-jan-june-2023">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="transparency"><span class="mt-dot">⊞</span><div class="mt-date">Mar. 8, 2023</div><div class="mt-text">Voice of OC's report on the vote: audio-only research approved 3-2, a broader video-research motion fails first. <a class="mt-readmore" href="transparency.html#tl-mar-8-2023">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="leadership"><span class="mt-dot">♛</span><div class="mt-date">Aug.–Sept. 2023</div><div class="mt-text">Chief Kim retires on 15 days' notice, weeks after the Byer complaints went nowhere. <a class="mt-readmore" href="leadership.html#tl-aug-sept-2023">Read the full record →</a></div></div>
+    <div class="mt-callout" data-threads="litigation leadership">Two months after Byer's complaints go nowhere, the police chief retires on 15 days' notice. No connection between the two events has been publicly addressed by the City.</div>
+    <div class="mt-yearmark" data-year="2024">2024</div>
+    <div class="mt-entry" data-thread="transparency"><span class="mt-dot">⊞</span><div class="mt-date">Feb. 21, 2024</div><div class="mt-text">La Palma gets a "D" — the county's lowest grade for public meeting accessibility. <a class="mt-readmore" href="transparency.html#tl-feb-21-2024">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="term-limits"><span class="mt-dot">⧖</span><div class="mt-date">Apr. 4, 2024</div><div class="mt-text">City's own polling shows residents favor keeping or lowering the limit, 26–19. <a class="mt-readmore" href="term-limits.html#tl-apr-4-2024">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="term-limits"><span class="mt-dot">⧖</span><div class="mt-date">May 8, 2024</div><div class="mt-text">City hires a consultant to draft Measure W's ballot language — before the Council had even voted. <a class="mt-readmore" href="term-limits.html#tl-may-8-2024">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="term-limits"><span class="mt-dot">⧖</span><div class="mt-date">June 4, 2024</div><div class="mt-text">Council votes 4-1 to place Measure W on the ballot; the wording omits the incumbent reset. <a class="mt-readmore" href="term-limits.html#tl-june-4-2024">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="term-limits"><span class="mt-dot">⧖</span><div class="mt-date">IAFF 3631 → Baker & Vikesh Patel</div><div class="mt-text">$11,000 in union contributions to two council committees reappears in Yes on W's account weeks later. <a class="mt-readmore" href="term-limits.html#tl-iaff-3631-gt-baker-amp-vikesh-patel">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="leadership"><span class="mt-dot">♛</span><div class="mt-date">Sept. 3, 2024</div><div class="mt-text">City Attorney's firm changes — no RFP, no search, no record of either. <a class="mt-readmore" href="leadership.html#tl-sept-3-2024">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="leadership"><span class="mt-dot">♛</span><div class="mt-date">Sept. 7, 2024</div><div class="mt-text">Wilkerson retires after less than a year; Guerrero promoted to Chief. <a class="mt-readmore" href="leadership.html#tl-sept-7-2024">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="term-limits"><span class="mt-dot">⧖</span><div class="mt-date">Sep. 16, 2024</div><div class="mt-text">$18,091.50: what the ballot-drafting consultant actually invoiced — mailers, FAQ sheet, and all. <a class="mt-readmore" href="term-limits.html#tl-sep-16-2024">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="term-limits"><span class="mt-dot">⧖</span><div class="mt-date">No on W Sign Removed</div><div class="mt-text">City Manager removes a "No on W" sign; the City Attorney's letter admits years of non-enforcement. <a class="mt-readmore" href="term-limits.html#tl-no-on-w-sign-removed">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="term-limits"><span class="mt-dot">⧖</span><div class="mt-date">Ibarra & Waldman ties</div><div class="mt-text">A $1,500 contribution sits inside a web of business ties between Patel, Ibarra, and Waldman. <a class="mt-readmore" href="term-limits.html#tl-ibarra-amp-waldman-ties">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="term-limits"><span class="mt-dot">⧖</span><div class="mt-date">Schedule E</div><div class="mt-text">At least three sitting council members helped finance a measure that extended their own term limits. <a class="mt-readmore" href="term-limits.html#tl-schedule-e">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="term-limits"><span class="mt-dot">⧖</span><div class="mt-date">Oct. 24, 2024</div><div class="mt-text">Filings show who actually paid for Yes on W — Patel, his family, and city council colleagues. <a class="mt-readmore" href="term-limits.html#tl-oct-24-2024">Read the full record →</a></div></div>
+    <div class="mt-entry milestone" data-thread="term-limits"><span class="mt-dot"><span>⧖</span></span><div class="mt-date">Nov. 5, 2024</div><div class="mt-text">Measure W passes; its funders are its direct beneficiaries. <a class="mt-readmore" href="term-limits.html#tl-nov-5-2024">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="transparency"><span class="mt-dot">⊞</span><div class="mt-date">Nov. 5, 2024</div><div class="mt-text">City finds $80,000 for other IT upgrades while still citing cost against streaming. <a class="mt-readmore" href="transparency.html#tl-nov-5-2024">Read the full record →</a></div></div>
+    <div class="mt-callout" data-threads="term-limits transparency">Measure W passes and the Council approves $80,000 in other IT upgrades on the same day, November 5, 2024 — while continuing to cite cost as a reason not to livestream meetings.</div>
+    <div class="mt-entry" data-thread="term-limits"><span class="mt-dot">⧖</span><div class="mt-date">Nov. 2024</div><div class="mt-text">“It's deceptive and not transparent” — and the records weren't online to check. <a class="mt-readmore" href="term-limits.html#tl-nov-2024">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="term-limits"><span class="mt-dot">⧖</span><div class="mt-date">Dec. 10, 2024</div><div class="mt-text">Council repeals the disputed sign rule five weeks after the election. <a class="mt-readmore" href="term-limits.html#tl-dec-10-2024">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="transparency"><span class="mt-dot">⊞</span><div class="mt-date">Dec. 10, 2024</div><div class="mt-text">New agenda rule stops video proposal one month later. <a class="mt-readmore" href="transparency.html#tl-dec-10-2024">Read the full record →</a></div></div>
+    <div class="mt-callout" data-threads="term-limits transparency">The Council repeals its disputed sign-enforcement rule and adopts a new agenda-consent rule that stops a video-streaming proposal — both on December 10, 2024.</div>
+    <div class="mt-entry milestone" data-thread="litigation"><span class="mt-dot"><span>⚖</span></span><div class="mt-date">Dec. 18, 2024</div><div class="mt-text">Marianne Casey is killed when a fleeing suspect runs a red light during a police pursuit. <a class="mt-readmore" href="litigation.html#tl-dec-18-2024">Read the full record →</a></div></div>
+    <div class="mt-yearmark" data-year="2025">2025</div>
+    <div class="mt-entry" data-thread="leadership"><span class="mt-dot">♛</span><div class="mt-date">March 2025</div><div class="mt-text">Police command staff end the Reserve Program; longtime volunteers get no formal acknowledgment. <a class="mt-readmore" href="leadership.html#tl-march-2025">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="leadership"><span class="mt-dot">♛</span><div class="mt-date">Mar. 25, 2025</div><div class="mt-text">McNamara resigns; the City's only word on it comes three weeks later, folded into an unrelated release. <a class="mt-readmore" href="leadership.html#tl-mar-25-2025">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="transparency"><span class="mt-dot">⊞</span><div class="mt-date">May 6, 2025</div><div class="mt-text">Professor Samuel Stone: doing the minimum “is not always what everybody wants”. <a class="mt-readmore" href="transparency.html#tl-may-6-2025">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="pension"><span class="mt-dot">$</span><div class="mt-date">Aug. 5, 2025</div><div class="mt-text">A council member stated the debt had “gone down”; audited records show it had increased. <a class="mt-readmore" href="pension-record.html#tl-aug-5-2025">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="pension"><span class="mt-dot">$</span><div class="mt-date">The trend, charted</div><div class="mt-text">Nine years, nine straight increases — contribution rates and the unfunded liability both climbed every year. <a class="mt-readmore" href="pension-record.html#tl-the-trend-charted">Read the full record →</a></div></div>
+    <div class="mt-entry milestone" data-thread="pension"><span class="mt-dot"><span>$</span></span><div class="mt-date">A broken promise</div><div class="mt-text">CalPERS reports $25.3M combined UAL and payoff projected in 2040-41. <a class="mt-readmore" href="pension-record.html#tl-a-broken-promise">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="leadership"><span class="mt-dot">♛</span><div class="mt-date">Sept. 2, 2025</div><div class="mt-text">Council selects former Councilmember Peter Kim as City Manager from a field of 87 applicants. <a class="mt-readmore" href="leadership.html#tl-sept-2-2025">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="transparency"><span class="mt-dot">⊞</span><div class="mt-date">Oct. 3, 2025</div><div class="mt-text">Sacramento passes SB 707, requiring video access to public meetings by July 1, 2026. <a class="mt-readmore" href="transparency.html#tl-oct-3-2025">Read the full record →</a></div></div>
+    <div class="mt-entry milestone" data-thread="leadership"><span class="mt-dot"><span>♛</span></span><div class="mt-date">Oct. 25, 2025</div><div class="mt-text">Guerrero retires; four chiefs in about 26 months. <a class="mt-readmore" href="leadership.html#tl-oct-25-2025">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="leadership"><span class="mt-dot">♛</span><div class="mt-date">The pension effect</div><div class="mt-text">Two captains promoted to Chief just before retirement, raising the compensation their pensions are based on. <a class="mt-readmore" href="leadership.html#tl-the-pension-effect">Read the full record →</a></div></div>
+    <div class="mt-entry milestone" data-thread="litigation"><span class="mt-dot"><span>⚖</span></span><div class="mt-date">Dec. 9, 2025</div><div class="mt-text">Jury awards $8.4M in the Byer case — 112 times the City's own settlement offer. <a class="mt-readmore" href="litigation.html#tl-dec-9-2025">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="leadership"><span class="mt-dot">♛</span><div class="mt-date">Dec. 9, 2025</div><div class="mt-text">Patel selected Mayor the same day the Byer verdict comes down. <a class="mt-readmore" href="leadership.html#tl-dec-9-2025">Read the full record →</a></div></div>
+    <div class="mt-callout" data-threads="litigation leadership">The jury returns its $8.4 million verdict against the City and the Council selects Nitesh Patel as Mayor for 2026 on the same date, December 9, 2025.</div>
+    <div class="mt-yearmark" data-year="2026">2026</div>
+    <div class="mt-entry" data-thread="litigation"><span class="mt-dot">⚖</span><div class="mt-date">Mar. 5, 2026</div><div class="mt-text">New City Manager declines to discuss the Byer verdict; residents demand an independent investigation. <a class="mt-readmore" href="litigation.html#tl-mar-5-2026">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="litigation"><span class="mt-dot">⚖</span><div class="mt-date">Mar. 13, 2026</div><div class="mt-text">Casey's heirs file an amended complaint — naming three cities and multiple officers. <a class="mt-readmore" href="litigation.html#tl-mar-13-2026">Read the full record →</a></div></div>
+    <div class="mt-entry milestone" data-thread="transparency"><span class="mt-dot"><span>⊞</span></span><div class="mt-date">Apr. 7, 2026</div><div class="mt-text">After State law removes the choice, the council directs staff to implement video. <a class="mt-readmore" href="transparency.html#tl-apr-7-2026">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="litigation"><span class="mt-dot">⚖</span><div class="mt-date">Apr. 8, 2026</div><div class="mt-text">Torres files a second suit, alleging 15 hours a week of unpaid, off-the-clock work. <a class="mt-readmore" href="litigation.html#tl-apr-8-2026">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="term-limits"><span class="mt-dot">⧖</span><div class="mt-date">May 29, 2026</div><div class="mt-text">IAFF Local 3631 gives Patel another $5,900 — this time directly to his 2026 re-election committee. <a class="mt-readmore" href="term-limits.html#tl-may-29-2026">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="litigation"><span class="mt-dot">⚖</span><div class="mt-date">June 8, 2026</div><div class="mt-text">Torres adds a federal overtime claim; the case leaves state court. <a class="mt-readmore" href="litigation.html#tl-june-8-2026">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="litigation"><span class="mt-dot">⚖</span><div class="mt-date">July 14, 2026</div><div class="mt-text">City denies Torres's allegations and raises sixteen affirmative defenses. <a class="mt-readmore" href="litigation.html#tl-july-14-2026">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="transparency"><span class="mt-dot">⊞</span><div class="mt-date">Aug. 3, 2026</div><div class="mt-text">One day before the meeting, the City announces its own promised system is delayed. <a class="mt-readmore" href="transparency.html#tl-aug-3-2026">Read the full record →</a></div></div>
+    <div class="mt-entry" data-thread="litigation"><span class="mt-dot">⚖</span><div class="mt-date">As of Aug. 2026</div><div class="mt-text">The $8.4M Byer appeal remains pending; interest continues to accrue. <a class="mt-readmore" href="litigation.html#tl-as-of-aug-2026">Read the full record →</a></div></div>
+      </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <nav class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="foot-bottom">
+      <span class="foot-tagline">Public records. Primary sources. Documented history.</span>
+      <span class="foot-tagline">INDEPENDENT RESEARCH — NOT AN OFFICIAL CITY PUBLICATION — NOT ASSOCIATED WITH ANY POLITICAL CANDIDATE</span>
+      <span class="foot-tagline">PLEASE SEND COMMENTS, QUESTIONS, AND CORRECTIONS TO <a href="mailto:lapalmarecord@gmail.com">LAPALMARECORD@GMAIL.COM</a></span>
+      <span class="foot-tagline">Privacy: this site uses Google Analytics to measure traffic and readership. It does not collect your name, email, or other personally identifying information, and nothing collected is sold, shared with the City of La Palma, or used for advertising. Most browsers and ad-blocking extensions can block it entirely without affecting your ability to read this site. See Google's privacy policy at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var chips = document.querySelectorAll('.mt-chip');
+  var entries = document.querySelectorAll('.mt-entry');
+  var callouts = document.querySelectorAll('.mt-callout');
+  var years = document.querySelectorAll('.mt-yearmark');
+
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+      var filter = chip.getAttribute('data-filter');
+
+      entries.forEach(function(e){
+        var show = (filter === 'all') || (e.getAttribute('data-thread') === filter);
+        e.classList.toggle('mt-hidden', !show);
+      });
+
+      callouts.forEach(function(c){
+        var threads = (c.getAttribute('data-threads') || '').split(' ');
+        var show = (filter === 'all') || threads.indexOf(filter) !== -1;
+        c.classList.toggle('mt-hidden', !show);
+      });
+
+      var yearArr = Array.prototype.slice.call(years);
+      yearArr.forEach(function(y, i){
+        var next = yearArr[i+1];
+        var node = y.nextElementSibling;
+        var anyVisible = false;
+        while (node && node !== next) {
+          if (node.classList && node.classList.contains('mt-entry') && !node.classList.contains('mt-hidden')) {
+            anyVisible = true;
+            break;
+          }
+          node = node.nextElementSibling;
+        }
+        y.classList.toggle('mt-hidden', !anyVisible);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+// Ensure a linked anchor's containing <details> section is open, even on
+// browsers that don't yet auto-expand details for fragment navigation.
+(function () {
+  function openTargetDetails() {
+    var id = window.location.hash.slice(1);
+    if (!id) return;
+    var el = document.getElementById(id);
+    if (!el) return;
+    var details = el.closest ? el.closest('details') : null;
+    if (details && !details.open) details.open = true;
+    if (el.scrollIntoView) el.scrollIntoView();
+  }
+  window.addEventListener('DOMContentLoaded', openTargetDetails);
+  window.addEventListener('hashchange', openTargetDetails);
+})();
+</script>
+<script src="fuse.min.js"></script>
+<script src="search.js" defer></script>
+<script src="nav-toggle.js" defer></script>
+</body>
+</html>

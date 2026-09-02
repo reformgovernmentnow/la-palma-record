@@ -351,6 +351,9 @@
     font-size:1.35rem;
   }
   .fullband p{margin:0;color:var(--ink-soft);max-width:none;}
+  section.fullband.dark{background:var(--navy);border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);}
+  section.fullband.dark h3{color:#fff;}
+  section.fullband.dark p{color:#c7cfea;}
 
   /* Footer */
   footer{
