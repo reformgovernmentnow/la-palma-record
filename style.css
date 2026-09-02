@@ -355,6 +355,11 @@
     font-size:1.35rem;
   }
   .fullband p{margin:0;color:var(--ink-soft);max-width:none;}
+  .inline-timeline-link{
+    display:inline-block;margin-top:8px;font-weight:600;font-size:0.92rem;
+    color:var(--navy);text-decoration:none;border-bottom:1px solid var(--navy);
+  }
+  .inline-timeline-link:hover{color:var(--gold-deep);border-color:var(--gold-deep);}
   section.fullband.dark{background:var(--navy);border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);}
   section.fullband.dark h3{color:#fff;}
   section.fullband.dark p{color:#c7cfea;}
