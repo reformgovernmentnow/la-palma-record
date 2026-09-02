@@ -74,6 +74,10 @@
     margin:0 0 18px;
     text-shadow:0 1px 6px rgba(0,0,0,.5);
   }
+  .subtitle-method{
+    font-weight:700;
+    color:#f2c744;
+  }
   .meta-line{
     font-family:'IBM Plex Mono', monospace;
     font-size:0.82rem;
