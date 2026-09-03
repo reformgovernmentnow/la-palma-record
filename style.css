@@ -338,6 +338,27 @@
   .see-record svg{width:13px;height:13px;}
 
   /* Full record CTA band */
+  section.wayfinding{
+    background:var(--parchment);
+    border-bottom:1px solid var(--line);
+    padding:14px 0;
+  }
+  section.wayfinding .wrap{
+    display:flex;flex-wrap:wrap;align-items:center;gap:8px;
+    font-size:0.92rem;
+  }
+  .wf-label{font-weight:700;color:var(--navy);margin-right:2px;}
+  section.wayfinding a{
+    color:var(--navy);font-weight:600;text-decoration:none;
+    border-bottom:1px solid var(--gold);
+  }
+  section.wayfinding a:hover{color:var(--gold-deep);border-color:var(--gold-deep);}
+  .wf-dot{color:var(--ink-soft);}
+  .wf-plain{color:var(--ink-soft);}
+  @media(max-width:640px){
+    section.wayfinding .wrap{gap:6px 10px;}
+  }
+
   section.fullband{
     background:var(--palm-light);
     border-top:1px solid var(--line);
