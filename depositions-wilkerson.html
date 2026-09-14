@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crystal L. Wilkerson Deposition — Byer v. City of La Palma — The La Palma Record</title>
+<meta name="description" content="Deposition testimony from Crystal L. Wilkerson, La Palma's HR Analyst, who received Ross Byer's discrimination and retaliation complaints — from Byer v. City of La Palma, the case that ended in an $8.4 million jury verdict.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Crystal L. Wilkerson Deposition — Byer v. City of La Palma — The La Palma Record">
+<meta property="og:description" content="Deposition testimony from Crystal L. Wilkerson, La Palma's HR Analyst, who received Ross Byer's discrimination and retaliation complaints — from Byer v. City of La Palma, the case that ended in an $8.4 million jury verdict.">
+<meta property="og:image" content="https://lapalmarecord.org/og-image.png">
+<link rel="canonical" href="https://lapalmarecord.org/depositions-wilkerson.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon-192x192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="search-ui.css">
+<style>
+  /* Deposition-specific additions — built on the existing token set, no new colors introduced */
+
+  .witness{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:4px;
+    margin:0 0 26px;
+    max-width:none;
+    position:relative;
+    overflow:hidden;
+  }
+  .witness-tag{
+    position:absolute;
+    top:0; left:0;
+    background:var(--navy);
+    color:#fff;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:5px 12px 5px 14px;
+    border-bottom-right-radius:4px;
+  }
+  .witness-head{
+    padding:38px 24px 18px;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  .witness-head h3{
+    font-family:'Source Serif 4', serif;
+    font-weight:700;
+    color:var(--navy);
+    font-size:1.35rem;
+    margin:0 0 4px;
+  }
+  .witness-role{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:.03em;
+  }
+  .witness-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    text-align:right;
+    line-height:1.7;
+  }
+  .witness-status{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:var(--palm);
+    border:1px solid var(--palm);
+    border-radius:20px;
+    padding:3px 10px;
+    margin-top:6px;
+  }
+  .witness-status::before{
+    content:"";
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--palm);
+  }
+  .witness-body{padding:22px 24px 28px;}
+  .witness-body .kicker-sm{
+    font-family:'Source Sans 3', sans-serif;
+    font-weight:700;
+    color:var(--gold-deep);
+    font-size:0.78rem;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    margin:20px 0 8px;
+  }
+  .witness-body .kicker-sm:first-child{margin-top:0;}
+  .witness-body p{margin:0 0 12px;max-width:none;font-size:1rem;line-height:1.68;color:var(--ink);}
+
+  .relevance{
+    background:var(--parchment);
+    border-left:3px solid var(--alert);
+    padding:14px 18px;
+    margin:10px 0 6px;
+    max-width:none;
+    font-size:0.94rem;
+  }
+  .relevance strong{color:var(--gold-deep);}
+
+  .caveat{
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    border-top:1px dashed var(--line);
+    margin-top:20px;
+    padding-top:14px;
+  }
+
+  @media (max-width:640px){
+    .witness-meta{text-align:left;}
+  }
+
+  .depo-source-link{
+    margin:16px 0 0;
+    padding-top:14px;
+    border-top:1px solid var(--line);
+  }
+  .depo-source-link a{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:0.92rem;
+    font-weight:600;
+    color:var(--navy);
+    text-decoration:none;
+    border-bottom:1px solid var(--navy);
+    padding-bottom:1px;
+  }
+  .depo-source-link a:hover{color:var(--gold-deep);border-color:var(--gold-deep);}
+
+  /* Prev/next witness navigation */
+  .witness-pager{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    font-size:0.9rem;
+    margin:0 0 26px;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--line);
+  }
+  .witness-pager a{
+    color:var(--navy);
+    text-decoration:none;
+    font-weight:600;
+  }
+  .witness-pager a:hover{color:var(--gold-deep);}
+  .witness-pager .back-link{color:var(--ink-soft); font-weight:400;}
+  .witness-pager .pn-links{display:flex; gap:16px; flex-wrap:wrap;}
+  .witness-pager-bottom{
+    margin:30px 0 0;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+  }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WNBM73BE3Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WNBM73BE3Q');
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "The La Palma Record",
+      "item": "https://lapalmarecord.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Litigation",
+      "item": "https://lapalmarecord.org/litigation.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Depositions",
+      "item": "https://lapalmarecord.org/depositions.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Wilkerson",
+      "item": "https://lapalmarecord.org/depositions-wilkerson.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="detail-header">
+  <div class="wrap">
+    <div class="detail-header-top">
+      <div class="breadcrumb"><a href="/">The La Palma Record</a> / <a href="litigation.html">Litigation</a> / <a href="depositions.html">Depositions</a> / Wilkerson</div>
+    </div>
+    <span class="thread-badge-lg">D</span>
+    <h1>Crystal L. Wilkerson</h1>
+    <p class="dsub dsub-wide">HR Analyst &mdash; Deposition 1 of 7, Byer v. City of La Palma.</p>
+  </div>
+</header>
+
+<nav class="threadnav" id="threads">
+  <div class="wrap">
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="threadnavList">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span>Menu</span>
+    </button>
+    <ul id="threadnavList">
+      <li><a href="/"><span class="num"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-2px"><path d="M2 7.5 8 2l6 5.5M4 6.5V14h8V6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Home</a></li>
+      <li><a href="pension-record.html"><span class="num">$</span>Pension Debt</a></li>
+      <li><a href="litigation.html"><span class="num">⚖</span>Litigation</a></li>
+      <li><a href="term-limits.html"><span class="num">⧖</span>Term Limits</a></li>
+      <li><a href="leadership.html"><span class="num">♛</span>Leadership</a></li>
+      <li><a href="transparency.html"><span class="num">⊞</span>Transparency</a></li>
+      <li><a href="voter-questions.html"><span class="num">✓</span>Be Ready to Vote</a></li>
+      <li><a href="sources.html"><span class="num">§</span>Sources</a></li>
+    </ul>
+      <button class="search-toggle" type="button" data-search-toggle aria-label="Search the record">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+  </div>
+</nav>
+
+<section class="detail-body">
+  <div class="wrap">
+
+    <div class="witness-pager">
+      <a class="back-link" href="depositions.html">&larr; All depositions</a>
+      <div class="pn-links"><a href="depositions-choi.html">Jay Kyoo Choi &rarr;</a></div>
+    </div>
+
+<div class="witness" id="dep-wilkerson">
+      <span class="witness-tag">Deposition 1 of 7</span>
+      <div class="witness-head">
+        <div>
+          <h3>Crystal L. Wilkerson</h3>
+          <p class="witness-role">City employee · Human Resources Analyst, City of La Palma</p>
+          <span class="witness-status">Transcript excerpts reviewed</span>
+        </div>
+        <div class="witness-meta">
+          Deposed: March 18, 2025<br>
+          Called by: Plaintiff (Petronelli)<br>
+          Pages reviewed: 9&ndash;10, 27&ndash;29, 34&ndash;39, 42&ndash;44, 50&ndash;51, 69&ndash;70, 74 (of 78)
+        </div>
+      </div>
+      <div class="witness-body">
+
+        <p class="kicker-sm">Who she is</p>
+        <p>Wilkerson is a current City of La Palma employee, working as a Human Resources Analyst at the time of her testimony and during the events described. She reported to Ryan Hallett, whose title changed from Administrative Services Director to Assistant City Manager during the relevant period while he remained in the same supervisory role over HR. She testified that complaints about retaliation or discrimination are "processed by Ryan Hallett and solely through Ryan Hallett," and that she wasn't aware of anyone else at the City who decided which complaints got investigated.</p>
+
+        <p class="kicker-sm">Connection to the case</p>
+        <p>Wilkerson conducted Ross Byer's exit interview on June 8, 2023, the day he resigned from the La Palma Police Department. She testified that the reasons Byer gave for resigning were the same concerns she documented in her handwritten notes from that meeting &mdash; which she later typed up and sent to Hallett, without retaining the handwritten originals. Byer subsequently sent her two follow-up emails: one on June 28, 2023 (roughly three weeks after the meeting) with additional detail on his complaints, and another on October 25, 2023. She testified she believes she forwarded the June 28 email to Hallett, but does not recall receiving or forwarding the October 25 email at all &mdash; and when she later searched her own email for correspondence with Byer, that October email did not turn up in the search.</p>
+
+        <p class="kicker-sm">Key testimony</p>
+        <p>During the exit interview, Byer told Wilkerson that Sergeant Koh had instructed him to engage in what Byer believed was racial profiling, and that he had previously reported this to Captain Jesse Amend. Wilkerson testified the allegations "of course" caused her concern and that she "definitely believe[d] we should look into it" &mdash; but that the decision to investigate wasn't hers to make. Asked whether she was aware of anyone &mdash; Hallett, anyone else at the City, or anyone at the police department &mdash; investigating Byer's complaints at any point after the June 8 meeting or either follow-up email, she answered "correct" each time she was asked whether she was <em>not</em> aware of any such investigation. She also testified she had never seen the La Palma police officers' policy manual.</p>
+
+        <p class="kicker-sm">Possible relevance to the verdict</p>
+        <div class="relevance">
+          <strong>Direct evidence, not just inference:</strong> This excerpt shows the City's own HR analyst confirming she received Byer's discrimination and retaliation complaints on three separate occasions over about four and a half months (June 8, June 28, and October 25, 2023), routed them to the one official she said was solely responsible for deciding whether to investigate, and is not aware that anyone ever did. Combined with her testimony that she personally believed the allegations warranted a look, this is consistent with the failure-to-prevent-discrimination and retaliation claims the jury ultimately found for Byer.
+        </div>
+
+        <p class="caveat">This summary is based on selected excerpts (highlighted portions of a 78-page transcript, not the complete document) spanning the exit interview, both follow-up emails, and closing questioning. It does not reflect the full testimony, cross-examination in its entirety, or any context the excerpted portions omit.</p>
+      
+        <p class="depo-source-link"><a class="source-link" href="Wilkerson-Crystal.pdf" target="_blank" rel="noopener">View full deposition excerpt (PDF) &mdash; Crystal L. Wilkerson</a></p>
+      </div>
+    </div>
+
+    <div class="witness-pager witness-pager-bottom">
+      <a class="back-link" href="depositions.html">&larr; All depositions</a>
+      <div class="pn-links"><a href="depositions-choi.html">Jay Kyoo Choi &rarr;</a></div>
+    </div>
+
+  </div>
+</section>
+
+
+<footer>
+  <div class="wrap">
+    <nav class="foot-links">
+      <a href="/">Home</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="foot-bottom">
+      <span class="foot-tagline">Public records. Primary sources. Documented history.</span>
+      <span class="foot-tagline">INDEPENDENT RESEARCH — NOT AN OFFICIAL CITY PUBLICATION — NOT ASSOCIATED WITH ANY POLITICAL CANDIDATE</span>
+      <span class="foot-tagline">PLEASE SEND COMMENTS, QUESTIONS, AND CORRECTIONS TO <a href="mailto:lapalmarecord@gmail.com">LAPALMARECORD@GMAIL.COM</a></span>
+      <span class="foot-tagline">Privacy: this site uses Google Analytics to measure traffic and readership. It does not collect your name, email, or other personally identifying information, and nothing collected is sold, shared with the City of La Palma, or used for advertising. Most browsers and ad-blocking extensions can block it entirely without affecting your ability to read this site. See Google's privacy policy at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="fuse.min.js"></script>
+<script src="search.js" defer></script>
+<script src="nav-toggle.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jay Kyoo Choi Deposition — Byer v. City of La Palma — The La Palma Record</title>
+<meta name="description" content="Deposition testimony from Jay Kyoo Choi, a La Palma police officer and Ross Byer's former shift partner — from Byer v. City of La Palma, the case that ended in an $8.4 million jury verdict.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jay Kyoo Choi Deposition — Byer v. City of La Palma — The La Palma Record">
+<meta property="og:description" content="Deposition testimony from Jay Kyoo Choi, a La Palma police officer and Ross Byer's former shift partner — from Byer v. City of La Palma, the case that ended in an $8.4 million jury verdict.">
+<meta property="og:image" content="https://lapalmarecord.org/og-image.png">
+<link rel="canonical" href="https://lapalmarecord.org/depositions-choi.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon-192x192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="search-ui.css">
+<style>
+  /* Deposition-specific additions — built on the existing token set, no new colors introduced */
+
+  .witness{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:4px;
+    margin:0 0 26px;
+    max-width:none;
+    position:relative;
+    overflow:hidden;
+  }
+  .witness-tag{
+    position:absolute;
+    top:0; left:0;
+    background:var(--navy);
+    color:#fff;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:5px 12px 5px 14px;
+    border-bottom-right-radius:4px;
+  }
+  .witness-head{
+    padding:38px 24px 18px;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  .witness-head h3{
+    font-family:'Source Serif 4', serif;
+    font-weight:700;
+    color:var(--navy);
+    font-size:1.35rem;
+    margin:0 0 4px;
+  }
+  .witness-role{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:.03em;
+  }
+  .witness-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    text-align:right;
+    line-height:1.7;
+  }
+  .witness-status{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:var(--palm);
+    border:1px solid var(--palm);
+    border-radius:20px;
+    padding:3px 10px;
+    margin-top:6px;
+  }
+  .witness-status::before{
+    content:"";
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--palm);
+  }
+  .witness-body{padding:22px 24px 28px;}
+  .witness-body .kicker-sm{
+    font-family:'Source Sans 3', sans-serif;
+    font-weight:700;
+    color:var(--gold-deep);
+    font-size:0.78rem;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    margin:20px 0 8px;
+  }
+  .witness-body .kicker-sm:first-child{margin-top:0;}
+  .witness-body p{margin:0 0 12px;max-width:none;font-size:1rem;line-height:1.68;color:var(--ink);}
+
+  .relevance{
+    background:var(--parchment);
+    border-left:3px solid var(--alert);
+    padding:14px 18px;
+    margin:10px 0 6px;
+    max-width:none;
+    font-size:0.94rem;
+  }
+  .relevance strong{color:var(--gold-deep);}
+
+  .caveat{
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    border-top:1px dashed var(--line);
+    margin-top:20px;
+    padding-top:14px;
+  }
+
+  @media (max-width:640px){
+    .witness-meta{text-align:left;}
+  }
+
+  .depo-source-link{
+    margin:16px 0 0;
+    padding-top:14px;
+    border-top:1px solid var(--line);
+  }
+  .depo-source-link a{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:0.92rem;
+    font-weight:600;
+    color:var(--navy);
+    text-decoration:none;
+    border-bottom:1px solid var(--navy);
+    padding-bottom:1px;
+  }
+  .depo-source-link a:hover{color:var(--gold-deep);border-color:var(--gold-deep);}
+
+  /* Prev/next witness navigation */
+  .witness-pager{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    font-size:0.9rem;
+    margin:0 0 26px;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--line);
+  }
+  .witness-pager a{
+    color:var(--navy);
+    text-decoration:none;
+    font-weight:600;
+  }
+  .witness-pager a:hover{color:var(--gold-deep);}
+  .witness-pager .back-link{color:var(--ink-soft); font-weight:400;}
+  .witness-pager .pn-links{display:flex; gap:16px; flex-wrap:wrap;}
+  .witness-pager-bottom{
+    margin:30px 0 0;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+  }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WNBM73BE3Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WNBM73BE3Q');
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "The La Palma Record",
+      "item": "https://lapalmarecord.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Litigation",
+      "item": "https://lapalmarecord.org/litigation.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Depositions",
+      "item": "https://lapalmarecord.org/depositions.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Choi",
+      "item": "https://lapalmarecord.org/depositions-choi.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="detail-header">
+  <div class="wrap">
+    <div class="detail-header-top">
+      <div class="breadcrumb"><a href="/">The La Palma Record</a> / <a href="litigation.html">Litigation</a> / <a href="depositions.html">Depositions</a> / Choi</div>
+    </div>
+    <span class="thread-badge-lg">D</span>
+    <h1>Jay Kyoo Choi</h1>
+    <p class="dsub dsub-wide">Officer, Byer's former shift partner &mdash; Deposition 2 of 7, Byer v. City of La Palma.</p>
+  </div>
+</header>
+
+<nav class="threadnav" id="threads">
+  <div class="wrap">
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="threadnavList">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span>Menu</span>
+    </button>
+    <ul id="threadnavList">
+      <li><a href="/"><span class="num"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-2px"><path d="M2 7.5 8 2l6 5.5M4 6.5V14h8V6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Home</a></li>
+      <li><a href="pension-record.html"><span class="num">$</span>Pension Debt</a></li>
+      <li><a href="litigation.html"><span class="num">⚖</span>Litigation</a></li>
+      <li><a href="term-limits.html"><span class="num">⧖</span>Term Limits</a></li>
+      <li><a href="leadership.html"><span class="num">♛</span>Leadership</a></li>
+      <li><a href="transparency.html"><span class="num">⊞</span>Transparency</a></li>
+      <li><a href="voter-questions.html"><span class="num">✓</span>Be Ready to Vote</a></li>
+      <li><a href="sources.html"><span class="num">§</span>Sources</a></li>
+    </ul>
+      <button class="search-toggle" type="button" data-search-toggle aria-label="Search the record">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+  </div>
+</nav>
+
+<section class="detail-body">
+  <div class="wrap">
+
+    <div class="witness-pager">
+      <a class="back-link" href="depositions.html">&larr; All depositions</a>
+      <div class="pn-links"><a href="depositions-wilkerson.html">&larr; Crystal L. Wilkerson</a><a href="depositions-olson.html">James “Jim” Olson &rarr;</a></div>
+    </div>
+
+<div class="witness" id="dep-choi">
+      <span class="witness-tag">Deposition 2 of 7</span>
+      <div class="witness-head">
+        <div>
+          <h3>Jay Kyoo Choi</h3>
+          <p class="witness-role">City employee · La Palma Police Officer, Byer's former shift partner</p>
+          <span class="witness-status">Transcript excerpts reviewed</span>
+        </div>
+        <div class="witness-meta">
+          Deposed: August 4, 2025<br>
+          Called by: Plaintiff (Petronelli)<br>
+          Pages reviewed: 11, 16&ndash;17, 25, 27&ndash;28, 32, 39&ndash;51, 54&ndash;55, 58, 87&ndash;88 (of 96)
+        </div>
+      </div>
+      <div class="witness-body">
+
+        <p class="kicker-sm">Who he is</p>
+        <p>Choi is a current City of La Palma police officer, hired in March 2022. He has about ten years in law enforcement, including prior positions with the City of Imperial (2016&ndash;2019) and the City of Baldwin Park (2019&ndash;2022) before joining La Palma. He testified he is Korean-American. For roughly four months, Choi and Byer were shift partners on Beat 2, both reporting to Sergeant Koh.</p>
+
+        <p class="kicker-sm">Connection to the case</p>
+        <p>As Byer's beat partner under the same supervisor, Choi was in a position to directly observe how Koh assigned work between the two officers. He testified that Koh had a practice &mdash; referred to within the department as "sergeant specials" &mdash; of personally making traffic stops and then assigning the resulting paperwork to an officer on patrol. Choi confirmed Koh assigned him five or more sergeant specials over the period, but assigned noticeably more to Byer, though he couldn't give an exact count. Choi testified he twice volunteered to take a sergeant special off Byer's plate &mdash; at least partly because he wanted the arrest statistic for his own record &mdash; and that Koh denied the request at least once.</p>
+
+        <p class="kicker-sm">Key testimony</p>
+        <p>Choi testified he never heard Sergeant Koh say anything about race, national origin, or an "all-Korean" shift or department, and never heard Koh give a directive to racially profile citizens. He also testified no one &mdash; not Wilkerson, not anyone else in HR, not anyone in the police department &mdash; ever contacted him, before or after Byer left, to ask about Koh's treatment of Byer or the concerns Byer had raised. Choi said he never observed Koh treating him and Byer differently in tone or expectations, had a positive opinion of Byer's performance, and was "sad" to learn Byer was leaving the department. He also testified that Crystal Wilkerson &mdash; the HR analyst who took Byer's complaint &mdash; is married to Ron Wilkerson, who was a City of La Palma police captain during the relevant period and later served roughly a year as police chief before retiring in mid-2024.</p>
+
+        <p class="kicker-sm">Possible relevance to the verdict</p>
+        <div class="relevance">
+          <strong>Cuts both ways:</strong> Choi independently corroborates one specific, observable piece of Byer's claim &mdash; that Koh assigned him disproportionately more "sergeant special" stops than a comparable officer &mdash; from a witness with no apparent stake in the outcome. At the same time, Choi flatly did not corroborate the racial-profiling directive or the "all-Korean shift" comment central to the discrimination theory; he said he never heard either. His testimony that no one from HR or the department ever asked him what he'd observed, despite being the officer best positioned to know, reinforces the "no investigation happened" pattern established by Wilkerson's testimony above. The Wilkerson&ndash;Wilkerson family relationship (HR analyst married to a captain, later chief, in the same small department) isn't itself evidence of wrongdoing, but is a relevant structural fact for readers weighing how complaints were handled.
+        </div>
+
+        <p class="caveat">This summary is based on selected excerpts (highlighted portions of a 96-page transcript, not the complete document). It does not reflect the full testimony, cross-examination in its entirety, or any context the excerpted portions omit.</p>
+      
+        <p class="depo-source-link"><a class="source-link" href="Choi-Jay.pdf" target="_blank" rel="noopener">View full deposition excerpt (PDF) &mdash; Jay Kyoo Choi</a></p>
+      </div>
+    </div>
+
+    <div class="witness-pager witness-pager-bottom">
+      <a class="back-link" href="depositions.html">&larr; All depositions</a>
+      <div class="pn-links"><a href="depositions-wilkerson.html">&larr; Crystal L. Wilkerson</a><a href="depositions-olson.html">James “Jim” Olson &rarr;</a></div>
+    </div>
+
+  </div>
+</section>
+
+
+<footer>
+  <div class="wrap">
+    <nav class="foot-links">
+      <a href="/">Home</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="foot-bottom">
+      <span class="foot-tagline">Public records. Primary sources. Documented history.</span>
+      <span class="foot-tagline">INDEPENDENT RESEARCH — NOT AN OFFICIAL CITY PUBLICATION — NOT ASSOCIATED WITH ANY POLITICAL CANDIDATE</span>
+      <span class="foot-tagline">PLEASE SEND COMMENTS, QUESTIONS, AND CORRECTIONS TO <a href="mailto:lapalmarecord@gmail.com">LAPALMARECORD@GMAIL.COM</a></span>
+      <span class="foot-tagline">Privacy: this site uses Google Analytics to measure traffic and readership. It does not collect your name, email, or other personally identifying information, and nothing collected is sold, shared with the City of La Palma, or used for advertising. Most browsers and ad-blocking extensions can block it entirely without affecting your ability to read this site. See Google's privacy policy at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="fuse.min.js"></script>
+<script src="search.js" defer></script>
+<script src="nav-toggle.js" defer></script>
+</body>
+</html>
