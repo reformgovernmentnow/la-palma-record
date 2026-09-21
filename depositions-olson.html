@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>James “Jim” Olson Deposition — Byer v. City of La Palma — The La Palma Record</title>
-<meta name="description" content="Trial testimony from James “Jim” Olson, a retired Cypress PD Commander called as a third-party witness — from Byer v. City of La Palma, the case that ended in an $8.4 million jury verdict.">
+<title>James “Jim” Olson Deposition. Byer v. City of La Palma | The La Palma Record</title>
+<meta name="description" content="Trial testimony from James “Jim” Olson, a retired Cypress PD Commander called as a third-party witness, from Byer v. City of La Palma, the case that ended in an $8.4 million jury verdict.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="James “Jim” Olson Deposition — Byer v. City of La Palma — The La Palma Record">
-<meta property="og:description" content="Trial testimony from James “Jim” Olson, a retired Cypress PD Commander called as a third-party witness — from Byer v. City of La Palma, the case that ended in an $8.4 million jury verdict.">
+<meta property="og:title" content="James “Jim” Olson Deposition. Byer v. City of La Palma | The La Palma Record">
+<meta property="og:description" content="Trial testimony from James “Jim” Olson, a retired Cypress PD Commander called as a third-party witness, from Byer v. City of La Palma, the case that ended in an $8.4 million jury verdict.">
 <meta property="og:image" content="https://lapalmarecord.org/og-image.png">
 <link rel="canonical" href="https://lapalmarecord.org/depositions-olson.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,9 +21,9 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="search-ui.css">
 <style>
-  /* Deposition-specific additions — built on the existing token set, no new colors introduced */
+  /* Deposition-specific additions, built on the existing token set, no new colors introduced */
 
-  .witness{
+.witness{
     background:var(--paper);
     border:1px solid var(--line);
     border-radius:4px;
@@ -32,7 +32,7 @@
     position:relative;
     overflow:hidden;
   }
-  .witness-tag{
+.witness-tag{
     position:absolute;
     top:0; left:0;
     background:var(--navy);
@@ -44,7 +44,7 @@
     padding:5px 12px 5px 14px;
     border-bottom-right-radius:4px;
   }
-  .witness-head{
+.witness-head{
     padding:38px 24px 18px;
     border-bottom:1px solid var(--line);
     display:flex;
@@ -52,28 +52,28 @@
     flex-wrap:wrap;
     gap:16px;
   }
-  .witness-head h3{
+.witness-head h3{
     font-family:'Source Serif 4', serif;
     font-weight:700;
     color:var(--navy);
     font-size:1.35rem;
     margin:0 0 4px;
   }
-  .witness-role{
+.witness-role{
     font-family:'IBM Plex Mono', monospace;
     font-size:0.82rem;
     color:var(--ink-soft);
     text-transform:uppercase;
     letter-spacing:.03em;
   }
-  .witness-meta{
+.witness-meta{
     font-family:'IBM Plex Mono', monospace;
     font-size:0.78rem;
     color:var(--ink-soft);
     text-align:right;
     line-height:1.7;
   }
-  .witness-status{
+.witness-status{
     display:inline-flex;
     align-items:center;
     gap:5px;
@@ -87,14 +87,14 @@
     padding:3px 10px;
     margin-top:6px;
   }
-  .witness-status::before{
+.witness-status::before{
     content:"";
     width:6px;height:6px;
     border-radius:50%;
     background:var(--palm);
   }
-  .witness-body{padding:22px 24px 28px;}
-  .witness-body .kicker-sm{
+.witness-body{padding:22px 24px 28px;}
+.witness-body.kicker-sm{
     font-family:'Source Sans 3', sans-serif;
     font-weight:700;
     color:var(--gold-deep);
@@ -103,10 +103,10 @@
     text-transform:uppercase;
     margin:20px 0 8px;
   }
-  .witness-body .kicker-sm:first-child{margin-top:0;}
-  .witness-body p{margin:0 0 12px;max-width:none;font-size:1rem;line-height:1.68;color:var(--ink);}
+.witness-body.kicker-sm:first-child{margin-top:0;}
+.witness-body p{margin:0 0 12px;max-width:none;font-size:1rem;line-height:1.68;color:var(--ink);}
 
-  .relevance{
+.relevance{
     background:var(--parchment);
     border-left:3px solid var(--alert);
     padding:14px 18px;
@@ -114,9 +114,9 @@
     max-width:none;
     font-size:0.94rem;
   }
-  .relevance strong{color:var(--gold-deep);}
+.relevance strong{color:var(--gold-deep);}
 
-  .caveat{
+.caveat{
     font-size:0.85rem;
     color:var(--ink-soft);
     border-top:1px dashed var(--line);
@@ -125,15 +125,15 @@
   }
 
   @media (max-width:640px){
-    .witness-meta{text-align:left;}
+.witness-meta{text-align:left;}
   }
 
-  .depo-source-link{
+.depo-source-link{
     margin:16px 0 0;
     padding-top:14px;
     border-top:1px solid var(--line);
   }
-  .depo-source-link a{
+.depo-source-link a{
     display:inline-flex;
     align-items:center;
     gap:6px;
@@ -144,10 +144,10 @@
     border-bottom:1px solid var(--navy);
     padding-bottom:1px;
   }
-  .depo-source-link a:hover{color:var(--gold-deep);border-color:var(--gold-deep);}
+.depo-source-link a:hover{color:var(--gold-deep);border-color:var(--gold-deep);}
 
   /* Prev/next witness navigation */
-  .witness-pager{
+.witness-pager{
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -157,15 +157,15 @@
     padding-bottom:18px;
     border-bottom:1px solid var(--line);
   }
-  .witness-pager a{
+.witness-pager a{
     color:var(--navy);
     text-decoration:none;
     font-weight:600;
   }
-  .witness-pager a:hover{color:var(--gold-deep);}
-  .witness-pager .back-link{color:var(--ink-soft); font-weight:400;}
-  .witness-pager .pn-links{display:flex; gap:16px; flex-wrap:wrap;}
-  .witness-pager-bottom{
+.witness-pager a:hover{color:var(--gold-deep);}
+.witness-pager.back-link{color:var(--ink-soft); font-weight:400;}
+.witness-pager.pn-links{display:flex; gap:16px; flex-wrap:wrap;}
+.witness-pager-bottom{
     margin:30px 0 0;
     padding-top:18px;
     border-top:1px solid var(--line);
@@ -221,7 +221,7 @@
     </div>
     <span class="thread-badge-lg">D</span>
     <h1>James &ldquo;Jim&rdquo; Olson</h1>
-    <p class="dsub dsub-wide">Third-party trial witness, retired Cypress PD Commander &mdash; Trial testimony — not one of the 7 depositions, Byer v. City of La Palma.</p>
+    <p class="dsub dsub-wide">Third-party trial witness, retired Cypress PD Commander &mdash; Trial testimony, not one of the 7 depositions, Byer v. City of La Palma.</p>
   </div>
 </header>
 
@@ -256,7 +256,7 @@
     </div>
 
 <div class="witness" id="dep-olson">
-      <span class="witness-tag">Trial testimony — not one of the 7 depositions</span>
+      <span class="witness-tag">Trial testimony, not one of the 7 depositions</span>
       <div class="witness-head">
         <div>
           <h3>James &ldquo;Jim&rdquo; Olson</h3>
@@ -264,7 +264,7 @@
           <span class="witness-status">Trial transcript excerpt reviewed</span>
         </div>
         <div class="witness-meta">
-          Testified: date not specified in reviewed excerpt. This is trial testimony, not a deposition — the excerpt shows Olson called as a witness by the plaintiff, sworn in by the court clerk, and examined before the court and jury. The trial concluded with a jury verdict on December 9, 2025.<br>
+          Testified: date not specified in reviewed excerpt. This is trial testimony, not a deposition, the excerpt shows Olson called as a witness by the plaintiff, sworn in by the court clerk, and examined before the court and jury. The trial concluded with a jury verdict on December 9, 2025.<br>
           Called by: Plaintiff (Petronelli)<br>
           Pages reviewed: 6&ndash;11
         </div>
@@ -272,21 +272,21 @@
       <div class="witness-body">
 
         <p class="kicker-sm">Who he is</p>
-        <p>Olson is a retired police commander from the City of Cypress with 27 years in law enforcement, starting his career with the Los Angeles County Sheriff&rsquo;s Department before lateraling to Cypress PD. He retired in December 2018 and now trains law-enforcement instructors for National Training Concepts (NTC) across California and Arizona. He is not employed by La Palma and was not designated as an expert witness — defense counsel objected on that basis, but the court overruled it, allowing him to testify to what he personally observed and practiced as a 14-year sergeant.</p>
+        <p>Olson is a retired police commander from the City of Cypress with 27 years in law enforcement, starting his career with the Los Angeles County Sheriff&rsquo;s Department before lateraling to Cypress PD. He retired in December 2018 and now trains law-enforcement instructors for National Training Concepts (NTC) across California and Arizona. He is not employed by La Palma and was not designated as an expert witness, defense counsel objected on that basis, but the court overruled it, allowing him to testify to what he personally observed and practiced as a 14-year sergeant.</p>
 
         <p class="kicker-sm">Connection to the case</p>
         <p>Olson testified he met Ross Byer roughly seven years earlier at the Golden West Law Enforcement Training Center (a police academy), establishing a personal, professional acquaintance with the plaintiff predating the events at issue.</p>
 
         <p class="kicker-sm">Key testimony</p>
-        <p>Plaintiff&rsquo;s counsel asked Olson about the practice of sergeants patrolling beats assigned to patrol officers, making traffic stops, and handing those stops off to a patrol officer to complete. Olson said he hadn&rsquo;t heard the practice described that way but had seen it done — and that it was "frowned upon" at the agencies where he worked, because sergeants are expected to lead by example and handle their own self-initiated stops rather than turn them over.</p>
-        <p>He testified that offloading a stop onto an already-busy officer — particularly a newer officer already carrying a heavy load of open reports — could add to their workload and stress, in his words causing "a high level of anxiety."</p>
+        <p>Plaintiff&rsquo;s counsel asked Olson about the practice of sergeants patrolling beats assigned to patrol officers, making traffic stops, and handing those stops off to a patrol officer to complete. Olson said he hadn&rsquo;t heard the practice described that way but had seen it done, and that it was "frowned upon" at the agencies where he worked, because sergeants are expected to lead by example and handle their own self-initiated stops rather than turn them over.</p>
+        <p>He testified that offloading a stop onto an already-busy officer, particularly a newer officer already carrying a heavy load of open reports, could add to their workload and stress, in his words causing "a high level of anxiety."</p>
 
         <p class="kicker-sm">Possible relevance to the verdict</p>
         <div class="relevance">
-          <strong>Inference, not a confirmed trial finding:</strong> Olson's testimony reads as an effort to establish a standard for supervisory conduct — that sergeants are expected to handle their own stops rather than offload the resulting paperwork onto subordinates. If evidence at trial showed a supervisor departing from that norm with Byer specifically, this testimony could have supported the retaliation and failure-to-prevent-discrimination theory the jury accepted. The six pages reviewed here don't show that connection being drawn explicitly.
+          <strong>Inference, not a confirmed trial finding:</strong> Olson's testimony reads as an effort to establish a standard for supervisory conduct, that sergeants are expected to handle their own stops rather than offload the resulting paperwork onto subordinates. If evidence at trial showed a supervisor departing from that norm with Byer specifically, this testimony could have supported the retaliation and failure-to-prevent-discrimination theory the jury accepted. The six pages reviewed here don't show that connection being drawn explicitly.
         </div>
 
-        <p class="caveat">This summary is based on a six-page excerpt (pages 6-11) covering Olson's background and the opening of substantive questioning at trial. It doesn't reflect his full testimony, cross-examination, or how — if at all — it was tied to specific trial allegations. This document is trial testimony, not a deposition transcript, despite being on file with a court-reporting vendor whose name includes the word "deposition"; it has been separated from the other seven witnesses on this page for that reason.</p>
+        <p class="caveat">This summary is based on a six-page excerpt (pages 6-11) covering Olson's background and the opening of substantive questioning at trial. It doesn't reflect his full testimony, cross-examination, or how, if at all, it was tied to specific trial allegations. This document is trial testimony, not a deposition transcript, despite being on file with a court-reporting vendor whose name includes the word "deposition"; it has been separated from the other seven witnesses on this page for that reason.</p>
       
         <p class="depo-source-link"><a class="source-link" href="Olson-James.pdf" target="_blank" rel="noopener">View trial testimony excerpt (PDF) &mdash; James "Jim" Olson</a></p>
       </div>
@@ -310,7 +310,7 @@
     </nav>
     <div class="foot-bottom">
       <span class="foot-tagline">Public records. Primary sources. Documented history.</span>
-      <span class="foot-tagline">INDEPENDENT RESEARCH — NOT AN OFFICIAL CITY PUBLICATION — NOT ASSOCIATED WITH ANY POLITICAL CANDIDATE</span>
+      <span class="foot-tagline">INDEPENDENT RESEARCH, NOT AN OFFICIAL CITY PUBLICATION, NOT ASSOCIATED WITH ANY POLITICAL CANDIDATE</span>
       <span class="foot-tagline">PLEASE SEND COMMENTS, QUESTIONS, AND CORRECTIONS TO <a href="mailto:lapalmarecord@gmail.com">LAPALMARECORD@GMAIL.COM</a></span>
       <span class="foot-tagline">Privacy: this site uses Google Analytics to measure traffic and readership. It does not collect your name, email, or other personally identifying information, and nothing collected is sold, shared with the City of La Palma, or used for advertising. Most browsers and ad-blocking extensions can block it entirely without affecting your ability to read this site. See Google's privacy policy at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</span>
     </div>
